@@ -33,14 +33,14 @@ agreement.  Then commit the revised covenant via git.
 
 
 
-TEAM NAME [type your team name here]:
+TEAM NAME: JayZ
 
 
 
 TEAM MEMBERS AND CONTACT INFO:
 
    MEMBER              MOBILE PHONE           PREFERRED EMAIL
-1.
+1. James Easton        5023382781             james.easton@centre.edu
 2. JENNA GRAVES		   5023168699			  jenna.graves@centre.edu
 3. Zeyang Huang        8593196442             Zeyang.Huang@centre.edu
 4. Jordan Turley       8599407724             jordan.turley@centre.edu
@@ -113,7 +113,7 @@ SIGNED (Full name and date):
 Jenna Graves 9/6/18
 Zeyang Huang 9/6/18
 Jordan Turley 9/6/18
-
+James Easton 9/6/18
 
 
 
