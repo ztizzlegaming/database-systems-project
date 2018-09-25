@@ -1,0 +1,58 @@
+Mission Statement:
+The purpose of the TubeMaster database is to maintain logistical data necessary to successfully perform jobs requested by clients in the catalyst industry.
+
+Mission Objectives:
+Keep track of client information
+Maintain reactor logistics
+Maintain accurate equipment availability data.
+Maintain up-to-date assembly composition information.
+Track the modification information of equipment.
+
+Subject List:
+Users
+Clients
+Facilities
+Reactors
+Parts
+Jobs
+Repairs
+Modifications
+
+Characteristics List:
+Administrative Status
+User ID
+User Password
+Client Name
+Client ID
+Client Country
+Client City
+Client Street
+Client Zip Code
+Client Email
+Client Phone Number
+Client Website
+Facility ID
+Facility Name
+Facility Country
+Facility City
+Facility Street
+Facility Zip Code
+Facility Client
+Various Specific Reactor Information (Tube Size, etc.)
+Reactor Facility
+Reactor ID
+Shipping Status
+Shipping Date
+Repair Status
+Part Serial Number
+Part ID
+Part Descriptions
+Job Start Date
+Job Predicted End Date
+Job Reactor
+Repair Status
+Repair Date
+Repair Description
+Modification Name
+Modification ID
+Modification Part
