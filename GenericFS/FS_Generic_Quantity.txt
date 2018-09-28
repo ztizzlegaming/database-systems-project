@@ -95,21 +95,21 @@ Comparisons Allowed:
 
 Operations Allowed:
   Same Field:   _ X
-                ALL  _ 
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
   Other Fields: _ X
-                ALL  _ 
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
   Value Expr.:  _ X
-                ALL  _ 
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
