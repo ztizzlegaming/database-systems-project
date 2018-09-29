@@ -2,37 +2,37 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _ReactorName 
 
 Specification Type:
-  Unique:  _ 
+  Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _ 
-Label:                _ 
+Parent Table:         _ Reactors
+Label:                _ Name
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ The specific name that the client uses to refer to this reactor.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
-Length:               _ 
-Decimal Places:       _ 
+Data Type:            _ AlphaNumeric
+Length:               _ 255
+Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Letters (A-Z):      _ X
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,33 +40,33 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
+Null Support:  Nulls OK:   _ X
                No nulls:   _ 
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
+Required Value:    No:     _ X
                    Yes:    _ 
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Any valid name that a client uses for their reactors.
 
 Edit Rule:
   Enter now, edits allowed:       _ 
   Enter now, edits not allowed:   _ 
-  Enter later, edits allowed:     _ 
+  Enter later, edits allowed:     _ X
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 
@@ -82,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
+  Value Expr.:  _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 

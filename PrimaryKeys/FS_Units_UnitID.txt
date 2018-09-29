@@ -19,7 +19,7 @@ Description:          _The unique number which is used to identify any specific 
 PHYSICAL ELEMENTS
 
 Data Type:            _Numeric 
-Length:               _1 to no upper bound 
+Length:               _ 
 Decimal Places:       _0 
 Input Mask:           _ 
 Display Format:       _# 

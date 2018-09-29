@@ -1,31 +1,31 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _UnitID 
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
-  Replica: _ 
-Parent Table:         _ 
-Label:                _ 
-Source Specification: _ 
+  Replica: _X 
+Parent Table:         _Reactors 
+Label:                _Unit ID 
+Source Specification: _UnitID from the Units Table 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _The unique number which is used to identify any specific unit. This ID allows us to store which unit this reactor is in. 
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
+Data Type:            _Numeric 
 Length:               _ 
-Decimal Places:       _ 
+Decimal Places:       _0 
 Input Mask:           _ 
-Display Format:       _ 
+Display Format:       _# 
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _X 
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
@@ -34,30 +34,30 @@ LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
                Primary:    _ 
-               Foreign:    _ 
+               Foreign:    _X 
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
+Key Structure: Simple:     _X 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _X 
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _X 
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _X 
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _ 
+                   Yes:    _X 
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _Any valid UnitID existing in the Units table.
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
+  Enter now, edits allowed:       _X 
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
@@ -82,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
+  Value Expr.:  _X 
                 ALL  _ 
-                =    _ 
+                =    _X 
                 >    _ 
                 >=   _ 
                 !=   _ 

@@ -2,13 +2,13 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _ Plant
 
 Specification Type:
-  Unique:  _ 
+  Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ 
+Parent Table:         _ Reactors
 Label:                _ 
 Source Specification: _ 
 Shared By:            _ 

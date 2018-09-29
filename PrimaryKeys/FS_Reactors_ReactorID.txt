@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -19,7 +19,7 @@ Description:          _ The number that can be used to uniquely identify any ind
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 1 to no upper bound
+Length:               _ 
 Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ #

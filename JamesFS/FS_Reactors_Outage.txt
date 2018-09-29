@@ -1,14 +1,14 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _ Outage
 
 Specification Type:
   Unique:  _ 
-  Generic: _ 
+  Generic: _ X
   Replica: _ 
-Parent Table:         _ 
+Parent Table:         _ Reactors
 Label:                _ 
 Source Specification: _ 
 Shared By:            _ 
@@ -18,21 +18,21 @@ Description:          _
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
+Data Type:            _ Numeric
 Length:               _ 
-Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Decimal Places:       _ 0
+Input Mask:           _ #
+Display Format:       _ #
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,16 +40,16 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _ X
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
+Required Value:    No:     _ X
                    Yes:    _ 
 
 Default Value:     _ 
@@ -59,14 +59,14 @@ Range of Values:   _
 Edit Rule:
   Enter now, edits allowed:       _ 
   Enter now, edits not allowed:   _ 
-  Enter later, edits allowed:     _ 
+  Enter later, edits allowed:     _ X
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 
@@ -82,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
+  Value Expr.:  _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We were unsure of what outage meant specifically in this context and its units, so the description was left blank. Similarly, we were unsure of the vaid types of outages, and so the range of values was left blank as well.
