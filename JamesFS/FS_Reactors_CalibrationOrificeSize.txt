@@ -13,7 +13,7 @@ Label:                _Calibration Orifice Size
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ Indicates the size of the calibration orifice associated with this reactor.
 
 
 PHYSICAL ELEMENTS
@@ -73,8 +73,8 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Other Fields: _X
-                ALL  _X 
+  Other Fields: _
+                ALL  _ 
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -92,15 +92,15 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ 
-                ALL  _ 
+  Same Field:   _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Other Fields: _X 
-                ALL  _X 
+  Other Fields: _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-We were unsure what a calibration orifice is, let alone why its size is important, so the description was left blank.
+We were unsure what a calibration orifice is, and so its purpose is not described in the description.

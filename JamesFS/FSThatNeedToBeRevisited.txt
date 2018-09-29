@@ -1,0 +1,11 @@
+ThermocoupleID
+TubeID
+TubeSealSize
+SupplyOrificeSize
+CalibrationOrificeSize
+FlowRate
+
+There are a few fields, "# Coolant Tubes" and "Tube Spacing (in)", in SamplePackingList.png that I do not think we accounted for.
+
+Questions for Paul:
+Are "Expected Pressure Drop" on the Packing List and "Expected Pressure Drop (inH2O)" in the reactor settings different?

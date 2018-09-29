@@ -9,22 +9,22 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _Reactors 
-Label:                _Calibrate TTD To 
+Label:                _Calibrate TTD To (in H20)
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _The number which the TTD is calibrated to in water. 
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _AlphaNumeric 
-Length:               _255 
-Decimal Places:       _None 
-Input Mask:           _ 
-Display Format:       _ 
+Data Type:            _Numeric
+Length:               _ 
+Decimal Places:       _0 
+Input Mask:           _# 
+Display Format:       _# 
 Character Support:
-  Letters (A-Z):      _X 
+  Letters (A-Z):      _ 
   Numbers (0-9):      _X 
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-We were unsure what the TTD is being calibrated to, and so the description is left blank.
+We were unsure what it means to calibrate the TTD to, and so the description is relatively general.

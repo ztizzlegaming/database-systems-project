@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -9,11 +9,11 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ Reactors
-Label:                _ Thermocouple ID
+Label:                _ Thermocouple ID (in)
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The diameter of the electrical conductors on the thermocouple.
+Description:          _ The diameter of the electrical conductors on the thermocouple in inches.
 
 
 PHYSICAL ELEMENTS

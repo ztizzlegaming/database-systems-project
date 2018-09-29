@@ -2,37 +2,37 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _ NumberOfPlugs
 
 Specification Type:
-  Unique:  _ 
+  Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ 
-Label:                _ 
+Parent Table:         _ Reactors
+Label:                _ # of Plugs
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ The number of plugs that appear in this reactor.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
+Data Type:            _ Numeric
 Length:               _ 
-Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Decimal Places:       _ 0
+Input Mask:           _ #
+Display Format:       _ #
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
-  Special (Â©Â®â„¢Î£Ï€):    _ 
+  Special (©®™??):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,26 +40,26 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
+Null Support:  Nulls OK:   _ X
                No nulls:   _ 
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
+Required Value:    No:     _ X
                    Yes:    _ 
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Any integer greater than 1.
 
 Edit Rule:
   Enter now, edits allowed:       _ 
   Enter now, edits not allowed:   _ 
-  Enter later, edits allowed:     _ 
+  Enter later, edits allowed:     _ X
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
@@ -82,8 +82,8 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
-                ALL  _ 
+  Value Expr.:  _ X
+                ALL  _ X
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -92,26 +92,26 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ 
-                ALL  _ 
+  Same Field:   _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Other Fields: _ 
-                ALL  _ 
+  Other Fields: _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Value Expr.:  _ 
-                ALL  _ 
+  Value Expr.:  _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
 NOTES:
-
+We are unsure of what a plug is in the reactor, and so this is not elaborated on in the description.

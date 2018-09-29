@@ -64,9 +64,9 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ X
+  Same Field:   _ 
                 ALL  _ 
-                =    _ X
+                =    _ 
                 >    _ 
                 >=   _ 
                 !=   _ 

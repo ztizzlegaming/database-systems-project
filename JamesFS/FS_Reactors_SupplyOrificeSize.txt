@@ -1,38 +1,38 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _SupplyOrificeSize 
 
 Specification Type:
-  Unique:  _ 
+  Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _ 
-Label:                _ 
+Parent Table:         _Reactors 
+Label:                _Supply Orifice Size (in)
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ Indicates the size of the supply orifice associated with this reactor in inches.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
+Data Type:            _Numeric
 Length:               _ 
-Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Decimal Places:       _7 
+Input Mask:           _#.# 
+Display Format:       _0.0 
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _X 
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _X 
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,24 +40,24 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _X 
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _X 
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _X 
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _ 
+                   Yes:    _X 
 
-Default Value:     _ 
+Default Value:     _0.0 
 
-Range of Values:   _ 
+Range of Values:   _Must be greater than or equal to 0.0 
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
+  Enter now, edits allowed:       _X 
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
@@ -82,8 +82,8 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
-                ALL  _ 
+  Value Expr.:  _X 
+                ALL  _X 
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -92,26 +92,26 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ 
-                ALL  _ 
+  Same Field:   _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Other Fields: _ 
-                ALL  _ 
+  Other Fields: _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Value Expr.:  _ 
-                ALL  _ 
+  Value Expr.:  _X 
+                ALL  _X 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
 NOTES:
-
+We were unsure what a supply orifice is, and so its purpose is not described in the description.
