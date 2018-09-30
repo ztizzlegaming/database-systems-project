@@ -1,0 +1,118 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ BlowdownActualBlowdownTime
+
+Specification Type:
+  Unique:  _ X
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _ BlowdownSpecifications
+Label:                _ 
+Source Specification: _ 
+Shared By:            _ 
+Aliases:              _ BDActualBlowdownTime
+Description:          _ The actual blowdown time for blowdown specifications,
+                        in hours
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ Decimal type
+Length:               _ 3 digits to no known logical upper bound
+Decimal Places:       _ .00
+Input Mask:           _ #.##
+Display Format:       _ #.##
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
+
+Values Entered By: User:   _ X
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    _ X
+
+Default Value:     _ 0.00
+
+Range of Values:   _ 0.00 to no known logical upper bound
+
+Edit Rule:
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ X
+                ALL  _ X
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+

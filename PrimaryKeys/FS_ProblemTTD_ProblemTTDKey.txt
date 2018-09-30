@@ -1,0 +1,120 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ ProblematicTubeTestDeviceKey
+
+Specification Type:
+  Unique:  _ X
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _ ProblematicTubeTestDevices
+Label:                _ 
+Source Specification: _ 
+Shared By:            _ 
+Aliases:              _ ProblematicTTDKey
+Description:          _ An identifying key for problematic tube test device 
+                        records that is composed of the pressure drop specification
+						ID and the problematic tube test device
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ Composite Numeric
+Length:               _ Variable
+Decimal Places:       _ 
+Input Mask:           _ ###,###
+Display Format:       _ ###,###
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _ X
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ X
+
+Uniqueness:    Non-unique: _ 
+               Unique:     _ X
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
+
+Values Entered By: User:   _ 
+                   System: _ X
+
+Required Value:    No:     _ 
+                   Yes:    _ X
+
+Default Value:     _ 
+
+Range of Values:   _ Only PD specification IDs and problematic tube test devices
+                     currently in the ProblematicTTD table
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+

@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ AveragePressureDrop
+
+Specification Type:
+  Unique:  _ X
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _ ReactorZones
+Label:                _ Average Pressure Drop
+Source Specification: _ 
+Shared By:            _ 
+Aliases:              _ AvgPressureDrop, AveragePD, AvgPD
+Description:          _ The average pressure drop in H2O (inches of water) for pressure drop specifications
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ Decimal numeric
+Length:               _ 3 digits or longer
+Decimal Places:       _ .00
+Input Mask:           _ #.##
+Display Format:       _ #.##
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ X
+               No nulls:   _ 
+
+Values Entered By: User:   _ X
+                   System: _ 
+
+Required Value:    No:     _ X
+                   Yes:    _ 
+
+Default Value:     _ 
+
+Range of Values:   _ 0.00 or higher
+
+Edit Rule:
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
