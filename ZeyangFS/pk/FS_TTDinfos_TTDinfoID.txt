@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _TTDinfoID 
+
+Specification Type:
+  Unique:  _X 
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _TTDinfo
+Label:                _TTDinfo ID
+Source Specification: _
+Shared By:            _ 
+Aliases:              _ 
+Description:          _The unique number which is used to identify any specific TTD info.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _Exact Numeric 
+Length:               _
+Decimal Places:       _0 
+Input Mask:           _# 
+Display Format:       _0 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _X 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _X 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _X 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ 
+               Unique:     _X 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _X 
+
+Values Entered By: User:   _ 
+                   System: _X 
+
+Required Value:    No:     _ 
+                   Yes:    _X 
+
+Default Value:     _ 
+
+Range of Values:   _All integers greater than 1 
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _X 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _ 
+                =    _X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
