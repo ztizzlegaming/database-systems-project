@@ -2,37 +2,37 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ 
+Field Name:           _ FacilityZipcode
 
 Specification Type:
-  Unique:  _ 
+  Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ 
-Label:                _ 
+Parent Table:         _ Facility
+Label:                _ Zipcode
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ The zipcode for the address which the facility is at.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
-Length:               _ 
-Decimal Places:       _ 
+Data Type:            _ AlphaNumeric
+Length:               _ 14
+Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
-  Keyboard (.,/$#%):  _ 
+  Letters (A-Z):      _ X
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ X
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,24 +40,24 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _ X
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Any Zip code recognized by the country indicated in the FacilityCountry field.
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
+  Enter now, edits allowed:       _ X
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
@@ -82,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
+  Value Expr.:  _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+There was no fixed format for zip codes around the world, and so the input mask and display format are unspecified.
