@@ -19,11 +19,11 @@ Description:          _ The unique number which is used to identify a specific p
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Exact Numeric 
+Data Type:            _Numeric 
 Length:               _
-Decimal Places:       _0 
-Input Mask:           _ 
-Display Format:       _# 
+Decimal Places:       _
+Input Mask:           _ ###
+Display Format:       _ 000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _X 
@@ -38,7 +38,7 @@ Key Type:      Non:        _
                Foreign:    _ X
                Alternate:  _ 
 
-Key Structure: Simple:     _X 
+Key Structure: Simple:     _ X 
                Composite:  _ 
 
 Uniqueness:    Non-unique: _ X

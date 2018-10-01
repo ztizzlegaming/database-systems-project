@@ -18,11 +18,11 @@ Description:          _ The spacing in inches of tubes in a given reactor
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Decimal numeric
-Length:               _ 3 digits or longer
-Decimal Places:       _ .00
+Data Type:            _ Numeric
+Length:               _ 3 characters or longer
+Decimal Places:       _ 2
 Input Mask:           _ #.##
-Display Format:       _ #.##
+Display Format:       _ 0.00
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -52,7 +52,7 @@ Values Entered By: User:   _ X
 Required Value:    No:     _ 
                    Yes:    _ X
 
-Default Value:     _ 0.00
+Default Value:     _ 
 
 Range of Values:   _ 0.00 or higher
 

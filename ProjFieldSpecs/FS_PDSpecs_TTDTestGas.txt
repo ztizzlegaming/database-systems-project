@@ -19,7 +19,7 @@ Description:          _ The testing gas for pressure drop specifications
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 0 or longer
+Length:               _ 1 characters or longer
 Decimal Places:       _ 
 Input Mask:           _ AAA
 Display Format:       _ AAA
@@ -43,14 +43,14 @@ Key Structure: Simple:     _
 Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
-               No nulls:   _ X
+Null Support:  Nulls OK:   _ X
+               No nulls:   _ 
 
 Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
-                   Yes:    _ X
+Required Value:    No:     _ X
+                   Yes:    _ 
 
 Default Value:     _ 
 

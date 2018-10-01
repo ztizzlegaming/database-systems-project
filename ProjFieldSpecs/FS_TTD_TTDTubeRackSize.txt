@@ -20,8 +20,8 @@ Description:          _ The unique label for a specific size of tube testing dev
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 1 - 3
-Decimal Places:       _ None
+Length:               _ 1 - 3 characters
+Decimal Places:       _ 
 Input Mask:           _ AAA
 Display Format:       _ AAA
 Character Support:

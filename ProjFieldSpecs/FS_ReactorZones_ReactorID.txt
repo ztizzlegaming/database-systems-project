@@ -21,9 +21,9 @@ PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
 Length:               _ 
-Decimal Places:       _ None
-Input Mask:           _ 
-Display Format:       _ #
+Decimal Places:       _ 
+Input Mask:           _ ###
+Display Format:       _ 000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -65,12 +65,12 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 

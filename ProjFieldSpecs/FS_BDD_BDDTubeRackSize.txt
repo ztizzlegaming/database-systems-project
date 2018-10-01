@@ -11,7 +11,7 @@ Specification Type:
 Parent Table:         _ BlowdownDeviceTubeRacks
 Label:                _ BDDTubeRackSize
 Source Specification: _ 
-Shared By:            _ 
+Shared By:            _ BDDInfo
 Aliases:              _ 
 Description:          _ The unique label for a specific size of blowdown device racks. This identifies 
                         information related to each BDD rack size for use when assembling a BDD.
@@ -20,7 +20,7 @@ Description:          _ The unique label for a specific size of blowdown device 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 1 - 3
+Length:               _ 1 - 3 characters
 Decimal Places:       _ None
 Input Mask:           _ AAA
 Display Format:       _ AAA

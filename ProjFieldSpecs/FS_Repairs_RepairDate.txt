@@ -20,11 +20,11 @@ Description:          _ The date when a given repair took place. This date is us
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Date
+Data Type:            _ DateTime
 Length:               _ 10
 Decimal Places:       _ 
 Input Mask:           _ ##/##/####
-Display Format:       _ ##/##/####
+Display Format:       _ 00/00/0000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -94,17 +94,17 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
                 +    _ 
-                -    _ 
+                -    _ X
                 *    _ 
                 /    _ 
 
-  Other Fields: _ 
+  Other Fields: _ X
                 ALL  _ 
                 +    _ 
-                -    _ 
+                -    _ X
                 *    _ 
                 /    _ 
 

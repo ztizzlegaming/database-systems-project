@@ -20,11 +20,11 @@ Description:          _ The number of blowdown rigs needed for a given
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Integer
-Length:               _ 1 to no logical upper bound
+Data Type:            _ Numeric
+Length:               _ 1 character to no logical upper bound
 Decimal Places:       _ 
 Input Mask:           _ ##
-Display Format:       _ ##
+Display Format:       _ 00
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -45,8 +45,8 @@ Key Structure: Simple:     _
 Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
-               No nulls:   _ X
+Null Support:  Nulls OK:   _ X
+               No nulls:   _ 
 
 Values Entered By: User:   _ X
                    System: _ 
@@ -54,9 +54,9 @@ Values Entered By: User:   _ X
 Required Value:    No:     _ 
                    Yes:    _ X
 
-Default Value:     _ 0
+Default Value:     _ 
 
-Range of Values:   _ 0 to no logical upper bound
+Range of Values:   _ 
 
 Edit Rule:
   Enter now, edits allowed:       _ X
@@ -66,8 +66,8 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ X
-                ALL  _ X
+  Same Field:   _ 
+                ALL  _ 
                 =    _ 
                 >    _ 
                 >=   _ 

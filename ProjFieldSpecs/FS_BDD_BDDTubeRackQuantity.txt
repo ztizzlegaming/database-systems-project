@@ -20,11 +20,11 @@ Description:          _ Describes the quantity of a BDD tube rack size currently
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Integer
-Length:               _ 0 to no logical upper bound
-Decimal Places:       _ None
+Data Type:            _ Numeric
+Length:               _ 1 character to no logical upper bound
+Decimal Places:       _ 
 Input Mask:           _ ###
-Display Format:       _ ###
+Display Format:       _ 000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X

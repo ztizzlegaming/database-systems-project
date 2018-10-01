@@ -19,10 +19,10 @@ Description:          _ The number of coolant tubes at a specified reactor
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 1 or longer
+Length:               _ 1 character or longer
 Decimal Places:       _ 
 Input Mask:           _ ###
-Display Format:       _ ###
+Display Format:       _ 000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
