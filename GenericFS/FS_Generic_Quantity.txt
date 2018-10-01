@@ -20,11 +20,11 @@ Description:          _ Describes the quantity of a given item currently on hand
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Integer
-Length:               _ 0 to no upper bound
-Decimal Places:       _ None
-Input Mask:           _ ###
-Display Format:       _ ###
+Data Type:            _ Numeric
+Length:               _ 1 character to no upper bound
+Decimal Places:       _ 
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -68,10 +68,10 @@ Edit Rule:
 Comparisons Allowed:
   Same Field:   _ 
                 ALL  _ 
-                =    _ X
+                =    _ 
                 >    _ 
                 >=   _ 
-                !=   _ X
+                !=   _ 
                 <    _ 
                 <=   _ 
 
@@ -94,27 +94,26 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ X
-                ALL  _ X
+  Same Field:   _ 
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Other Fields: _ X
-                ALL  _ X
+  Other Fields: _ 
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Value Expr.:  _ X
-                ALL  _ X
+  Value Expr.:  _ 
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
 NOTES:
-Being able to use operations with other quantifiable fields like pricing
-would be useful
+

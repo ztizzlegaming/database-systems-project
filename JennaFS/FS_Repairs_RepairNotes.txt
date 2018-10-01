@@ -2,32 +2,34 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ PSQuantity
+Field Name:           _ RepairNotes
 
 Specification Type:
-  Unique:  _ 
+  Unique:  _ X
   Generic: _ 
-  Replica: _ X
-Parent Table:         _ PS
-Label:                _ PSQuantity
-Source Specification: _ Generic Quantity
+  Replica: _ 
+Parent Table:         _ Repairs
+Label:                _ RepairNotes
+Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The amount of PS within the associated range that is
-                        currently on hand. 
+Description:          _ Notes written regarding needed miscellaneous information
+						on a particular equipment repair. These notes regard the
+						repair done on the equipment, not the incident that 
+						occurred and required the repair.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Numeric
-Length:               _ 1 character or longer
+Data Type:            _ Alphanumeric
+Length:               _ 0 characters or longer
 Decimal Places:       _ 
-Input Mask:           _ ###
-Display Format:       _ 000
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
+  Letters (A-Z):      _ X
   Numbers (0-9):      _ X
-  Keyboard (.,/$#%):  _ 
+  Keyboard (.,/$#%):  _ X
   Special (©®™Σπ):    _ 
 
 
@@ -44,8 +46,8 @@ Key Structure: Simple:     _
 Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
-               No nulls:   _ X
+Null Support:  Nulls OK:   _ X
+               No nulls:   _ 
 
 Values Entered By: User:   _ X
                    System: _ 
@@ -53,9 +55,9 @@ Values Entered By: User:   _ X
 Required Value:    No:     _ X
                    Yes:    _ 
 
-Default Value:     _ 0
+Default Value:     _ 
 
-Range of Values:   _ 0 to no logical upper bound
+Range of Values:   _ Any combination of alphanumeric/keyboard characters
 
 Edit Rule:
   Enter now, edits allowed:       _ X
@@ -65,12 +67,12 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ X
+  Same Field:   _ 
                 ALL  _ 
-                =    _ X
+                =    _ 
                 >    _ 
                 >=   _ 
-                !=   _ X
+                !=   _ 
                 <    _ 
                 <=   _ 
 
@@ -93,22 +95,22 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ X
-                ALL  _ X
+  Same Field:   _ 
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Other Fields: _ X
-                ALL  _ X
+  Other Fields: _ 
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Value Expr.:  _ X
-                ALL  _ X
+  Value Expr.:  _ 
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 

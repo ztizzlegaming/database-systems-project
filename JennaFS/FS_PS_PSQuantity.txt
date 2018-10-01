@@ -2,29 +2,28 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ TubeTestDeviceTubeRackQuantity
+Field Name:           _ PSQuantity
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
-Parent Table:         _ TubeTestDeviceTubeRacks
-Label:                _ TTDTubeRackQuantity
+Parent Table:         _ PS
+Label:                _ PSQuantity
 Source Specification: _ Generic Quantity
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ Describes the quantity of a TTD tube rack size currently on hand.
-						This is needed in order to accurately understand the amount
-						of that size currently available for use.
+Description:          _ The amount of PS within the associated range that is
+                        currently on hand. 
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Integer
+Data Type:            _ Numeric
 Length:               _ 1 character or longer
 Decimal Places:       _ 
-Input Mask:           _ ###
-Display Format:       _ 000
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -51,8 +50,8 @@ Null Support:  Nulls OK:   _
 Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
-                   Yes:    _ X
+Required Value:    No:     _ X
+                   Yes:    _ 
 
 Default Value:     _ 0
 
@@ -68,10 +67,10 @@ Edit Rule:
 Comparisons Allowed:
   Same Field:   _ 
                 ALL  _ 
-                =    _ X
+                =    _ 
                 >    _ 
                 >=   _ 
-                !=   _ X
+                !=   _ 
                 <    _ 
                 <=   _ 
 
@@ -95,26 +94,25 @@ Comparisons Allowed:
 
 Operations Allowed:
   Same Field:   _ X
-                ALL  _ X
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
   Other Fields: _ X
-                ALL  _ X
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
   Value Expr.:  _ X
-                ALL  _ X
+                ALL  _ 
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
 NOTES:
-Being able to use operations with other quantifiable fields like pricing
-would be useful
+

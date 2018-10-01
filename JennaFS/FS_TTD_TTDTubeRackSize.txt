@@ -22,8 +22,8 @@ PHYSICAL ELEMENTS
 Data Type:            _ Alphanumeric
 Length:               _ 1 - 3 characters
 Decimal Places:       _ 
-Input Mask:           _ AAA
-Display Format:       _ AAA
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ X
   Numbers (0-9):      _ X
@@ -85,7 +85,7 @@ Comparisons Allowed:
 
   Value Expr.:  _ 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 
