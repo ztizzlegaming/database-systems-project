@@ -1,0 +1,119 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ RepairDate
+
+Specification Type:
+  Unique:  _ 
+  Generic: _ X
+  Replica: _ 
+Parent Table:         _ Repairs
+Label:                _ RepairDate
+Source Specification: _ Generic Date
+Shared By:            _ 
+Aliases:              _ 
+Description:          _ The date when a given repair took place. This date is used for 
+                        reference to see when something was last repaired or look for a
+						particular repair occurring on a given date.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ DateTime
+Length:               _ 10
+Decimal Places:       _ 
+Input Mask:           _ ##/##/####
+Display Format:       _ 00/00/0000
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
+
+Values Entered By: User:   _ X
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    _ X
+
+Default Value:     _ 
+
+Range of Values:   _ 
+
+Edit Rule:
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ X
+                ALL  _ X
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ X
+                ALL  _ 
+                +    _ 
+                -    _ X
+                *    _ 
+                /    _ 
+
+  Other Fields: _ X
+                ALL  _ 
+                +    _ 
+                -    _ X
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+

@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ ProjectID 
+
+Specification Type:
+  Unique:  _
+  Generic: _ 
+  Replica: _ X
+Parent Table:         _ BlowdownSpecifications
+Label:                _ ProjectID
+Source Specification: _ ProjectID in the Projects table
+Shared By:            _ 
+Aliases:              _ 
+Description:          _ The unique number which is used to identify a specific project
+                        in order to access project blowdown specifications.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ Numeric 
+Length:               _
+Decimal Places:       _ 
+Input Mask:           _ ###
+Display Format:       _ 000
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _
+               Foreign:    _ X
+               Alternate:  _ 
+
+Key Structure: Simple:     _ X 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
+
+Values Entered By: User:   _ X
+                   System: _
+
+Required Value:    No:     _ 
+                   Yes:    _ X
+
+Default Value:     _ 
+
+Range of Values:   _ Project IDs already existing in the Projects table
+
+Edit Rule:
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ X
+                ALL  _ 
+                =    _ X
+                >    _ 
+                >=   _ 
+                !=   _ X
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _ 
+                =    _X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:

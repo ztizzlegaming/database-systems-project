@@ -1,0 +1,118 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ PSQuantity
+
+Specification Type:
+  Unique:  _ 
+  Generic: _ 
+  Replica: _ X
+Parent Table:         _ PS
+Label:                _ PSQuantity
+Source Specification: _ Generic Quantity
+Shared By:            _ 
+Aliases:              _ 
+Description:          _ The amount of PS within the associated range that is
+                        currently on hand. 
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _ Numeric
+Length:               _ 1 character or longer
+Decimal Places:       _ 
+Input Mask:           _ ###
+Display Format:       _ 000
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
+
+Values Entered By: User:   _ X
+                   System: _ 
+
+Required Value:    No:     _ X
+                   Yes:    _ 
+
+Default Value:     _ 0
+
+Range of Values:   _ 0 to no logical upper bound
+
+Edit Rule:
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ X
+                ALL  _ 
+                =    _ X
+                >    _ 
+                >=   _ 
+                !=   _ X
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ X
+                ALL  _ X
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ X
+                ALL  _ X
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ X
+                ALL  _ X
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
