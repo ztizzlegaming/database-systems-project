@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ BDOn2Time
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDOn2Time
+Aliases:              _ 
 Description:          _ The blowdown on 2 time for blowdown specifications in seconds.
 
 

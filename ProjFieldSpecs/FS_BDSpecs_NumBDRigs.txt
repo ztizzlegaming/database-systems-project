@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ NumBlowdownRigs, NumBDRigs 
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ NumBlowdownRigs, NumBDRigs, 
+Aliases:              _ 
 Description:          _ The number of blowdown rigs needed for a given 
                         project's blowdown specifications. This quantity is
 						project-specific.

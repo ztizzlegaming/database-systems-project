@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ ReactorZones
-Label:                _ Average Pressure Drop
+Label:                _ AvgPressureDrop, AveragePD, AvgPD
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ AvgPressureDrop, AveragePD, AvgPD
+Aliases:              _ 
 Description:          _ The average pressure drop in H2O (inches of water) for pressure drop specifications
 
 

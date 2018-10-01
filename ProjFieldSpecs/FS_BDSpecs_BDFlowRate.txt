@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ BDFlowRate
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 

@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ TubeTestingDeviceTubeRacks
-Label:                _ 
+Label:                _ TTDTubeRackSize
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ TTDTubeRackSize
+Aliases:              _ 
 Description:          _ The unique label for a specific size of tube testing device racks. This identifies 
                         information related to each TTD rack size for use when assembling a TTD.
 

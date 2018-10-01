@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ X
 Parent Table:         _ Repairs
-Label:                _ 
+Label:                _ EquipmentID
 Source Specification: _ EquipmentID from the Equipment table
 Shared By:            _ 
 Aliases:              _ 

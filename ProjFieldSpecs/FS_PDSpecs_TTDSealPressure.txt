@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ PressureDropSpecifications
-Label:                _ 
+Label:                _ TTDTubeSealPressure
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ TTDTubeSealPressure
+Aliases:              _ 
 Description:          _ The tube test device tube seal pressure for pressure
                         drop specifications in pound per square inch, gauge.
 

@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecs
-Label:                _ 
+Label:                _ BDInitialSealDelay, BDInitSealDelay
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDInitialSealDelay, BDInitSealDelay
+Aliases:              _ 
 Description:          _ The blowdown initial seal delay for blowdown specifications
                         in seconds.
 

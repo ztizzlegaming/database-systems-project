@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ PrssureDropSpecifications
-Label:                _ 
+Label:                _ TTDTestingGas
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ TTDTestingGas
+Aliases:              _ 
 Description:          _ The testing gas for pressure drop specifications
 
 

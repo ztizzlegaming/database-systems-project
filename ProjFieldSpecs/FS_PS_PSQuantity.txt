@@ -2,14 +2,14 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ PS Quantity
+Field Name:           _ PSQuantity
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
 Parent Table:         _ PS
-Label:                _ 
+Label:                _ PSQuantity
 Source Specification: _ Generic Quantity
 Shared By:            _ 
 Aliases:              _ 

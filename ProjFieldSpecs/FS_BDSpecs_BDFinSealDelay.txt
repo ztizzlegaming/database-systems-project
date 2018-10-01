@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ BDFinalSealDelay, BDFinSealDelay
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDFinalSealDelay, BDFinSealDelay
+Aliases:              _ 
 Description:          _ The final seal delay for blowdown specifications in seconds.
 
 

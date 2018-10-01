@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ X
 Parent Table:         _ BlowdownSpecifications
-Label:                _
+Label:                _ ProjectID
 Source Specification: _ ProjectID in the Projects table
 Shared By:            _ 
 Aliases:              _ 

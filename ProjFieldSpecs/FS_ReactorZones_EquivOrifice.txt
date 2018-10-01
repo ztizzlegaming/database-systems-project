@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ ReactorZones
-Label:                _ Equiv Orifice
+Label:                _ EquivOrifice
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 

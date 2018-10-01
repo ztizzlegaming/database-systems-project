@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ X
 Parent Table:         _ TubeTestDeviceTubeRacks
-Label:                _ 
+Label:                _ TTDTubeRackQuantity
 Source Specification: _ Generic Quantity
 Shared By:            _ 
-Aliases:              _ TTDTubeRackQuantity
+Aliases:              _ 
 Description:          _ Describes the quantity of a TTD tube rack size currently on hand.
 						This is needed in order to accurately understand the amount
 						of that size currently available for use.

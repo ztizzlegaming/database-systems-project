@@ -8,8 +8,8 @@ Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
-Parent Table:         _ Reactor Zones
-Label:                _ Reactor ID
+Parent Table:         _ ReactorZones
+Label:                _ ReactorID
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 

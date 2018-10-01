@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ Reactors
-Label:                _ 
+Label:                _ NumOfCoolantTubes
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ NumOfCoolantTubes
+Aliases:              _ 
 Description:          _ The number of coolant tubes at a specified reactor
 
 

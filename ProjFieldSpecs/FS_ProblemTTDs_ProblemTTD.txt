@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ X
 Parent Table:         _ ProblematicTubeTestDevices
-Label:                _ 
+Label:                _ ProblematicTTD
 Source Specification: _ EquipmentID from the Equipment Table
 Shared By:            _ 
-Aliases:              _ ProblematicTTD
+Aliases:              _ 
 Description:          _ The ID of a problematic tube test device with
                         this reactor
 

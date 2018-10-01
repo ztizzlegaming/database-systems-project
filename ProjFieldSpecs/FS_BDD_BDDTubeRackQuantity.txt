@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ X
 Parent Table:         _ BlowdownTubeRacks
-Label:                _ 
+Label:                _ BDDTubeRackQuantity
 Source Specification: _ Generic Quantity
 Shared By:            _ 
-Aliases:              _ BDDTubeRackQuantity
+Aliases:              _ 
 Description:          _ Describes the quantity of a BDD tube rack size currently on hand.
 						This is needed in order to accurately understand the amount
 						of that size currently available for use.

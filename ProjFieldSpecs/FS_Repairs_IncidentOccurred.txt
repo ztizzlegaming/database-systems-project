@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ Repairs
-Label:                _ 
+Label:                _ IncidentOccurred
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 

@@ -8,8 +8,8 @@ Specification Type:
   Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ X
-Label:                _ 
+Parent Table:         _ Repairs
+Label:                _ RepairNotes
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 

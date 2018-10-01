@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ BDTotalBlowdownTime
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDTotalBlowdownTime
+Aliases:              _ 
 Description:          _ The total blowdown time for blowdown specifications,
                         in hours
 

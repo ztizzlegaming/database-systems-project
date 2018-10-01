@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ X
   Replica: _ 
 Parent Table:         _ Repairs
-Label:                _ 
+Label:                _ RepairDate
 Source Specification: _ Generic Date
 Shared By:            _ 
 Aliases:              _ 

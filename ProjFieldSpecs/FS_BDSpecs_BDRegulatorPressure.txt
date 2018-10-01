@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ BDRegulatorPressure
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDRegulatorPressure
+Aliases:              _ 
 Description:          _ The blowdown regulator pressure for blowdown specifications
                         in pounds per square inch, gauge.
 

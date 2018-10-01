@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ 
+Label:                _ BDPressure
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDPressure
+Aliases:              _ 
 Description:          _ The blowdown pressure in pounds per square inch, gauge (psig)
 
 

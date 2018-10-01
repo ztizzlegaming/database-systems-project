@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ Reactors
-Label:                _ 
+Label:                _ TubeSpacing
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 

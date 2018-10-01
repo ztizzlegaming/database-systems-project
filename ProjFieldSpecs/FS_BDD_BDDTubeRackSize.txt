@@ -9,10 +9,10 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownDeviceTubeRacks
-Label:                _ 
+Label:                _ BDDTubeRackSize
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ BDDTubeRackSize
+Aliases:              _ 
 Description:          _ The unique label for a specific size of blowdown device racks. This identifies 
                         information related to each BDD rack size for use when assembling a BDD.
 
