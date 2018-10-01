@@ -7,10 +7,10 @@ Field Name:           _ EquipmentInventoryUpdateDate
 Specification Type:
   Unique:  _ 
   Generic: _ 
-  Replica: _ 
-Parent Table:         _ 
+  Replica: _ X
+Parent Table:         _ Equipment
 Label:                _ 
-Source Specification: _ 
+Source Specification: _ Generic Date
 Shared By:            _ 
 Aliases:              _ 
 Description:          _ 
@@ -18,21 +18,21 @@ Description:          _
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
-Length:               _ 
+Data Type:            _ DateTime
+Length:               _ 10
 Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Input Mask:           _ ##/##/####
+Display Format:       _ 00/00/0000
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,32 +40,32 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _ X
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 
 Range of Values:   _ 
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
+  Enter now, edits allowed:       _ X
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
-                ALL  _ 
+  Same Field:   _ X
+                ALL  _ X
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -92,16 +92,16 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
                 +    _ 
-                -    _ 
+                -    _ X
                 *    _ 
                 /    _ 
 
   Other Fields: _ 
                 ALL  _ 
-                +    _ 
+                +    _ X
                 -    _ 
                 *    _ 
                 /    _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-I don't know what this field is, we will talk about it when we meet
+
