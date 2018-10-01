@@ -22,7 +22,7 @@ Data Type:            _ AlphaNumeric
 Length:               _ 2
 Decimal Places:       _ None
 Input Mask:           _ AA
-Display Format:       _ Both letters should be capitalized.
+Display Format:       _ Both letters should be capitalized
 Character Support:
   Letters (A-Z):      _ X
   Numbers (0-9):      _ 
