@@ -2,27 +2,27 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ NumberOfCoolantTubes
+Field Name:           _ ProblematicTubeTestDevice
 
 Specification Type:
-  Unique:  _ X
+  Unique:  _ 
   Generic: _ 
-  Replica: _ 
-Parent Table:         _ Reactors
-Label:                _ NumOfCoolantTubes
-Source Specification: _ 
+  Replica: _ X
+Parent Table:         _ ProblematicTubeTestDevices
+Label:                _ ProblematicTTD
+Source Specification: _ EquipmentID from the Equipment Table
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The number of coolant tubes at a specified reactor
-
+Description:          _ The ID of a problematic tube test device with
+                        this reactor
 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 1 character or longer
+Length:               _ 
 Decimal Places:       _ 
-Input Mask:           _ ###
-Display Format:       _ 000
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -32,12 +32,12 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ X
+Key Type:      Non:        _ 
                Primary:    _ 
-               Foreign:    _ 
+               Foreign:    _ X
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
+Key Structure: Simple:     _ X
                Composite:  _ 
 
 Uniqueness:    Non-unique: _ X
@@ -54,7 +54,7 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ 0 or higher
+Range of Values:   _ Only IDs currently existing in the Equipment table
 
 Edit Rule:
   Enter now, edits allowed:       _ X
@@ -64,12 +64,12 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
@@ -84,7 +84,7 @@ Comparisons Allowed:
 
   Value Expr.:  _ 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 

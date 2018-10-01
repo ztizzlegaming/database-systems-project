@@ -2,32 +2,33 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ Date
+Field Name:           _ IncidentOccurred
 
 Specification Type:
-  Unique:  _ 
-  Generic: _ X
+  Unique:  _ X
+  Generic: _ 
   Replica: _ 
-Parent Table:         _ 
-Label:                _ 
+Parent Table:         _ Repairs
+Label:                _ IncidentOccurred
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ A generic date description of MM/DD/YYYY. Used to keep track
-                        of when particular events occur/occurred.
+Description:          _ A description of the incident that required maintenance on
+                        a piece of equipment. This could a variety of information 
+						relating to the cause of equipment damage.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ DateTime
-Length:               _ 10
+Data Type:            _ Alphanumeric/Keyboard
+Length:               _ 0 characters or longer
 Decimal Places:       _ 
-Input Mask:           _ ##/##/####
-Display Format:       _ 00/00/0000
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
+  Letters (A-Z):      _ X
   Numbers (0-9):      _ X
-  Keyboard (.,/$#%):  _ 
+  Keyboard (.,/$#%):  _ X
   Special (©®™Σπ):    _ 
 
 
@@ -44,18 +45,18 @@ Key Structure: Simple:     _
 Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
-               No nulls:   _ X
+Null Support:  Nulls OK:   _ X
+               No nulls:   _ 
 
 Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
-                   Yes:    _ X
+Required Value:    No:     _ X
+                   Yes:    _ 
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Any combination of alphanumeric/keyboard characters
 
 Edit Rule:
   Enter now, edits allowed:       _ X
@@ -65,8 +66,8 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ X
-                ALL  _ X
+  Same Field:   _ 
+                ALL  _ 
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -93,16 +94,16 @@ Comparisons Allowed:
                 <=   _ 
 
 Operations Allowed:
-  Same Field:   _ X
+  Same Field:   _ 
                 ALL  _ 
                 +    _ 
-                -    _ X
+                -    _ 
                 *    _ 
                 /    _ 
 
   Other Fields: _ 
                 ALL  _ 
-                +    _ X
+                +    _ 
                 -    _ 
                 *    _ 
                 /    _ 

@@ -2,77 +2,75 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ RepairNotes
+Field Name:           _ ProjectID 
 
 Specification Type:
-  Unique:  _ X
+  Unique:  _
   Generic: _ 
-  Replica: _ 
-Parent Table:         _ Repairs
-Label:                _ RepairNotes
-Source Specification: _ 
+  Replica: _ X
+Parent Table:         _ BlowdownSpecifications
+Label:                _ ProjectID
+Source Specification: _ ProjectID in the Projects table
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ Notes written regarding needed miscellaneous information
-						on a particular equipment repair. These notes regard the
-						repair done on the equipment, not the incident that 
-						occurred and required the repair.
+Description:          _ The unique number which is used to identify a specific project
+                        in order to access project blowdown specifications.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Alphanumeric
-Length:               _ 0 characters or longer
+Data Type:            _ Numeric 
+Length:               _
 Decimal Places:       _ 
-Input Mask:           _ AAA
-Display Format:       _ AAA
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ X
-  Numbers (0-9):      _ X
-  Keyboard (.,/$#%):  _ X
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X 
+  Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ X
-               Primary:    _ 
-               Foreign:    _ 
+Key Type:      Non:        _ 
+               Primary:    _
+               Foreign:    _ X
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
+Key Structure: Simple:     _ X 
                Composite:  _ 
 
 Uniqueness:    Non-unique: _ X
-               Unique:     _ 
+               Unique:     _
 
-Null Support:  Nulls OK:   _ X
-               No nulls:   _ 
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
 
 Values Entered By: User:   _ X
-                   System: _ 
+                   System: _
 
-Required Value:    No:     _ X
-                   Yes:    _ 
+Required Value:    No:     _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _ Any combination of alphanumeric/keyboard characters
+Range of Values:   _ Project IDs already existing in the Projects table
 
 Edit Rule:
   Enter now, edits allowed:       _ X
-  Enter now, edits not allowed:   _ 
+  Enter now, edits not allowed:   _
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
@@ -85,9 +83,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
+  Value Expr.:  _X 
                 ALL  _ 
-                =    _ 
+                =    _X 
                 >    _ 
                 >=   _ 
                 !=   _ 
@@ -117,4 +115,3 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
