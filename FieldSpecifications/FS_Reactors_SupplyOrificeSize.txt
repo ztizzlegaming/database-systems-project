@@ -1,0 +1,117 @@
+﻿FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _SupplyOrificeSize 
+
+Specification Type:
+  Unique:  _X 
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _Reactors 
+Label:                _Supply Orifice Size (in)
+Source Specification: _ 
+Shared By:            _ 
+Aliases:              _ 
+Description:          _ Indicates the size of the supply orifice associated with this reactor in inches.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _Numeric
+Length:               _ 
+Decimal Places:       _7 
+Input Mask:           _#.# 
+Display Format:       _0.0 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _X 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _X 
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _X 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _X 
+
+Values Entered By: User:   _X 
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    _X 
+
+Default Value:     _
+
+Range of Values:   _Must be greater than or equal to 0.0 
+
+Edit Rule:
+  Enter now, edits allowed:       _X 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _X 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ X
+                ALL  _ X
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ X
+                ALL  _ X
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _X 
+                ALL  _X 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+We were unsure what a supply orifice is, and so its purpose is not described in the description.
