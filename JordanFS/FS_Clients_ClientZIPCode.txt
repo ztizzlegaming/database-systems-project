@@ -19,10 +19,10 @@ Description:          _ The ZIP code of the address of the client
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 5
+Length:               _ 10
 Decimal Places:       _ 
-Input Mask:           _ #####
-Display Format:       _ #####
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -115,3 +115,4 @@ Operations Allowed:
 
 NOTES:
 I do not know how ZIP codes work around the world, but I assume that they are five digits and work the same way as they do here.
+I guess we need different input mask for different countries
