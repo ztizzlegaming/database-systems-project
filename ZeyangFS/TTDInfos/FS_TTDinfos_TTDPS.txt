@@ -2,18 +2,18 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _TTDSOSET 
+Field Name:           _TTDPS
 
 Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
 Parent Table:         _TTDinfo
-Label:                _TTD SO Set
+Label:                _TTD PS
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the TTD SO set value
+Description:          _Indicate the TTD PS value
 
 
 PHYSICAL ELEMENTS
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -54,7 +54,7 @@ Required Value:    No:     _X
 
 Default Value:     _ 
 
-Range of Values:   _All valid TTD SO Set value
+Range of Values:   _All valid TTD PS value
 
 Edit Rule:
   Enter now, edits allowed:       _X 

@@ -20,7 +20,7 @@ PHYSICAL ELEMENTS
 
 Data Type:            _Approximate Numeric
 Length:               _
-Decimal Places:       _
+Decimal Places:       _None
 Input Mask:           _ 
 Display Format:       _
 Character Support:
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
