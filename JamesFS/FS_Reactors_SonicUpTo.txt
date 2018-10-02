@@ -21,8 +21,8 @@ PHYSICAL ELEMENTS
 Data Type:            _ Numeric
 Length:               _ 
 Decimal Places:       _ None
-Input Mask:           _ #
-Display Format:       _ #
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -40,16 +40,16 @@ Key Type:      Non:        _ X
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ N
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ N
+Null Support:  Nulls OK:   _ X
                No nulls:   _ 
 
-Values Entered By: User:   _ N
+Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ N
+Required Value:    No:     _ X
                    Yes:    _ 
 
 Default Value:     _ 

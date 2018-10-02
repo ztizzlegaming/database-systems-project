@@ -34,16 +34,16 @@ LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
                Primary:    _ 
-               Foreign:    _ 
+               Foreign:    _X
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
+Key Structure: Simple:     _X
                Composite:  _ 
 
 Uniqueness:    Non-unique: _X 
                Unique:     _ 
 
-Null Support:  Nulls OK:   _X 
+Null Support:  Nulls OK:   _X
                No nulls:   _ 
 
 Values Entered By: User:   _X 

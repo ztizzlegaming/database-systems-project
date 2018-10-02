@@ -19,7 +19,7 @@ Description:          _Indicate the TTD pressure sensor
 PHYSICAL ELEMENTS
 
 Data Type:            _Character 
-Length:               _256
+Length:               _255
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
