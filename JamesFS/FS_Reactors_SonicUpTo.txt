@@ -21,8 +21,8 @@ PHYSICAL ELEMENTS
 Data Type:            _ Numeric
 Length:               _ 
 Decimal Places:       _ None
-Input Mask:           _ #
-Display Format:       _ #
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X

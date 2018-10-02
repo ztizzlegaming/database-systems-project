@@ -18,9 +18,9 @@ Description:          _ The number of rows of tubes in the reactor.
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Numerical
+Data Type:            _ Numeric
 Length:               _ 
-Decimal Places:       _ 0
+Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:

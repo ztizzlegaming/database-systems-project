@@ -52,7 +52,7 @@ Values Entered By: User:   _X
 Required Value:    No:     _ 
                    Yes:    _X 
 
-Default Value:     _0.0 
+Default Value:     _
 
 Range of Values:   _Must be greater than or equal to 0.0 
 

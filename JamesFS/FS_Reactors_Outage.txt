@@ -20,7 +20,7 @@ PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
 Length:               _ 
-Decimal Places:       _ 0
+Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
@@ -115,3 +115,4 @@ Operations Allowed:
 
 NOTES:
 We were unsure of what outage meant specifically in this context and its units, so the description was left blank. Similarly, we were unsure of the vaid types of outages, and so the range of values was left blank as well.
+Outage is also included within specific zones as well?

@@ -20,7 +20,7 @@ PHYSICAL ELEMENTS
 
 Data Type:            _Numeric 
 Length:               _ 
-Decimal Places:       _0 
+Decimal Places:       _None
 Input Mask:           _ 
 Display Format:       _
 Character Support:
