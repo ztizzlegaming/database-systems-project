@@ -1,0 +1,117 @@
+﻿FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _PSinfoRange
+
+Specification Type:
+  Unique:  _X 
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _PSinfos
+Label:                _
+Source Specification: _
+Shared By:            _ 
+Aliases:              _ 
+Description:          _describes the range of PS from 0-25 and the range of PS from 0-100.
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _Character 
+Length:               _5
+Decimal Places:       _ 
+Input Mask:           _#-### 
+Display Format:       _0-00 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _X 
+  Keyboard (.,/$#%):  _X 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _X 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _X 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _ 
+               Unique:     _X 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _X 
+
+Values Entered By: User:   _ 
+                   System: _X 
+
+Required Value:    No:     _ 
+                   Yes:    _X 
+
+Default Value:     _ 
+
+Range of Values:   _Contains the range 0-25 and 0-100 
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _X 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _ 
+                =    _ X
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES: only contains two records "0-25" and "0-100"
+

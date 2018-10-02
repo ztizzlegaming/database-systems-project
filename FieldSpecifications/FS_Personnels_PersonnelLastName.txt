@@ -1,0 +1,116 @@
+﻿FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _PersonnelLastName
+
+Specification Type:
+  Unique:  _X 
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _Personnels
+Label:                _Personnel last name
+Source Specification: _
+Shared By:            _ 
+Aliases:              _ 
+Description:          _Contains the last name of an individual employee.
+
+PHYSICAL ELEMENTS
+
+Data Type:            _AlphaNumeric  
+Length:               _50
+Decimal Places:       _ 
+Input Mask:           _ 
+Display Format:       _ 
+Character Support:
+  Letters (A-Z):      _X 
+  Numbers (0-9):      _ 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _X 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _X 
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _X 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _X 
+
+Values Entered By: User:   _X 
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    _X 
+
+Default Value:     _ 
+
+Range of Values:   _Any valid personnel last name
+
+Edit Rule:
+  Enter now, edits allowed:       _X 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _ 
+                =    _X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+

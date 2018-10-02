@@ -1,0 +1,117 @@
+﻿FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ProjectExpectedEndDate 
+
+Specification Type:
+  Unique:  _ 
+  Generic: _ 
+  Replica: _X 
+Parent Table:         _Projects
+Label:                _Project Expected End Date
+Source Specification: _Generic Date
+Shared By:            _ 
+Aliases:              _ 
+Description:          _Indicate the Project's Expected date of completion. A date description of MM/DD/YYYY
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _DateTime
+Length:               _10
+Decimal Places:       _ 
+Input Mask:           _##/##/## 
+Display Format:       _00/00/0000 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _X 
+  Keyboard (.,/$#%):  _X 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _X 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _X 
+               No nulls:   _ 
+
+Values Entered By: User:   _X 
+                   System: _ 
+
+Required Value:    No:     _X 
+                   Yes:    _ 
+
+Default Value:     _ 
+
+Range of Values:   _Any valid date that follows the format MM/DD/YYYY
+
+Edit Rule:
+  Enter now, edits allowed:       _X 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _ 
+                =    _X 
+                >    _ 
+                >=   _ 
+                !=   _ X
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
