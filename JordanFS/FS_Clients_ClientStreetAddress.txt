@@ -19,7 +19,7 @@ Description:          _ The street address, including number and street name, of
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 50
 Decimal Places:       _ 
 Input Mask:           _ 123 Example Street
 Display Format:       _ 
@@ -114,3 +114,5 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
+The longest street name in America is "Northeast Kentucky Industrial Parkway" which
+is 34 characters long, so a length of 50 should be fine.

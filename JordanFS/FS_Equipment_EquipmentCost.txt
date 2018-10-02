@@ -19,10 +19,10 @@ Description:          _ The initial cost paid for a piece of equipment
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 
+Length:               _ 3 digits or more, depending on the cost
 Decimal Places:       _ 2
 Input Mask:           _ $###.##
-Display Format:       _ $###.##
+Display Format:       _ $000.00
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X

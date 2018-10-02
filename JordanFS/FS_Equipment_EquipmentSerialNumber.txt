@@ -115,3 +115,4 @@ Operations Allowed:
 
 NOTES:
 The client said that, very rarely, the serial number for an item can be changed, and that a few items may not have serial numbers. Because of this, nulls and edits are allowed and this was not our primary key.
+I was unsure about the length, because we do not have an example of a serial number used.

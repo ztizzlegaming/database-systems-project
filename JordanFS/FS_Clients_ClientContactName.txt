@@ -19,10 +19,10 @@ Description:          _ The name of the main contact person at the client's comp
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 100
 Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Input Mask:           _ AAA AAA
+Display Format:       _ AAA AAA
 Character Support:
   Letters (A-Z):      _ X
   Numbers (0-9):      _ 

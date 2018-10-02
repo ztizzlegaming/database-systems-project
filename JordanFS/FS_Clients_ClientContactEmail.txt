@@ -19,7 +19,7 @@ Description:          _ The main contact email for a client of TubeMaster
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 100
 Decimal Places:       _ 
 Input Mask:           _ aaa@xyz.com
 Display Format:       _ 
