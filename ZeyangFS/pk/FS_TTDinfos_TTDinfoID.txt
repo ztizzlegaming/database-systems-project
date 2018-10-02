@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -18,7 +18,7 @@ Description:          _The unique number which is used to identify any specific 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Exact Numeric 
+Data Type:            _Numeric 
 Length:               _
 Decimal Places:       _0 
 Input Mask:           _# 

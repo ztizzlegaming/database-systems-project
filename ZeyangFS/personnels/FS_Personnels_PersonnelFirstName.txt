@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,11 +13,11 @@ Label:                _Personnel first name
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _contains the first name of a personnel
+Description:          _Contains the first name of an individual employee.
 
 PHYSICAL ELEMENTS
 
-Data Type:            _National Character 
+Data Type:            _AlphaNumeric 
 Length:               _50
 Decimal Places:       _ 
 Input Mask:           _ 
@@ -26,7 +26,7 @@ Character Support:
   Letters (A-Z):      _X 
   Numbers (0-9):      _ 
   Keyboard (.,/$#%):  _ 
-  Special (©®™Σπ):    _X 
+  Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
@@ -113,4 +113,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We don't know what this will be used for and so we were unsure what operations would be allowed. 

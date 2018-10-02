@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,7 +13,7 @@ Label:                _Project Type
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the type of the project.
+Description:          _
 
 
 PHYSICAL ELEMENTS
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -54,7 +54,7 @@ Required Value:    No:     _X
 
 Default Value:     _ 
 
-Range of Values:   _any valid project type
+Range of Values:   _
 
 Edit Rule:
   Enter now, edits allowed:       _X 

@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,11 +13,11 @@ Label:                _CalOr total number of or
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the total number of or
+Description:          _
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Exact Numeric  
+Data Type:            _Numeric  
 Length:               _
 Decimal Places:       _0 
 Input Mask:           _ 
@@ -31,7 +31,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -113,4 +113,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We don't know what this will be used for and so we were unsure what operations would be allowed. Also, the description is empty because we don't know what this is.

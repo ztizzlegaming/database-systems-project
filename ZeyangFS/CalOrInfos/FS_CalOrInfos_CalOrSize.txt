@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -18,11 +18,11 @@ Description:          _Indicate the cal or size.
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Approximate Numeric  
+Data Type:            _Numeric  
 Length:               _
 Decimal Places:       _3 
 Input Mask:           _ 
-Display Format:       _0.000 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _X 
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -54,7 +54,7 @@ Required Value:    No:     _X
 
 Default Value:     _ 
 
-Range of Values:   _All valid float with 3 decimal places
+Range of Values:   _All valid floats with 3 decimal places
 
 Edit Rule:
   Enter now, edits allowed:       _X 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We don't know what this will be used for and so we were unsure what operations would be allowed.

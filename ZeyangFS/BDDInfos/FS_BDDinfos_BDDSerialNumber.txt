@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,12 +13,12 @@ Label:                _BDD Serial Number
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the BDD Serial Number
+Description:          _The serial number for the BDD subassembly.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Exact Numeric 
+Data Type:            _Numeric 
 Length:               _
 Decimal Places:       _ 
 Input Mask:           _ 
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We don't know what this will be used for and so we were unsure what operations would be allowed. 

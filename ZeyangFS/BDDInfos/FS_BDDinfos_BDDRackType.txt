@@ -13,12 +13,12 @@ Label:                _BDD Rack Type
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the BDD Rack Type
+Description:          _
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Character 
+Data Type:            _Alphanumeric
 Length:               _256
 Decimal Places:       _ 
 Input Mask:           _ 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We don't know what this will be used for and so we were unsure what operations would be allowed. Also, the description is empty because we don't know what this is.

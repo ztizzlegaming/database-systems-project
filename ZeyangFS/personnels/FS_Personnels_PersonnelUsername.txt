@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,11 +13,11 @@ Label:                _Personnel username
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _contains the username of a personnel
+Description:          _contains the username of any individual employee
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Character 
+Data Type:            _AlphaNumeric 
 Length:               _50
 Decimal Places:       _ 
 Input Mask:           _ 

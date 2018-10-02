@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -84,7 +84,7 @@ Comparisons Allowed:
 
   Value Expr.:  _X 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 

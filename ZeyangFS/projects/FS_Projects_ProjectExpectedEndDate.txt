@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,7 +13,7 @@ Label:                _Project Expected End Date
 Source Specification: _Generic Date
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the Project's Expected End Date. A date description of MM/DD/YYYY
+Description:          _Indicate the Project's Expected date of completion. A date description of MM/DD/YYYY
 
 
 PHYSICAL ELEMENTS
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -87,7 +87,7 @@ Comparisons Allowed:
                 =    _X 
                 >    _ 
                 >=   _ 
-                !=   _X 
+                !=   _ X
                 <    _ 
                 <=   _ 
 

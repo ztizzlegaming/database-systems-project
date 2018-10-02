@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,12 +13,12 @@ Label:                _Project Testing Type
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the testing type of the project.
+Description:          _
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Character 
+Data Type:            _AlphaNumeric 
 Length:               _256
 Decimal Places:       _ 
 Input Mask:           _ 
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -54,7 +54,7 @@ Required Value:    No:     _X
 
 Default Value:     _ 
 
-Range of Values:   _any valid project testing type
+Range of Values:   _
 
 Edit Rule:
   Enter now, edits allowed:       _X 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-
+We don't know what the valid testing types are so the range of values was left blank. Also, the description is empty because we don't know what this is.

@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -13,7 +13,7 @@ Label:                _Project Year
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the year of the project.
+Description:          _Indicate the year which the project started.
 
 
 PHYSICAL ELEMENTS
@@ -32,7 +32,7 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
