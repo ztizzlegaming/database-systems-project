@@ -16,16 +16,16 @@ Aliases:              _
 Description:          _ The tube test device tube seal size for pressure specifications
 
 
-PHYSICAL ELEMENTS //Cannot determine at this time, no unit information
+PHYSICAL ELEMENTS //no actual data information, this is default
 
-Data Type:            _ 
-Length:               _ 
-Decimal Places:       _ 
+Data Type:            _ Alphanumeric
+Length:               _ 255
+Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Letters (A-Z):      _ X
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
@@ -114,4 +114,4 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-This is one of the few fields I have NO idea what the data is. They gave no indication of units, I need to know that before I can specify anything.
+This is one of the few fields I have NO idea what the data is. They gave no indication of units, I need to know that before I can correctly specify anything.
