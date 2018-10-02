@@ -13,7 +13,7 @@ Label:                _
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ A short text description of this slecific piece of equipment
+Description:          _ A short text description of this specific piece of equipment
 
 
 PHYSICAL ELEMENTS
