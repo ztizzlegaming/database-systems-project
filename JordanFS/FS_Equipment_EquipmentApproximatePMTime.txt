@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ Equipment
-Label:                _ 
+Label:                _ ApproxPMTime
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
@@ -19,14 +19,14 @@ Description:          _ The approximate date and time for preventative maintanen
 PHYSICAL ELEMENTS
 
 Data Type:            _ DateTime
-Length:               _ 
+Length:               _ 20
 Decimal Places:       _ 
-Input Mask:           _ 01/01/2018 11:22 AM
-Display Format:       _ 
+Input Mask:           _ ##/##/#### ##:## AM/PM
+Display Format:       _ 01/01/2018 11:22 AM
 Character Support:
-  Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
-  Keyboard (.,/$#%):  _ 
+  Letters (A-Z):      _ X
+  Numbers (0-9):      _ X
+  Keyboard (.,/$#%):  _ X
   Special (©®™Σπ):    _ 
 
 

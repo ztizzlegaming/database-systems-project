@@ -19,7 +19,7 @@ Description:          _ Any notes that the client wants to keep track of for thi
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 200
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 

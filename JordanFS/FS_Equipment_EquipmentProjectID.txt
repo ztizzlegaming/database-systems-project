@@ -10,7 +10,7 @@ Specification Type:
   Replica: _ X
 Parent Table:         _ Equipment
 Label:                _ 
-Source Specification: _ ProjectID
+Source Specification: _ ProjectID in Projects table
 Shared By:            _ 
 Aliases:              _ 
 Description:          _ The current project that this piece of equipment is being used for

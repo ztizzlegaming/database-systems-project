@@ -13,7 +13,7 @@ Label:                _
 Source Specification: _ Generic Date
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ The date that this piece of equipment had an update applied to it.
 
 
 PHYSICAL ELEMENTS

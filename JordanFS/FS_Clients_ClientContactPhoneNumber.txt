@@ -21,8 +21,8 @@ PHYSICAL ELEMENTS
 Data Type:            _ Alphanumeric
 Length:               _ 
 Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Input Mask:           _ ###-###-####
+Display Format:       _ 000-000-0000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -116,3 +116,4 @@ Operations Allowed:
 NOTES:
 Dashes (-) should be included in the phone number, as the format of the
 phone number may vary around the world.
+The input mask and display format may vary depending on the country.

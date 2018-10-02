@@ -19,7 +19,7 @@ Description:          _ The name of the company for one of the clients of TubeMa
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 100
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 

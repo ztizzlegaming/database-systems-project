@@ -10,7 +10,7 @@ Specification Type:
   Replica: _ X
 Parent Table:         _ Facilities
 Label:                _ 
-Source Specification: _ ClientID
+Source Specification: _ ClientID from Clients
 Shared By:            _ 
 Aliases:              _ 
 Description:          _ The id of the client that this facility belongs to

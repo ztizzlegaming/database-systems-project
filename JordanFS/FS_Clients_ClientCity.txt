@@ -19,7 +19,7 @@ Description:          _ The City that the client's headquarters is located in.
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 100
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 
