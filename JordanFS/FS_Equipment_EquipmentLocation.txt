@@ -18,7 +18,7 @@ Description:          _ The current reactor location or warehouse that this equi
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Alphanumeric
+Data Type:            _ National Character
 Length:               _ 100
 Decimal Places:       _ 
 Input Mask:           _ 
