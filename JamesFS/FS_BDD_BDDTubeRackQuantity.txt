@@ -2,37 +2,39 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ Plant
+Field Name:           _ BlowdownDeviceTubeRackQuantity
 
 Specification Type:
-  Unique:  _ X
+  Unique:  _ 
   Generic: _ 
-  Replica: _ 
-Parent Table:         _ Reactors
-Label:                _ 
-Source Specification: _ 
+  Replica: _ X
+Parent Table:         _ BlowdownTubeRacks
+Label:                _ BDDTubeRackQuantity
+Source Specification: _ Generic Quantity
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ 
+Description:          _ Describes the quantity of a BDD tube rack size currently on hand.
+						This is needed in order to accurately understand the amount
+						of that size currently available for use.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
-Length:               _ 
+Data Type:            _ Numeric
+Length:               _ 1 character to no logical upper bound
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,24 +42,24 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _ X
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _ 
+                   Yes:    _ X
 
-Default Value:     _ 
+Default Value:     _ 0
 
-Range of Values:   _ 
+Range of Values:   _ 0 to no logical upper bound
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
+  Enter now, edits allowed:       _ X
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
@@ -66,10 +68,10 @@ Edit Rule:
 Comparisons Allowed:
   Same Field:   _ 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
@@ -114,4 +116,3 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-

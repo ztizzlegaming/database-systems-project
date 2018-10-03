@@ -2,7 +2,7 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ ClientContactName
+Field Name:           _ ClientContactLastName
 
 Specification Type:
   Unique:  _ X
@@ -13,7 +13,7 @@ Label:                _
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The name of the main contact person at the client's company
+Description:          _ The last name of the main contact person at the client's company
 
 
 PHYSICAL ELEMENTS
@@ -21,12 +21,12 @@ PHYSICAL ELEMENTS
 Data Type:            _ Alphanumeric
 Length:               _ 100
 Decimal Places:       _ 
-Input Mask:           _ AAA AAA
-Display Format:       _ AAA AAA
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ X
   Numbers (0-9):      _ 
-  Keyboard (.,/$#%):  _ X
+  Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
@@ -54,7 +54,7 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Any valid name of a contact at the client's company
+Range of Values:   _ Any valid last name of a contact at the client's company
 
 Edit Rule:
   Enter now, edits allowed:       _ X

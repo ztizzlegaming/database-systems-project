@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _SONotes
+
+Specification Type:
+  Unique:  _X 
+  Generic: _ 
+  Replica: _ 
+Parent Table:         _SOInfos
+Label:                _SO Notes
+Source Specification: _
+Shared By:            _ 
+Aliases:              _ 
+Description:          _Indicate the SO Notes
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _National Character
+Length:               _
+Decimal Places:       _None
+Input Mask:           _ 
+Display Format:       _
+Character Support:
+  Letters (A-Z):      _X 
+  Numbers (0-9):      _X 
+  Keyboard (.,/$#%):  _X 
+  Special (©®™Σπ):    _X
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _X
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: _X 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _X 
+               No nulls:   _ 
+
+Values Entered By: User:   _X 
+                   System: _ 
+
+Required Value:    No:     _X 
+                   Yes:    _ 
+
+Default Value:     _ 
+
+Range of Values:   _All valid notes
+
+Edit Rule:
+  Enter now, edits allowed:       _X 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
