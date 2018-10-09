@@ -17,6 +17,7 @@ Repairs
 Blowdown Specifications
 Pressure Drop Specifications
 Reactor Zones
+CalRacks
 
 
 Equipment:
@@ -210,3 +211,8 @@ Zone ID (PK)
 Equiv Orifice
 Average Pressure Drop
 Outage
+
+CalRacks:
+CalRackID
+CalRackSize
+CalOrSetID
