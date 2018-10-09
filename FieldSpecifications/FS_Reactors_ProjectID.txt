@@ -2,30 +2,30 @@
 
 GENERAL ELEMENTS
 
-Field Name:           _ ReactorID
+Field Name:           _ProjectID 
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
-  Replica: _ X
-Parent Table:         _ Reactors
-Label:                _ Reactor ID
-Source Specification: _ 
+  Replica: _X 
+Parent Table:         _Reactos
+Label:                _Project ID
+Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The number that can be used to uniquely identify any individual reactor.
+Description:          _The unique number which is used to identify which specific project is currently associated with this reactor.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Numeric
-Length:               _ 
-Decimal Places:       _ None
+Data Type:            _Numeric 
+Length:               _
+Decimal Places:       _0 
 Input Mask:           _ 
-Display Format:       _ 
+Display Format:       _# 
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ X
+  Numbers (0-9):      _X 
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
@@ -33,33 +33,33 @@ Character Support:
 LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
-               Primary:    _ X
-               Foreign:    _ 
+               Primary:    _ 
+               Foreign:    _X 
                Alternate:  _ 
 
-Key Structure: Simple:     _ X
+Key Structure: Simple:     _X 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
-               Unique:     _ X
+Uniqueness:    Non-unique: _X 
+               Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
-               No nulls:   _ X
+Null Support:  Nulls OK:   _X 
+               No nulls:   _ 
 
-Values Entered By: User:   _ 
-                   System: _ X
+Values Entered By: User:   _X 
+                   System: _ 
 
-Required Value:    No:     _ 
-                   Yes:    _ X
+Required Value:    No:     _X 
+                   Yes:    _ 
 
-Default Value:     _ 
+Default Value:     _NULL 
 
-Range of Values:   _ Any integer greater than 0
+Range of Values:   _All integers greater than 0 
 
 Edit Rule:
   Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _ X
-  Enter later, edits allowed:     _ 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     _X 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
@@ -82,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ X
+  Value Expr.:  _X 
                 ALL  _ 
-                =    _ X
+                =    _X 
                 >    _ 
                 >=   _ 
                 !=   _ 
