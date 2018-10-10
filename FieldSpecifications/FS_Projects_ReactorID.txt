@@ -1,4 +1,4 @@
-﻿FIELD SPECIFICATIONS
+FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -7,10 +7,10 @@ Field Name:           _ ReactorID
 Specification Type:
   Unique:  _ 
   Generic: _ 
-  Replica: _ X
-Parent Table:         _ Reactors
+  Replica: _X 
+Parent Table:         _ Projects
 Label:                _ Reactor ID
-Source Specification: _ 
+Source Specification: _ ReactorID from reactors table
 Shared By:            _ 
 Aliases:              _ 
 Description:          _ The number that can be used to uniquely identify any individual reactor.
@@ -22,7 +22,7 @@ Data Type:            _ Numeric
 Length:               _ 
 Decimal Places:       _ None
 Input Mask:           _ 
-Display Format:       _ 
+Display Format:       _ #
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -33,8 +33,8 @@ Character Support:
 LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
-               Primary:    _ X
-               Foreign:    _ 
+               Primary:    _ 
+               Foreign:    _ X
                Alternate:  _ 
 
 Key Structure: Simple:     _ X
