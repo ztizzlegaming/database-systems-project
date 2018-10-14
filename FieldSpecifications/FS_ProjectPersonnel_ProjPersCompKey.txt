@@ -1,0 +1,118 @@
+﻿FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           _ProjectPersonnelCompositeKey 
+
+Specification Type:
+  Unique:  _ 
+  Generic: _ 
+  Replica: _ X 
+Parent Table:         _ProjectPersonnel
+Label:                _
+Source Specification: _ PersonnelID from the Personnels table, ProjectID from the Projects table
+Shared By:            _ 
+Aliases:              _ 
+Description:          _ A composite key to uniquely identify any record in the ProjectPersonnel
+                        table, made up of a ProjectID and a PersonnelID
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            _Numeric 
+Length:               _
+Decimal Places:       _
+Input Mask:           _ 
+Display Format:       _ 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _X 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _ X
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _
+               Composite:  _ X
+
+Uniqueness:    Non-unique: _ X
+               Unique:     _
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   _X 
+
+Values Entered By: User:   _ 
+                   System: _ X
+
+Required Value:    No:     _ 
+                   Yes:    _X 
+
+Default Value:     _ 
+
+Range of Values:   _Currently existing personnel IDs in the Personnels table and project IDs in the Projects table
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    _ X
+                >    _ 
+                >=   _ 
+                !=   _ X
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _X 
+                ALL  _ 
+                =    _X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
