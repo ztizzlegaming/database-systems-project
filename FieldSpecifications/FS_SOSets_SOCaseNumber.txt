@@ -8,7 +8,7 @@ Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _SOInfos
+Parent Table:         _SO Sets
 Label:                _SO Case Number
 Source Specification: _
 Shared By:            _ 

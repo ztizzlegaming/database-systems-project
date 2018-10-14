@@ -1,64 +1,64 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _SONotes
+Field Name:           _SOSetID
 
 Specification Type:
-  Unique:  _X 
+  Unique:  _
   Generic: _ 
-  Replica: _ 
-Parent Table:         _SOInfos
-Label:                _SO Notes
-Source Specification: _
+  Replica: _ X
+Parent Table:         _SO Sets
+Label:                _SOSet ID
+Source Specification: _ EquipmentID in Equipment
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the SO Notes
+Description:          _The unique equipment ID which is used to identify any specific SO set.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _National Character
+Data Type:            _Numeric 
 Length:               _
-Decimal Places:       _None
+Decimal Places:       _
 Input Mask:           _ 
-Display Format:       _
+Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _X 
+  Letters (A-Z):      _ 
   Numbers (0-9):      _X 
-  Keyboard (.,/$#%):  _X 
-  Special (©®™Σπ):    _X
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _X
-               Primary:    _ 
-               Foreign:    _ 
+Key Type:      Non:        _ 
+               Primary:    _ X 
+               Foreign:    _ X
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
+Key Structure: Simple:     _X 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _X 
-               Unique:     _ 
+Uniqueness:    Non-unique: _ 
+               Unique:     _X 
 
-Null Support:  Nulls OK:   _X 
-               No nulls:   _ 
+Null Support:  Nulls OK:   _ 
+               No nulls:   _X 
 
-Values Entered By: User:   _X 
-                   System: _ 
+Values Entered By: User:   _ X
+                   System: _
 
-Required Value:    No:     _X 
-                   Yes:    _ 
+Required Value:    No:     _ 
+                   Yes:    _ X 
 
 Default Value:     _ 
 
-Range of Values:   _All valid notes
+Range of Values:   _ Any existing equipment ID that references an SO set 
 
 Edit Rule:
-  Enter now, edits allowed:       _X 
-  Enter now, edits not allowed:   _ 
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
@@ -66,10 +66,10 @@ Edit Rule:
 Comparisons Allowed:
   Same Field:   _ 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
@@ -82,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
+  Value Expr.:  _X 
                 ALL  _ 
-                =    _ 
+                =    _X 
                 >    _ 
                 >=   _ 
                 !=   _ 

@@ -2,30 +2,30 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _SONumberInSets
+Field Name:           _SOSetLabel
 
 Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _SOInfos
-Label:                _SO # in sets
+Parent Table:         _SO Sets
+Label:                _SO Set Label
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Indicate the SO number in sets
+Description:          _ Indicates set label within a particular SO size
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Exact Numeric  
+Data Type:            _ Alphanumeric  
 Length:               _
-Decimal Places:       _None
+Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _
 Character Support:
-  Letters (A-Z):      _ 
-  Numbers (0-9):      _X 
+  Letters (A-Z):      _ X
+  Numbers (0-9):      _
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
@@ -40,36 +40,36 @@ Key Type:      Non:        _X
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _X 
+Uniqueness:    Non-unique: _ X 
                Unique:     _ 
 
-Null Support:  Nulls OK:   _X 
-               No nulls:   _ 
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
 
-Values Entered By: User:   _X 
+Values Entered By: User:   _ X 
                    System: _ 
 
-Required Value:    No:     _X 
-                   Yes:    _ 
+Required Value:    No:     _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _All valid non-negative integer 
+Range of Values:   _ Alphabet capital letters, or strings of letters (ex. A, B, C, ... AA, AB, AC, ...) 
 
 Edit Rule:
-  Enter now, edits allowed:       _X 
+  Enter now, edits allowed:       _ X 
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
