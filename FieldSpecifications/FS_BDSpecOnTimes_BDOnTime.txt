@@ -2,27 +2,28 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ BlowdownOn1Time
+Field Name:           _ BlowdownOnTime
 
 Specification Type:
   Unique:  _ X
   Generic: _ 
   Replica: _ 
 Parent Table:         _ BlowdownSpecifications
-Label:                _ BDOn1Time
+Label:                _ BDOnTime
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The blowdown on 1 time for blowdown specifications in seconds.
+Description:          _ The blowdown on time in seconds for one session of blowdown on. 
+                        Related to a blowdown specification.
 
 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 3 characters to no logical upper bound
-Decimal Places:       _ 2
-Input Mask:           _ #.##
-Display Format:       _ 0.00
+Length:               _ 
+Decimal Places:       _ 3
+Input Mask:           _ #.###
+Display Format:       _ 0.000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -43,18 +44,18 @@ Key Structure: Simple:     _
 Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ X
-               No nulls:   _ 
+Null Support:  Nulls OK:   _ 
+               No nulls:   _ X
 
 Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ X
-                   Yes:    _ 
+Required Value:    No:     _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _ 0.00 to no logical upper bound
+Range of Values:   _ Greater than 0
 
 Edit Rule:
   Enter now, edits allowed:       _ X

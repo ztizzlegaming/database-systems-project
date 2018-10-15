@@ -2,26 +2,25 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ PressureDropSpecificationID
+Field Name:           _ BlowdownSpecificationID
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
-Parent Table:         _ ProblematicTubeTestDevices
-Label:                _ PDSpecID
-Source Specification: _ PressureDropSpecificationID in PressureDropSpecifications table
+Parent Table:         _ BlowdownSpecificationsOnTimes
+Label:                _ 
+Source Specification: _ BDSpecID from BlowdownSpecifications
 Shared By:            _ 
-Aliases:              _ 
-Description:          _ The identifying number of a specific setting of pressure
-                        drop specifications for a project. Used to access problematic
-						tube tes devices for the project.
+Aliases:              _ BDSpecID
+Description:          _ The identifying number of a specific setting of blowdown
+                        specifications for a project, used to access blowdown device on times.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Numeric 
-Length:               _ 1 characters or longer
+Data Type:            _ Integer
+Length:               _ 
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 
@@ -56,11 +55,11 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Only IDs already existing in PressureDropSpecifications table
+Range of Values:   _ Any BDSpecID currently existing in the BDSpecs table
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _ X
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
@@ -86,7 +85,7 @@ Comparisons Allowed:
 
   Value Expr.:  _ 
                 ALL  _ 
-                =    _ X
+                =    _ 
                 >    _ 
                 >=   _ 
                 !=   _ 

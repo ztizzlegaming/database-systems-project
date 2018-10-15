@@ -1,30 +1,29 @@
-﻿FIELD SPECIFICATIONS
+FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ ProblematicTubeTestDeviceKey
+Field Name:           _ BlowdownOnID
 
 Specification Type:
   Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ ProblematicTubeTestDevices
+Parent Table:         _ BlowdownSpecificationsOnTimes
 Label:                _ 
 Source Specification: _ 
 Shared By:            _ 
-Aliases:              _ ProblematicTTDKey
-Description:          _ An identifying key for problematic tube test device 
-                        records that is composed of the reactor ID
-						ID and the problematic tube test device
+Aliases:              _ 
+Description:          _ The identifying number of a specific blowdown on time 
+                        related to a blowdown specification record.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Composite Numeric
-Length:               _ Variable
+Data Type:            _ Numeric
+Length:               _ 
 Decimal Places:       _ 
-Input Mask:           _ ###,###
-Display Format:       _ ###,###
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -39,8 +38,8 @@ Key Type:      Non:        _
                Foreign:    _ 
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
-               Composite:  _ X
+Key Structure: Simple:     _ X
+               Composite:  _ 
 
 Uniqueness:    Non-unique: _ 
                Unique:     _ X
@@ -56,8 +55,7 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Only reactor IDs and problematic tube test devices
-                     currently in the ProblematicTTD table
+Range of Values:   _ Greater than 0
 
 Edit Rule:
   Enter now, edits allowed:       _ 
@@ -67,12 +65,12 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 

@@ -1,30 +1,29 @@
-﻿FIELD SPECIFICATIONS
+FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ ProblematicTubeTestDeviceKey
+Field Name:           _ ReactorID
 
 Specification Type:
-  Unique:  _ X
+  Unique:  _ 
   Generic: _ 
-  Replica: _ 
+  Replica: _ X
 Parent Table:         _ ProblematicTubeTestDevices
-Label:                _ 
-Source Specification: _ 
+Label:                _ ReactorID
+Source Specification: _ ReactorID in Reactors table
 Shared By:            _ 
-Aliases:              _ ProblematicTTDKey
-Description:          _ An identifying key for problematic tube test device 
-                        records that is composed of the reactor ID
-						ID and the problematic tube test device
+Aliases:              _ 
+Description:          _ The identifying number of a reactor. Used to access problematic
+						tube test devices for the reactor.
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Composite Numeric
-Length:               _ Variable
+Data Type:            _ Numeric 
+Length:               _ 1 characters or longer
 Decimal Places:       _ 
-Input Mask:           _ ###,###
-Display Format:       _ ###,###
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -35,29 +34,28 @@ Character Support:
 LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
-               Primary:    _ X
-               Foreign:    _ 
+               Primary:    _ 
+               Foreign:    _ X
                Alternate:  _ 
 
-Key Structure: Simple:     _ 
-               Composite:  _ X
+Key Structure: Simple:     _ X
+               Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
-               Unique:     _ X
+Uniqueness:    Non-unique: _ X
+               Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
                No nulls:   _ X
 
-Values Entered By: User:   _ 
-                   System: _ X
+Values Entered By: User:   _ X
+                   System: _ 
 
 Required Value:    No:     _ 
                    Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _ Only reactor IDs and problematic tube test devices
-                     currently in the ProblematicTTD table
+Range of Values:   _ Only IDs already Reactor table
 
 Edit Rule:
   Enter now, edits allowed:       _ 
@@ -67,12 +65,12 @@ Edit Rule:
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
@@ -87,7 +85,7 @@ Comparisons Allowed:
 
   Value Expr.:  _ 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 
