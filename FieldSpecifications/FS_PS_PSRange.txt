@@ -2,13 +2,13 @@
 
 GENERAL ELEMENTS
 
-Field Name:           _PSinfoRange
+Field Name:           _PSRange
 
 Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _PSinfos
+Parent Table:         _PS
 Label:                _
 Source Specification: _
 Shared By:            _ 
@@ -32,44 +32,44 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
-               Primary:    _X 
+Key Type:      Non:        _ X
+               Primary:    _
                Foreign:    _ 
                Alternate:  _ 
 
-Key Structure: Simple:     _X 
+Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
-               Unique:     _X 
+Uniqueness:    Non-unique: _ X
+               Unique:     _
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _X 
+               No nulls:   _ X 
 
-Values Entered By: User:   _ 
-                   System: _X 
+Values Entered By: User:   _ X
+                   System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _X 
+                   Yes:    _ X 
 
 Default Value:     _ 
 
-Range of Values:   _Contains the range 0-25 and 0-100 
+Range of Values:   _Contains the range 0-25 and 0-100, possibly other ranges to be added 
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _X 
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
+  Same Field:   _ X
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _ X
                 <    _ 
                 <=   _ 
 
