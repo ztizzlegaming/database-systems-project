@@ -10,10 +10,10 @@ Specification Type:
   Replica: _ 
 Parent Table:         _CalibrationRacks
 Label:                _ CalRacksID
-Source Specification: _
+Source Specification: _ EquipmentID from Equipment table
 Shared By:            _ 
 Aliases:              _ 
-Description:          _The unique number which is used to identify any specific calibration racks.
+Description:          _The unique equipment ID which is used to identify any specific calibration rack.
 
 
 PHYSICAL ELEMENTS
@@ -33,8 +33,8 @@ Character Support:
 LOGICAL ELEMENTS
 
 Key Type:      Non:        _ 
-               Primary:    _X 
-               Foreign:    _ 
+               Primary:    _ X 
+               Foreign:    _ X
                Alternate:  _ 
 
 Key Structure: Simple:     _X 
@@ -44,21 +44,21 @@ Uniqueness:    Non-unique: _
                Unique:     _X 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _X 
+               No nulls:   _ X 
 
-Values Entered By: User:   _ 
-                   System: _X 
+Values Entered By: User:   _ X
+                   System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _X 
+                   Yes:    _ X 
 
 Default Value:     _ 
 
-Range of Values:   _All integers greater than 1 
+Range of Values:   _ Existing equipment IDs that reference a calibration rack in the equipment table
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _ X 
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
