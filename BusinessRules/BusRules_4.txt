@@ -1,0 +1,56 @@
+BUSINESS RULE SPECIFICATIONS
+
+RULE INFORMATION
+
+Statement:  _ Blowdown devices should only relate to one blowdown rack, or data
+              integrity would be compromised
+
+Constraint: _ Blowdown devices cannot be related to more than one blowdown rack
+
+Type:     Database Oriented:     _ 
+          Application Oriented   _ X
+
+Category: Field Specific:        _ 
+          Relationship Specific: _ X
+
+Test On:  Insert:                _ X
+          Delete:                _ 
+          Update:                _ X
+
+
+STRUCTURES AFFECTED
+
+Field Names: _ 
+
+Table Names: _ Equipment, BDDRacks
+
+
+FIELD ELEMENTS AFFECTED
+
+Physical Elements: Data Type:           _ 
+                   Length:              _ 
+                   Decimal Places:      _ 
+                   Character Support:   _ 
+                   Input Mask:          _ 
+                   Display Format:      _ 
+
+Logical Elements:  Key Type:            _ 
+                   Key Structure:       _ 
+                   Uniqueness:          _ 
+                   Null Support:        _ 
+                   Values Entered By:   _ 
+                   Default Value:       _ 
+                   Range of Values:     _ 
+                   Comparisons Allowed: _ 
+                   Operations Allowed:  _ 
+                   Edit Rule:           _ 
+
+
+ACTION TAKEN
+
+_ 
+
+
+NOTES: _ Since this is an application level constraint, no action is taken 
+currently. This will be implemented in the application.
+

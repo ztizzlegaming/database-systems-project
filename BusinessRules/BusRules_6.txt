@@ -3,10 +3,10 @@ BUSINESS RULE SPECIFICATIONS
 RULE INFORMATION
 
 Statement:  _ Most of the time accuracy for floating point numbers is only
-              needed to two decimal points, but sometimes to three.
+              needed to two decimal places, but sometimes to three.
 
-Constraint: _ Each numeric field with decimal points should have a maximum of
-              three decimal points
+Constraint: _ Each numeric field with decimal places should have a maximum of
+              three decimal places
 
 Type:     Database Oriented:     _ X
           Application Oriented   _ 
@@ -21,7 +21,15 @@ Test On:  Insert:                _ X
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ BDOnTime, ActualBDTime, BDFinalSealDelay, BDFlowRate,
+               BDInitialSealDelay, BDOffTime, BDPressure, BDRegulatorPressure,
+               BDSealPressure, TotalBDTime, TTDFlowRate, TTDSealPressure,
+               CalibrateTTDTo, CalibrationOrfaceSize, CompressorPressure,
+               ExpectedPressureDrop, FlowRate, LoadedTubeLength,
+               ManifoldPressure, Outage, ReactorPitch, SealAirPressure,
+               SonicUpTo, SupplyOrficeSize, SupplyPressure,
+               ThermocoupleInnerDiameter, TubeInnerDiameter, TubeSpacing, AvgPD,
+               EquivOrface, ReactorZones_Outage
 
 Table Names: _
 
