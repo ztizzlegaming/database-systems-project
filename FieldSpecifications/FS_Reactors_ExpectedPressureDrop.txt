@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -9,7 +9,7 @@ Specification Type:
   Generic: _ 
   Replica: _ 
 Parent Table:         _ Reactors
-Label:                _ Expected
+Label:                _ Expected Pressure Drop
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
@@ -18,21 +18,21 @@ Description:          _
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ 
+Data Type:            _ Numeric
 Length:               _ 
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
-  Numbers (0-9):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -40,24 +40,24 @@ Key Type:      Non:        _
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _ 
+               No nulls:   _ X
 
-Values Entered By: User:   _ 
+Values Entered By: User:   _ X
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Any integer greater than 0
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
+  Enter now, edits allowed:       _ X
   Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
@@ -73,8 +73,8 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Other Fields: _
-                ALL  _ 
+  Other Fields: _ X
+                ALL  _ X
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -82,8 +82,8 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _ 
-                ALL  _ 
+  Value Expr.:  _ X
+                ALL  _ X
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -99,19 +99,19 @@ Operations Allowed:
                 *    _ 
                 /    _ 
 
-  Other Fields: _ 
-                ALL  _ 
+  Other Fields: _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
-  Value Expr.:  _ 
-                ALL  _ 
+  Value Expr.:  _ X
+                ALL  _ X
                 +    _ 
                 -    _ 
                 *    _ 
                 /    _ 
 
 NOTES:
-
+We were unsure what the expected pressure drop is referring to and so the decription is left blank.
