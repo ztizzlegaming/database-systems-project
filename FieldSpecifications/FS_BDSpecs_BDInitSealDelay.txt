@@ -20,10 +20,10 @@ Description:          _ The blowdown initial seal delay for blowdown specificati
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 3 characters to no logical upper bound
-Decimal Places:       _ 2
-Input Mask:           _ #.##
-Display Format:       _ 0.00
+Length:               _ 
+Decimal Places:       _ 3
+Input Mask:           _ #.###
+Display Format:       _ 0.000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X

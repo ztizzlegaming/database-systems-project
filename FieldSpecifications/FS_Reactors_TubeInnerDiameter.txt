@@ -20,9 +20,9 @@ PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
 Length:               _ 
-Decimal Places:       _ None
-Input Mask:           _ 
-Display Format:       _ 
+Decimal Places:       _ 3
+Input Mask:           _ #.###
+Display Format:       _ 0.000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -54,7 +54,7 @@ Required Value:    No:     _ X
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Greater than 0
 
 Edit Rule:
   Enter now, edits allowed:       _ 
