@@ -20,10 +20,10 @@ Description:          _ The tube test device flow rate for pressure
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 3 characters or longer
-Decimal Places:       _ 2
-Input Mask:           _ #.##
-Display Format:       _ 0.00
+Length:               _ 
+Decimal Places:       _ 3
+Input Mask:           _ #.###
+Display Format:       _ 0.000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -55,7 +55,7 @@ Required Value:    No:     _ X
 
 Default Value:     _ 
 
-Range of Values:   _ 0.00 or higher
+Range of Values:   _ Greater than 0
 
 Edit Rule:
   Enter now, edits allowed:       _ X

@@ -19,10 +19,10 @@ Description:          _ The blowdown pressure in pounds per square inch, gauge (
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 3 characters to no logical upper bound
-Decimal Places:       _ 2
-Input Mask:           _ #.##
-Display Format:       _ 0.00
+Length:               _ 
+Decimal Places:       _ 3
+Input Mask:           _ #.###
+Display Format:       _ 0.000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -54,7 +54,7 @@ Required Value:    No:     _ X
 
 Default Value:     _ 
 
-Range of Values:   _ 0.00 to no logical upper limit
+Range of Values:   _ Greater than 0
 
 Edit Rule:
   Enter now, edits allowed:       _ X
