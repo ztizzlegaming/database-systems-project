@@ -1,0 +1,54 @@
+BUSINESS RULE SPECIFICATIONS
+
+RULE INFORMATION
+
+Statement:  _Maximum of 16 reactor zones per reactor
+
+Constraint: _one reactors table will relate to 1 to 16 reactor zones table 
+
+Type:     Database Oriented:     _X 
+          Application Oriented   _ 
+
+Category: Field Specific:        _ 
+          Relationship Specific: _X 
+
+Test On:  Insert:                _X 
+          Delete:                _ 
+          Update:                _X
+
+
+STRUCTURES AFFECTED
+
+Field Names: _ 
+
+Table Names: _ReactorZones, Reactors
+
+
+FIELD ELEMENTS AFFECTED
+
+Physical Elements: Data Type:           _ 
+                   Length:              _ 
+                   Decimal Places:      _ 
+                   Character Support:   _ 
+                   Input Mask:          _ 
+                   Display Format:      _ 
+
+Logical Elements:  Key Type:            _ 
+                   Key Structure:       _ 
+                   Uniqueness:          _ 
+                   Null Support:        _ 
+                   Values Entered By:   _ 
+                   Default Value:       _ 
+                   Range of Values:     _ 
+                   Comparisons Allowed: _ 
+                   Operations Allowed:  _ 
+                   Edit Rule:           _ 
+
+
+ACTION TAKEN
+
+_Count the number of reactorZoneIDs that relate to one reactorID and check if the number exceeds 16. 
+
+
+NOTES: _
+
