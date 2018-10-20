@@ -2,18 +2,18 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ FacilityZipcode
+Field Name:           _ PlantZipcode
 
 Specification Type:
   Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ Facility
+Parent Table:         _ Plants
 Label:                _ Zipcode
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The zipcode for the address which the facility is at.
+Description:          _ The zipcode for the address which the plant is at.
 
 
 PHYSICAL ELEMENTS
@@ -54,7 +54,7 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Any Zip code recognized by the country indicated in the FacilityCountry field.
+Range of Values:   _ Any Zip code recognized by the country indicated in the PlantCountry field.
 
 Edit Rule:
   Enter now, edits allowed:       _ X

@@ -1,40 +1,40 @@
-﻿FIELD SPECIFICATIONS
+FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ FacilityCity
+Field Name:           _ ClientID
 
 Specification Type:
-  Unique:  _ X
+  Unique:  _ 
   Generic: _ 
-  Replica: _ 
-Parent Table:         _ Facilities
-Label:                _ City
-Source Specification: _ 
+  Replica: _ X
+Parent Table:         _ Plants
+Label:                _ 
+Source Specification: _ ClientID from Clients
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The city which the facility is in.
+Description:          _ The id of the client that this plant belongs to
 
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ AlphaNumeric
+Data Type:            _ Numeric
 Length:               _ 
 Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ X
-  Numbers (0-9):      _ 
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ X
+Key Type:      Non:        _ 
                Primary:    _ 
-               Foreign:    _ 
+               Foreign:    _ X
                Alternate:  _ 
 
 Key Structure: Simple:     _ 
@@ -54,18 +54,27 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Any city within the country denoted by the FacilityCountry field.
+Range of Values:   _ Any existing ID of a client in the clients table
 
 Edit Rule:
-  Enter now, edits allowed:       _ X
-  Enter now, edits not allowed:   _ 
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
   Same Field:   _ X
-                ALL  _ X
+                ALL  _ 
+                =    _ X
+                >    _ 
+                >=   _ 
+                !=   _ X
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -73,17 +82,8 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Other Fields: _ X
-                ALL  _ X
-                =    _ 
-                >    _ 
-                >=   _ 
-                !=   _ 
-                <    _ 
-                <=   _ 
-
-  Value Expr.:  _ X
-                ALL  _ X
+  Value Expr.:  _ 
+                ALL  _ 
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -114,4 +114,3 @@ Operations Allowed:
                 /    _ 
 
 NOTES:
-

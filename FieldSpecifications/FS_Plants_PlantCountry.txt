@@ -2,18 +2,18 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ FacilityCountry
+Field Name:           _ PlantCountry
 
 Specification Type:
   Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _ Facilities
+Parent Table:         _ Plants
 Label:                _ Country
 Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The country which the facility is in.
+Description:          _ The country which the plant is in.
 
 
 PHYSICAL ELEMENTS

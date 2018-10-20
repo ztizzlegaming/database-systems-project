@@ -18,13 +18,13 @@ Description:          _ Indicates the size of the seals that are used to seal tu
 
 PHYSICAL ELEMENTS
 
-Data Type:            _ Numeric
+Data Type:            _ Alphanumeric
 Length:               _ 
 Decimal Places:       _ None
 Input Mask:           _ 
 Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
+  Letters (A-Z):      _ X
   Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
@@ -54,7 +54,7 @@ Required Value:    No:     _ X
 
 Default Value:     _ 
 
-Range of Values:   _ Any integer greater than 1
+Range of Values:   _ 
 
 Edit Rule:
   Enter now, edits allowed:       _ 
