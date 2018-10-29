@@ -2,27 +2,27 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ ProblematicTubeTestDevice
+Field Name:           _ ReactorID
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
-Parent Table:         _ ProblematicTubeTestDevices
-Label:                _ ProblematicTTD
-Source Specification: _ EquipmentID from the Equipment Table
+Parent Table:         _ TravelHistory
+Label:                _ 
+Source Specification: _ ReactorID in Reactors table
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The ID of a problematic tube test device with
-                        this reactor
+Description:          _ The reactor that a specific piece of equipment is traveling to.
+
 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ 
-Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Length:               _ Any positive integer
+Decimal Places:       _ None
+Input Mask:           _ ###
+Display Format:       _ 000
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -54,11 +54,11 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Only IDs currently existing in the Equipment table
+Range of Values:   _ Any existing reactor id in the reactors table
 
 Edit Rule:
-  Enter now, edits allowed:       _ X
-  Enter now, edits not allowed:   _ 
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
@@ -84,7 +84,7 @@ Comparisons Allowed:
 
   Value Expr.:  _ 
                 ALL  _ 
-                =    _ X
+                =    _ 
                 >    _ 
                 >=   _ 
                 !=   _ 

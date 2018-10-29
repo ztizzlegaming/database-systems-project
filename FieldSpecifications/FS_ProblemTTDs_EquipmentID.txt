@@ -2,27 +2,27 @@ FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ ClientID
+Field Name:           _ EquipmentID
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
-Parent Table:         _ TravelHistory
-Label:                _ 
-Source Specification: _ ClientID in Clients table
+Parent Table:         _ ProblematicTubeTestDevices
+Label:                _ ProblematicTTD
+Source Specification: _ EquipmentID from the Equipment Table
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The client that a specific piece of equipment is traveling to.
-
+Description:          _ The ID of a problematic tube test device with
+                        this reactor
 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ Any positive integer
-Decimal Places:       _ None
-Input Mask:           _ ###
-Display Format:       _ 000
+Length:               _ 
+Decimal Places:       _ 
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -54,11 +54,11 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Any existing client id in the clients table
+Range of Values:   _ Only IDs currently existing in the Equipment table
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _ X
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
@@ -84,7 +84,7 @@ Comparisons Allowed:
 
   Value Expr.:  _ 
                 ALL  _ 
-                =    _ 
+                =    _ X
                 >    _ 
                 >=   _ 
                 !=   _ 

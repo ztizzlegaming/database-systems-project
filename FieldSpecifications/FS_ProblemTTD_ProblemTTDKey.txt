@@ -15,7 +15,7 @@ Shared By:            _
 Aliases:              _ ProblematicTTDKey
 Description:          _ An identifying key for problematic tube test device 
                         records that is composed of the reactor ID
-						ID and the problematic tube test device
+			and the equipment ID
 
 
 PHYSICAL ELEMENTS
@@ -56,7 +56,7 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Only reactor IDs and problematic tube test devices
+Range of Values:   _ Only reactor IDs and equipment IDs
                      currently in the ProblematicTTD table
 
 Edit Rule:
