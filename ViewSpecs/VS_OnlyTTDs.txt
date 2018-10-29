@@ -2,18 +2,18 @@ VIEW SPECIFICATIONS
 
 GENERAL INFORMATION
 
-Name: _ 
+Name: _ TTD Validation View
 
-Desciption: _ 
+Desciption: _ Shows only the Equipment IDs of TTDs in the Equipment table
 
 Type: Data:       _ 
       Aggregate:  _
-      Validation: _ 
+      Validation: _ X
 
 
 BASE TABLES
 
-_
+_ Equipment
 
 
 CALCULATED FIELD EXPRESSIONS
@@ -27,10 +27,10 @@ _                       _
 FILTERS
 
 Field Name              Condition
-_                       _ 
+_ EquipmentName         _ ="TTD" or "Tube Test Device" 
 _                       _ 
 _                       _ 
 
 
-NOTES: _ 
+NOTES: _ Used to restrict EquipmentID values for Problematic TTDs
 
