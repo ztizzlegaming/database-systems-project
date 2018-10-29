@@ -2,26 +2,26 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _Calibration racks can't be related to more than one cal or set
+Statement:  _ A single piece of equipment can be related to multiple projects, since they keep previous project information. They need to be notified whenever a single piece of equipment is used for multiple projects.
 
-Constraint: _CalibrationRacks table can only relate to 0 to 1 CalOrSets table 
+Constraint: _ A piece of equipment cannot be related to projects with overlapping dates.
 
-Type:     Database Oriented:     _X 
-          Application Oriented   _ 
+Type:     Database Oriented:     _ 
+          Application Oriented   _ X
 
 Category: Field Specific:        _ 
-          Relationship Specific: _X 
+          Relationship Specific: _ X
 
-Test On:  Insert:                _X 
-          Delete:                _ 
-          Update:                _X
+Test On:  Insert:                _ X
+          Delete:                _ X
+          Update:                _ X
 
 
 STRUCTURES AFFECTED
 
-Field Names: _ 
+Field Names: _ ProjectId, EquipmentID
 
-Table Names: _CalibrationRacks, CalOrSets
+Table Names: _ ProjectEquipment
 
 
 FIELD ELEMENTS AFFECTED
@@ -47,8 +47,8 @@ Logical Elements:  Key Type:            _
 
 ACTION TAKEN
 
-_Check the combination of CalOrSetID and CalRackID and make sure the it's distinct. 
+_ None
 
 
-NOTES: _
+NOTES: _ This is an application-based issue and so no action was taken.
 

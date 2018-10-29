@@ -2,9 +2,9 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ A single piece of equipment can be related to multiple projects, since they keep previous projecti information. They need to be notified whenever a single piece of equipment is used for multiple projects.
+Statement:  _ In order for a project to have blowdown specifications, it must have at least one BDD.
 
-Constraint: _ A piece of equipment cannot be related to projects with overlapping dates.
+Constraint: _ In order for a record in Projects to be related to a record in the Blowdown Specifications, it must be related to at least one BDD in the Project Equipment table.
 
 Type:     Database Oriented:     _ 
           Application Oriented   _ X
@@ -19,9 +19,9 @@ Test On:  Insert:                _ X
 
 STRUCTURES AFFECTED
 
-Field Names: _ ProjectId, EquipmentID
+Field Names: _ 
 
-Table Names: _ ProjectEquipment
+Table Names: _ Pressure Drop Specifications
 
 
 FIELD ELEMENTS AFFECTED
@@ -47,8 +47,8 @@ Logical Elements:  Key Type:            _
 
 ACTION TAKEN
 
-_ None
+_ 
 
 
-NOTES: _ This is an application-based issue and so no action was taken.
+NOTES: _ This is an application level issue and so no action was taken.
 

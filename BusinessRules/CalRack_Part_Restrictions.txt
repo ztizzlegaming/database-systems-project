@@ -2,26 +2,26 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ A TTD can not have to more than one Pressure Sensor, one Supply Orifice Set, and one Test Tube Device Rack.
+Statement:  _Calibration racks can't be related to more than one cal or set
 
-Constraint: _ A record in the Equipment table that is a TTD cannot be related to more than one record in the Equipment table that is a PS, an SO Set, and a TTD rack in the Assembly Parts table.
+Constraint: _CalibrationRacks record can only relate to 0 to 1 CalOrSets record 
 
-Type:     Database Oriented:     _ 
-          Application Oriented   _ X
+Type:     Database Oriented:     _X 
+          Application Oriented   _ 
 
 Category: Field Specific:        _ 
-          Relationship Specific: _ X
+          Relationship Specific: _X 
 
-Test On:  Insert:                _ X
-          Delete:                _ X
-          Update:                _ X
+Test On:  Insert:                _X 
+          Delete:                _ 
+          Update:                _X
 
 
 STRUCTURES AFFECTED
 
 Field Names: _ 
 
-Table Names: _ Assembly Parts
+Table Names: _CalibrationRacks, CalOrSets
 
 
 FIELD ELEMENTS AFFECTED
@@ -47,8 +47,8 @@ Logical Elements:  Key Type:            _
 
 ACTION TAKEN
 
-_ 
+_Check the combination of CalOrSetID and CalRackID and make sure the it's distinct. 
 
 
-NOTES: _ This issue is to be delat with at the application level and so no action was taken.
+NOTES: _
 

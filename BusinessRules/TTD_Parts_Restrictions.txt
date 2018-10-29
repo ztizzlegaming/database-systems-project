@@ -2,12 +2,12 @@ BUSINESS RULE SPECIFICATIONS
 
 RULE INFORMATION
 
-Statement:  _ In order for a project to have pressure drop specifications, it must have at least one TTD.
+Statement:  _ A TTD can not have to more than one Pressure Sensor, one Supply Orifice Set, and one Tube Test Device Rack.
 
-Constraint: _ In order for a record in Projects to be related to a record in the Pressure Drop Specifications, it must be related to at least one TTD in the Project Equipment table.
+Constraint: _ A record in the Equipment table that is a TTD cannot be related to more than one record in the Equipment table that is a PS, an SO Set, and a TTD rack in the Assembly Parts table.
 
-Type:     Database Oriented:     _ X
-          Application Oriented   _ 
+Type:     Database Oriented:     _ 
+          Application Oriented   _ X
 
 Category: Field Specific:        _ 
           Relationship Specific: _ X
@@ -21,7 +21,7 @@ STRUCTURES AFFECTED
 
 Field Names: _ 
 
-Table Names: _ Pressure Drop Specifications
+Table Names: _ Assembly Parts
 
 
 FIELD ELEMENTS AFFECTED
@@ -50,5 +50,5 @@ ACTION TAKEN
 _ 
 
 
-NOTES: _ This is an application level issue and so no action was taken.
+NOTES: _ This issue is to be delat with at the application level and so no action was taken.
 
