@@ -1,218 +1,215 @@
 Tables:
 Equipment
-Equipment Travel History
+Travel History
 Clients
-Facilities
+Plants
 Units
 Reactors
 Projects
-TTD Info
-BDD Info
 Cal Or Info
 SO Info
 PS Info
 TTD Rack Info
 BDD Rack Info
 Repairs
+TubeMaster Personnel
 Blowdown Specifications
-Pressure Drop Specifications
+Pressure Drop Specification
 Reactor Zones
-CalRacks
+Problematic TTDs
+Calibration Racks
+Blowdown Specification On Times
+ProjectEquipment (Linking Table + Unique Field)
 
 
 Equipment:
-Equipment ID (PK)
+EquipmentID (PK)
 Project ID (FK)
-Equipment approximate PM (preventative maintenance) time
-Equipment ideal storage location
-Equipment Serial Numbers 
-Equipment quantity
-Equipment notes
-Equipment tag
-Equipment location
-Equipment shelf location
-Equipment updates
-Equipment date of inventory update
-Equipment description
-Equipment modifications (MV)
-Equipment in/out of service
-Equipment potential projects (MV)
-Equipment TubeMaster $ value
-Equipment Shipping $ value
-Equipment Client $ value 
-Equipment weight
-Equipment cost
-Equipment vendor
-Equipment manufacturer
-Equipment date of return
+EquipmentIdealStorageLocation
+EquipmentSerialNumber 
+EquipmentQuantity
+EquipmentNotes
+EquipmentTag
+EquipmentLocation
+EquipmentShelfLocation
+EquipmentUpdates
+EquipmentInventoryUpdateDate
+EquipmentDescription
+EquipmentModifications
+EquipmentIn/outOfService
+EquipmentPotentialProjects
+EquipmentTubeMasterValue
+EquipmentShippingValue
+EquipmentClientValue 
+EquipmentWeight
+EquipmentCost
+EquipmentVendor
+EquipmentManufacturer
+EquipmentDateOfReturn
 
-Equipment Travel History:
+Travel History:
 Travel History ID (PK)
-Equipment ID (FK)
-Client ID (FK)
-Year
+Reactor ID (FK)
+ShippingDate
 
 Clients:
-Client ID (PK)
-Client company name
-Client country
-Client city
-Client street address
-Client zip code
-Contact name
-Contact email
-Contact phone number
+ClientID (PK)
+ClientCompanyName
+ClientCountry
+ClientCity
+ClientStreetAddress
+ClientZipCode
+ClientContactFirstName
+ClientContactLastName
+ClientContactEmail
+ClientContactPhoneNumber
 
-Facilities:
-Facility ID (PK)
-Client ID (FK)
-Client country
-Client city
-Client street address
-Client zip code
+Plants:
+PlantID (PK)
+ClientID (FK)
+PlantName
+PlantCountry
+PlantCity
+PlantStreetAddress
+PlantZipCode
 
 Units:
-Unit ID (PK)
-Facility ID (FK)
-Unit Name
+UnitID (PK)
+PlantID (FK)
+UnitName
 
 Reactors: 
-Reactor ID (PK)
-Unit ID (FK)
-Reactor Client ID (FK)
-Reactor Name
-Reactor Comments
-Reactor Plant 
-Reactor Testing Type
-Reactor Outage
-Reactor Chemical
-Reactor number of rows 
-Reactor thermocouple ID in inches
-Reactor number of thermocouples
-Reactor tube inner diameter (inches) 
-Reactor tube seal size 
-Reactor number of tubes
-Reactor number of TTDs
-Reactor supply orifice size 
-Reactor calibration orifice size
-Reactor Cal TTD to (in H20)
-Reactor sonic up to (in H20)
-Reactor Flow Rate (SCFM)
-Reactor expected pressure drop (in H20)
-Reactor compressor pressure (psig)
-Reactor manifold pressure (psig)
-Reactor seal air pressure (psig)
-Reactor supply pressure (psig)
-Reactor catalyst brand  
-Reactor catalyst size
-Reactor Catalyst Change Coordinator
-Reactor number of supports 
-Reactor number of plugs 
-Reactor loaded tube length
-Reactor loading method
-Reactor head (on/off)
-Reactor manway size
-Reactor pitch (inches)
-TubeMaster Personnel:
-Personnel ID (PK)
-Personnel first name
-Username
-Password
-Is Admin
+ReactorID (PK)
+UnitID (FK)
+ReactorName
+ReactorComments
+ReactorTestingType
+ReactorOutage
+ReactorChemical
+ReactorNumberOfRows 
+ReactorThermocoupleID
+ReactorNumberOfThermocouples
+ReactorTubeID 
+ReactorTubeSealSize 
+ReactorNumberOfTubes
+ReactorNumberOfCoolantTubes
+ReactorSupplyOrificeSize 
+ReactorCalibrationOrificeSize
+ReactorCalTTDTo
+ReactorSonicUpTo
+ReactorFlowRate
+ReactorExpectedPressureDrop
+ReactorCompressorPressure
+ReactorManifoldPressure
+ReactorSealAirPressure
+ReactorSupplyPressure
+ReactorCatalystBrand  
+ReactorCatalystSize
+ReactorCatalystChangeCoordinator
+ReactorNumberOfSupports 
+ReactorNumberOfPlugs 
+ReactorLoadedTubeLength
+ReactorLoadingMethod
+ReactorHead
+ReactorManwaySize
+ReactorPitch
+ReactorTubeSpacing
 
 Projects:
 Project ID (PK)
 Client ID (FK)
-Project year
-Project start date
-Project Equipment Ship Date
-Project Type
-Project Testing Type
-Project Expected End Date
+ProjectStartDate
+ProjectEquipmentShipDate
+ProjectType
+ProjectTestingType
+ProjectExpectedEndDate
 
-TTD Info:
-TTD Info ID (PK)
-TTD pressure sensor
-TTD rack type
-TTD Serial Number
-TTD SO Set 
-TTD PS 
-TTD Rack Type
+Cal Or Set: (Subset, Equipment)
+CalOrSetID (PK, FK)
+CalOrSize
+CalOrSetLabel
+CalOrNumberInSets
+CalOrTotalNumberOfOr
 
-BDD Info:
-BDD Info ID (PK)
-BBD Serial Number
-BBD Rack Type
+SO Sets: (Subset, Equipment)
+SOSetID (PK, FK)
+SOSize
+SOSetLabel
+SONumberInSets
+SOCaseNumber
+SONotes
 
-Cal Or Info:
-Cal Or Info ID (PK)
-Cal Or Size
-Cal Or Total Sets
-Cal Or Number in Sets
-Cal Or Total Number of Or
+PS Sets: (Subset, Equipment)
+PSID (PK, FK)
+PS Range
 
-SO Info:
-SO Info ID (PK)
-SO Size
-SO Total Sets
-SO Number in Sets
-SO Case Number
-SO Notes
+TTD Racks: (Subset, Equipment)
+TTDRackID (PK, FK)
+TTDRackTubeSize
 
-PS Info:
-PS Range (PK)
-PS Quantity
-
-TTD Rack Info: 
-TTD Rack Tube Size (PK)
-TTD Rack Quantity
-
-BDD Rack Info:
-BDD Rack Tube Size (PK)
-BDD Rack Quantity
+BDD Racks: (Subset, Equipment)
+BDDRackID (PK, FK)
+BDDRackTubeSize
 
 Repairs:
-Repair ID (PK)
-Equipment ID (FK)
-Repair Notes
-Repair Date
-Incident Report
+RepairID (PK)
+EquipmentID (FK)
+RepairNotes
+RepairDate
+IncidentOccurred
 
 Blowdown Specifications:
-Project ID (FK)
-BD Spec ID (PK)
-Number of BD rigs
-BD Pressure (psig)
-BD Flow rate (psig)
-BD regulator pressure(psig)
-BD seal pressure (psig)
-BD initial seal delay(s)
-BD On 1 time(s) (?)
-BD Off time(s) 
-BD On 2 Time(s) (?)
-BD Final Seal delay(s)
-BD Total blowdown time (hours)
-BD Actual blow down time (hours)
+ProjectID(FK)
+BDSpecID (PK)
+NumberOfBDRigs
+BDPressure
+BDFlowRate
+BDRegulatorPressure
+BDSealPressure
+BDInitialSealDelay
+BDOffTime
+BDFinalSealDelay
+BDTotalBlowdownTime
+BDActualBlowdownTime
+
+Blowdown Specification On Times:
+BDOnID (PK)
+BDSpecID (FK)
+BDOnTime
 
 Pressure Drop Specifications:
-Project ID (FK)
-PD Spec ID (PK)
-Number of TTD
-Problematic TTDs (MP field?)
-TTD Tube seal pressure
-TTD tube seal size
-TTD testing gas
-Reactor number of coolant tubes
-Reactor tube spacing (inches)
+ProjectID (FK)
+PDSpecID (PK)
+NumberOfTTD
+TTDTubeSealPressure
+TTDTubeSealSize
+TTDTestingGas
+TTDFlowRate
+
+Problematic TTDs:
+EquipmentID (CPK, FK)
+ReactorID (CPK, FK)
 
 Reactor Zones:
 Reactor ID (FK)
 Zone ID (PK)
-Equiv Orifice
-Average Pressure Drop
+EquivOrifice
+AveragePressureDrop
 Outage
 
-CalRacks:
-CalRackID
+CalRacks: (Subset, Equipment)
+CalRackID (PK, FK)
 CalRackSize
-CalOrSetID
+
+ProjectEquipment:
+ProjectID (CPK, FK)
+EquipmentID (CPK, FK)
+RevisionNUmber
+
+TubeMaster Personnel:
+PersonnelID (PK)
+PersonnelFirstName
+PersonnelLastName
+PersonelIsAdmin
+PersonnelUsername
+PersonnelPassword

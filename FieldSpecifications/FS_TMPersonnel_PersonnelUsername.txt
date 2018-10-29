@@ -2,28 +2,28 @@
 
 GENERAL ELEMENTS
 
-Field Name:           _PersonnelIsAdmin
+Field Name:           _PersonnelUsername
 
 Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _Personnels
-Label:                _Personnel isAdmin
+Parent Table:         _TubeMaster Personnel
+Label:                _Personnel username
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _indicate if the personnel is admin or not
+Description:          _contains the username of any individual employee
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Boolean
-Length:               _1
-Decimal Places:       _0 
-Input Mask:           _# 
-Display Format:       _0 
+Data Type:            _AlphaNumeric 
+Length:               _50
+Decimal Places:       _ 
+Input Mask:           _ 
+Display Format:       _ 
 Character Support:
-  Letters (A-Z):      _ 
+  Letters (A-Z):      _X 
   Numbers (0-9):      _X 
   Keyboard (.,/$#%):  _ 
   Special (©®™Σπ):    _ 
@@ -31,29 +31,29 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ X
+Key Type:      Non:        _ 
                Primary:    _ 
                Foreign:    _ 
-               Alternate:  _ 
+               Alternate:  _X 
 
-Key Structure: Simple:     _ 
+Key Structure: Simple:     _X 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _X 
-               Unique:     _ 
+Uniqueness:    Non-unique: _ 
+               Unique:     _X 
 
 Null Support:  Nulls OK:   _ 
                No nulls:   _X 
 
-Values Entered By: User:   _ 
-                   System: _X 
+Values Entered By: User:   _X 
+                   System: _ 
 
 Required Value:    No:     _ 
                    Yes:    _X 
 
-Default Value:     _0 
+Default Value:     _ 
 
-Range of Values:   _only 0 and 1 are allowed
+Range of Values:   _Any valid unique username contains only character and number
 
 Edit Rule:
   Enter now, edits allowed:       _X 
@@ -112,5 +112,5 @@ Operations Allowed:
                 *    _ 
                 /    _ 
 
-NOTES: 1 = admin, 0 = not admin
+NOTES: can be an alternative key
 

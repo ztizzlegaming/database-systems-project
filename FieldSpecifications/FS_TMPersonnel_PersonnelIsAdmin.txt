@@ -2,27 +2,26 @@
 
 GENERAL ELEMENTS
 
-Field Name:           _PersonnelID 
+Field Name:           _PersonnelIsAdmin
 
 Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _Personnels
-Label:                _Personnel ID
+Parent Table:         _TubeMaster Personnel
+Label:                _Personnel isAdmin
 Source Specification: _
 Shared By:            _ 
 Aliases:              _ 
-Description:          _The unique number which is used to identify any specific personnel.
-
+Description:          _indicate if the personnel is admin or not
 
 PHYSICAL ELEMENTS
 
-Data Type:            _Numeric 
-Length:               _
+Data Type:            _Boolean
+Length:               _1
 Decimal Places:       _0 
-Input Mask:           _ 
-Display Format:       _# 
+Input Mask:           _# 
+Display Format:       _0 
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _X 
@@ -32,16 +31,16 @@ Character Support:
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _ 
-               Primary:    _X 
+Key Type:      Non:        _ X
+               Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
 
-Key Structure: Simple:     _X 
+Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _ 
-               Unique:     _X 
+Uniqueness:    Non-unique: _X 
+               Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
                No nulls:   _X 
@@ -52,13 +51,13 @@ Values Entered By: User:   _
 Required Value:    No:     _ 
                    Yes:    _X 
 
-Default Value:     _ 
+Default Value:     _0 
 
-Range of Values:   _All integers greater than 0 
+Range of Values:   _only 0 and 1 are allowed
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _X 
+  Enter now, edits allowed:       _X 
+  Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
@@ -87,7 +86,7 @@ Comparisons Allowed:
                 =    _X 
                 >    _ 
                 >=   _ 
-                !=   _ 
+                !=   _X 
                 <    _ 
                 <=   _ 
 
@@ -113,5 +112,5 @@ Operations Allowed:
                 *    _ 
                 /    _ 
 
-NOTES:
+NOTES: 1 = admin, 0 = not admin
 

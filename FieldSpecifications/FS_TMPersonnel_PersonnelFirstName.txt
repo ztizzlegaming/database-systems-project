@@ -8,7 +8,7 @@ Specification Type:
   Unique:  _X 
   Generic: _ 
   Replica: _ 
-Parent Table:         _Personnels
+Parent Table:         _ TubeMaster Personnel
 Label:                _Personnel first name
 Source Specification: _
 Shared By:            _ 

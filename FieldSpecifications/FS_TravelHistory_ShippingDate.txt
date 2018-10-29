@@ -1,37 +1,38 @@
-﻿FIELD SPECIFICATIONS
+FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _PersonnelLastName
+Field Name:           _ ShippingDate
 
 Specification Type:
-  Unique:  _X 
+  Unique:  _ X
   Generic: _ 
   Replica: _ 
-Parent Table:         _Personnels
-Label:                _Personnel last name
-Source Specification: _
+Parent Table:         _ TravelHistory
+Label:                _ 
+Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _Contains the last name of an individual employee.
+Description:          _ The date shipping equipment travelled to a reactor
+
 
 PHYSICAL ELEMENTS
 
-Data Type:            _AlphaNumeric  
-Length:               _50
-Decimal Places:       _ 
-Input Mask:           _ 
-Display Format:       _ 
+Data Type:            _ Numeric
+Length:               _ 8
+Decimal Places:       _ None
+Input Mask:           _ ##/##/####
+Display Format:       _ 00/00/0000
 Character Support:
-  Letters (A-Z):      _X 
-  Numbers (0-9):      _ 
+  Letters (A-Z):      _ 
+  Numbers (0-9):      _ X
   Keyboard (.,/$#%):  _ 
-  Special (©®™Σπ):    _X 
+  Special (©®™Σπ):    _ 
 
 
 LOGICAL ELEMENTS
 
-Key Type:      Non:        _X 
+Key Type:      Non:        _ X
                Primary:    _ 
                Foreign:    _ 
                Alternate:  _ 
@@ -39,32 +40,32 @@ Key Type:      Non:        _X
 Key Structure: Simple:     _ 
                Composite:  _ 
 
-Uniqueness:    Non-unique: _X 
+Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
 Null Support:  Nulls OK:   _ 
-               No nulls:   _X 
+               No nulls:   _ X
 
-Values Entered By: User:   _X 
+Values Entered By: User:   _ X
                    System: _ 
 
 Required Value:    No:     _ 
-                   Yes:    _X 
+                   Yes:    _ X
 
 Default Value:     _ 
 
-Range of Values:   _Any valid personnel last name
+Range of Values:   _ Any valid date
 
 Edit Rule:
-  Enter now, edits allowed:       _X 
-  Enter now, edits not allowed:   _ 
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ X
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
 
 Comparisons Allowed:
-  Same Field:   _ 
-                ALL  _ 
+  Same Field:   _ X
+                ALL  _ X
                 =    _ 
                 >    _ 
                 >=   _ 
@@ -81,9 +82,9 @@ Comparisons Allowed:
                 <    _ 
                 <=   _ 
 
-  Value Expr.:  _X 
+  Value Expr.:  _ 
                 ALL  _ 
-                =    _X 
+                =    _ 
                 >    _ 
                 >=   _ 
                 !=   _ 

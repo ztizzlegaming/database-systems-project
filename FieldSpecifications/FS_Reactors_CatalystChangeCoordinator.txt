@@ -54,7 +54,7 @@ Required Value:    No:     _X
 
 Default Value:     _ 
 
-Range of Values:   _ 
+Range of Values:   _ Only TM Personnel related to this reactor's project in ProjectPersonnel
 
 Edit Rule:
   Enter now, edits allowed:       _ 
