@@ -14,5 +14,6 @@ Deliverable5_ERDiagram-ER Diagram.png is the PNG file depicting our full ER diag
 mission.txt holds our mission statement/objectives
 tables_and_fields.txt holds a list of all of our base tables and their related fields
 UI_Flow_Diagram.jpg holds the full UI flow for our design
+DatabaseDesignPrez.pptx is the PowerPoint file we used for our presentation
 
 Hope you find everything you need!
