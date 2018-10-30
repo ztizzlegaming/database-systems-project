@@ -47,7 +47,8 @@ Logical Elements:  Key Type:            _
 
 ACTION TAKEN
 
-_ Adjusted field specification of EquipmentID in ProblematicTTDs to reflect constraint on range
+_ Adjusted field specification of EquipmentID in ProblematicTTDs to reflect constraint on range, created validation view spec to enact
+  this constraint (OnlyTTDs)
 
 
 NOTES: _ 
