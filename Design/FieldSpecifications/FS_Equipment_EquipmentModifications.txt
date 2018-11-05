@@ -19,7 +19,7 @@ Description:          _ A text list for any modifications done to this piece of 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Alphanumeric
-Length:               _ 
+Length:               _ 256
 Decimal Places:       _ 
 Input Mask:           _ 
 Display Format:       _ 
@@ -43,14 +43,14 @@ Key Structure: Simple:     _
 Uniqueness:    Non-unique: _ X
                Unique:     _ 
 
-Null Support:  Nulls OK:   _ 
-               No nulls:   _ X
+Null Support:  Nulls OK:   _ X
+               No nulls:   _ 
 
 Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ X
-                   Yes:    _ 
+Required Value:    No:     _ 
+                   Yes:    _ X
 
 Default Value:     _ 
 

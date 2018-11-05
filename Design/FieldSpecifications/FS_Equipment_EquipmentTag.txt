@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -54,7 +54,7 @@ Required Value:    No:     _ X
 
 Default Value:     _ 
 
-Range of Values:   _ red, green, blue, or empty string
+Range of Values:   _ red, green, blue, or N/A
 
 Edit Rule:
   Enter now, edits allowed:       _ X

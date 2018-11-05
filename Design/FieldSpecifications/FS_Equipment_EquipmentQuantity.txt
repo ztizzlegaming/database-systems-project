@@ -52,7 +52,7 @@ Values Entered By: User:   _ X
 Required Value:    No:     _ 
                    Yes:    _ X
 
-Default Value:     _ 0
+Default Value:     _ 
 
 Range of Values:   _ 0 to no upper bound
 
