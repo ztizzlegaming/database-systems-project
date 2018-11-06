@@ -5,6 +5,7 @@
 DROP TABLE bdd_racks;
 DROP TABLE ttd_racks;
 DROP TABLE so_sets;
+DROP TABLE pss;
 DROP TABLE equipment;
 
 /*Creates table Equipment, holding onto info of all of TMs inventory*/
@@ -55,7 +56,9 @@ CREATE TABLE equipment (
        equipment_date_of_return          DATE            DEFAULT NULL,
        equipment_ideal_storage_location  VARCHAR(100)    DEFAULT NULL
 );
-       
+
+
+/*Insert sample data into equipment*/
 INSERT INTO equipment (equipment_name, equipment_quantity, equipment_tag, equipment_location,
                        equipment_description, equipment_in_out_of_service,
                        equipment_tubemaster_value, equipment_shipping_value, equipment_weight,
@@ -64,8 +67,10 @@ VALUES ('Test Equipment', 1, 'Blue', 'Warehouse', 'This is a test equipment', 1,
         2000.0, 75, 'Us'),
        ('BDD Rack', 1, 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us'),
        ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us'),
-       ('SO Set', 1, 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us');
-       
+       ('SO Set', 1, 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us'),
+       ('PS', 1, 'Red', 'Saudi', 'This is a PS', 1, 211.54, 185.97, 15, 'Us');
+
+/*Create subset table for BDD Racks*/
 CREATE TABLE bdd_racks (
        PRIMARY KEY(bdd_rack_id),
        bdd_rack_id         INT          NOT NULL
@@ -74,15 +79,20 @@ CREATE TABLE bdd_racks (
        bdd_tube_rack_size  VARCHAR(20)  NOT NULL
 );
 
+/*Create rule restricting deletion from the BDD Racks table*/
 CREATE RULE bdd_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
     ON DELETE TO bdd_racks
  WHERE (bdd_rack_id IN (SELECT equipment_id
                           FROM equipment))
     DO INSTEAD NOTHING;
 
+
+/*Insert sample data from equipment into bdd_racks*/
 INSERT INTO bdd_racks
 VALUES (2, 'AAA');
 
+
+/*Creates subset table for TTD Racks*/
 CREATE TABLE ttd_racks (
        PRIMARY KEY(ttd_rack_id),
               ttd_rack_id         INT          NOT NULL
@@ -91,15 +101,20 @@ CREATE TABLE ttd_racks (
               ttd_tube_rack_size  VARCHAR(20)  NOT NULL
                                                                            );
 
+/*Creates rule restricting deletion from the TTD Racks table*/
 CREATE RULE ttd_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in euipment table
     ON DELETE TO ttd_racks
  WHERE (ttd_rack_id IN (SELECT equipment_id
                           FROM equipment))
     DO INSTEAD NOTHING;
 
+
+/*Insert sample data from equipment into the ttd_racks table*/
 INSERT INTO ttd_racks
 VALUES (3, 'B');
 
+
+/*Creates subset table for SO Sets*/
 CREATE TABLE so_sets (
        PRIMARY KEY(so_set_id),
        so_set_id           INT           NOT NULL
@@ -118,11 +133,38 @@ CREATE TABLE so_sets (
        so_notes            VARCHAR(200) DEFAULT NULL
 );
 
+
+/*Creates rule restricting deletion from the SO Sets table*/
 CREATE RULE so_set_id_restrict AS -- If a subset record is deleted, do not allow if still in eu\ipment table
     ON DELETE TO so_sets
  WHERE (so_set_id IN (SELECT equipment_id
                           FROM equipment))
     DO INSTEAD NOTHING;
 
+
+/*Inserts sample data from equipment into so_sets*/
 INSERT INTO so_sets
 VALUES (4, 1, 0.040, 'AA', 12);
+
+
+/*Creates subset table for PSs*/
+CREATE TABLE pss (
+       PRIMARY KEY(ps_id),
+       ps_id           INT           NOT NULL
+	               REFERENCES equipment (equipment_id)
+		       ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+       ps_range        VARCHAR(50) -- In form of ###-###
+);
+
+
+/*Creates rule restricting deletion from the PSs table*/
+CREATE RULE ps_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
+    ON DELETE TO pss
+ WHERE (ps_id IN (SELECT equipment_id
+                    FROM equipment))
+    DO INSTEAD NOTHING;
+
+
+/*Inserts sample data from equipment into pss*/
+INSERT INTO pss
+VALUES (5,'25-75');
