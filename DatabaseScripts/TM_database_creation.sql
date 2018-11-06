@@ -2,12 +2,19 @@
   Team JayZ
   11/5/2018
 */
+CREATE EXTENSION pgcrypto;
+
 DROP TABLE bdd_racks;
 DROP TABLE ttd_racks;
 DROP TABLE so_sets;
 DROP TABLE pss;
 DROP TABLE cal_racks;
 DROP TABLE equipment;
+
+DROP TABLE IF EXISTS TMpersonnels CASCADE;
+DROP TABLE IF EXISTS Projects CASCADE; 
+DROP TABLE IF EXISTS projects_personnels CASCADE; 
+
 
 /*Creates table Equipment, holding onto info of all of TMs inventory*/
 CREATE TABLE equipment (
@@ -192,3 +199,88 @@ CREATE RULE cal_rack_id_restrict AS -- If a subset record is deleted, do not all
 /*Insert sample data from equipment into cal_racks*/
 INSERT INTO cal_racks
 VALUES (6, 'CC');
+
+
+
+
+/* Creates table TMpersonnels, holding info about personnels */
+CREATE TABLE TMpersonnels (
+    PRIMARY KEY (personnel_id),
+    personnel_id            SERIAL, 
+    Personnel_first_name    VARCHAR(50)   NOT NULL,
+    Personnel_last_name     VARCHAR(50)   NOT NULL,
+    Personnel_username      VARCHAR(50)   NOT NULL UNIQUE,
+    Personnel_password      VARCHAR(256)  NOT NULL, -- crypted using pgcrypto
+    Personnel_is_admin      BOOLEAN       NOT NULL -- t for admin and f for not admin
+);
+
+/* populate TMpersonnels table with sample data */
+/* reference: https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html */
+INSERT INTO TMpersonnels (Personnel_first_name, Personnel_last_name, Personnel_username, Personnel_password, Personnel_is_admin)
+VALUES ('John',  'Doe',   'johnd123',  crypt('12345', gen_salt('bf')),    't'),
+       ('Alex',  'Beck',  'ABC123',    crypt('asdqwe', gen_salt('bf')),   't'),
+       ('Cindy', 'Smith', 'CDohnd123', crypt('password', gen_salt('bf')), 'f');
+
+SELECT * FROM TMpersonnels  -- test selecting user by matching username and password
+    WHERE Personnel_username = 'ABC123' AND
+          Personnel_password = crypt('asdqwe', Personnel_password);                      
+UPDATE TMpersonnels SET Personnel_password = crypt('newpassword',gen_salt('bf')) -- test updating password
+    WHERE Personnel_username = 'ABC123' AND
+          Personnel_password = crypt('asdqwe', Personnel_password);
+          
+SELECT * FROM TMpersonnels;
+
+
+
+/* Creates table Projects */
+-- TODO: add the foreign key reactor_id from reactors table
+CREATE TABLE projects (
+    PRIMARY KEY (project_id),
+    project_id                  SERIAL, 
+    project_start_date          DATE     NOT NULL, -- generic? MM-DD-YYYY 
+    project_expected_end_date   DATE,              -- generic? MM-DD-YYYY 
+    project_equipment_ship_date DATE     NOT NULL, -- generic? MM-DD-YYYY 
+    project_type                VARCHAR(256),
+    project_testing_type        VARCHAR(256),
+    project_is_active           BOOLEAN       NOT NULL, -- t for active and f for not active
+    CONSTRAINT end_dates -- business rule: end_date needs to be later than start_date or ship_date
+    CHECK (project_expected_end_date >= project_start_date AND project_expected_end_date >= project_equipment_ship_date)
+);
+
+INSERT INTO projects (project_start_date, project_expected_end_date, project_equipment_ship_date, project_type, project_testing_type, project_is_active)
+VALUES ('09/06/2017',  NULL,           '09/10/2017',  'A',    'TESTA',   't'),
+       ('09/16/2017',  '09/19/2017',   '09/10/2017',  'A123', 'TEST123', 't'),
+       ('02/21/2017',  '02/27/2018',   '09/10/2017',  'B',    'TESTA123','t');
+
+/* implement deletion rule -DENY- for the Projects table */
+CREATE RULE projects_deny_deletionrule AS 
+    ON DELETE TO projects DO INSTEAD
+    UPDATE projects
+    SET project_is_active = FALSE
+    WHERE project_id = OLD.project_id;
+
+DELETE FROM projects WHERE project_id = 3; -- test projects_deny_deletionrule constraint
+SELECT * FROM projects;
+
+
+
+/* Creates linking table ProjectsPersonnels */
+CREATE TABLE projects_personnels (
+    FOREIGN KEY (personnel_id)
+                REFERENCES TMpersonnels (personnel_id)
+                ON DELETE RESTRICT, 
+    FOREIGN KEY (project_id)
+                REFERENCES projects (project_id)
+                ON DELETE RESTRICT, 
+    personnel_id    INT     NOT NULL,
+    project_id      INT     NOT NULL,
+    PRIMARY KEY(personnel_id, project_id) 
+);
+
+INSERT INTO projects_personnels 
+VALUES (1,1), (2,3);
+
+SELECT CONCAT(Personnel_first_name,' ', Personnel_last_name) AS personnel_name, 
+       project_id, project_start_date 
+    FROM projects_personnels NATURAL JOIN projects NATURAL JOIN TMpersonnels;
+
