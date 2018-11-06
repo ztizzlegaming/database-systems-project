@@ -4,6 +4,7 @@
 */
 DROP TABLE bdd_racks;
 DROP TABLE ttd_racks;
+DROP TABLE so_sets;
 DROP TABLE equipment;
 
 /*Creates table Equipment, holding onto info of all of TMs inventory*/
@@ -13,14 +14,14 @@ CREATE TABLE equipment (
        equipment_name                    VARCHAR(256)    NOT NULL,
        equipment_sn                      INT             DEFAULT NULL,
        equipment_quantity                INT             NOT NULL
-       					 CONSTRAINT negative_quantity -- Quantity cannot be less than 0
-					 CHECK (equipment_quantity >= 0),
+                                         CONSTRAINT negative_quantity -- Quantity cannot be less than 0
+                                         CHECK (equipment_quantity >= 0),
        equipment_notes                   VARCHAR(200)    DEFAULT NULL,
        equipment_tag                     VARCHAR(5)      NOT NULL
-       					 CONSTRAINT valid_tag -- Keep tag values in valid range (see equipment_tag spec)
-					 CHECK (equipment_tag IN
-					       ('blue','Blue','red','Red',
-					        'green','Green', 'N/A')),
+                                         CONSTRAINT valid_tag -- Keep tag values in valid range (see equipment_tag spec)
+                                         CHECK (equipment_tag IN
+                                               ('blue','Blue','red','Red',
+                                                'green','Green', 'N/A')),
        equipment_location                VARCHAR(100)    NOT NULL,
        equipment_shelf_location          VARCHAR(100)    DEFAULT NULL,
        equipment_updates                 VARCHAR(256)    DEFAULT NULL,
@@ -28,27 +29,27 @@ CREATE TABLE equipment (
        equipment_description             VARCHAR(500)    NOT NULL,
        equipment_modifications           VARCHAR(256)    DEFAULT NULL,
        equipment_in_out_of_service       INT             NOT NULL
-       					 CONSTRAINT boolean_values -- INT with bool values 1/0 (see equipment_in_out_of_service spec)
-					 CHECK (equipment_in_out_of_service
-					        IN (1, 0)),
+                                         CONSTRAINT boolean_values -- INT with bool values 1/0 (see equipment_in_out_of_service spec)
+                                         CHECK (equipment_in_out_of_service
+                                                IN (1, 0)),
        equipment_potential_projects      VARCHAR(1000)   DEFAULT NULL,
        equipment_tubemaster_value        NUMERIC(10, 2)  NOT NULL
-       					 CONSTRAINT negative_tm_value -- Value cannot be less than 0
-					 CHECK(equipment_tubemaster_value >= 0),
+                                         CONSTRAINT negative_tm_value -- Value cannot be less than 0
+                                         CHECK(equipment_tubemaster_value >= 0),
        equipment_shipping_value          NUMERIC(10, 2)  NOT NULL
-       					 CONSTRAINT negative_ship_value -- Value cannot be less than 0
-					 CHECK(equipment_shipping_value >= 0),
+                                         CONSTRAINT negative_ship_value -- Value cannot be less than 0
+                                         CHECK(equipment_shipping_value >= 0),
        equipment_client_value            NUMERIC(10, 2)  DEFAULT NULL
-       					 CONSTRAINT negative_client_value -- Value cannot be less than 0
-					 CHECK(equipment_client_value >= 0 OR
-					       equipment_client_value = NULL),
+                                         CONSTRAINT negative_client_value -- Value cannot be less than 0
+                                         CHECK(equipment_client_value >= 0 OR
+                                               equipment_client_value = NULL),
        equipment_weight                  INT             NOT NULL
-       					 CONSTRAINT negative_weight
-					 CHECK(equipment_weight >= 0),
+                                         CONSTRAINT negative_weight
+                                         CHECK(equipment_weight >= 0),
        equipment_cost                    NUMERIC(10, 2)  DEFAULT NULL
-       					 CONSTRAINT negative_cost -- Cost cannot be less than 0
-					 CHECK(equipment_cost >= 0 OR
-					       equipment_cost = NULL),
+                                         CONSTRAINT negative_cost -- Cost cannot be less than 0
+                                         CHECK(equipment_cost >= 0 OR
+                                               equipment_cost = NULL),
        equipment_vendor                  VARCHAR(100)    DEFAULT NULL,
        equipment_manufacturer            VARCHAR(100)    NOT NULL,
        equipment_date_of_return          DATE            DEFAULT NULL,
@@ -57,18 +58,19 @@ CREATE TABLE equipment (
        
 INSERT INTO equipment (equipment_name, equipment_quantity, equipment_tag, equipment_location,
                        equipment_description, equipment_in_out_of_service,
-		       equipment_tubemaster_value, equipment_shipping_value, equipment_weight,
-		       equipment_manufacturer)
+                       equipment_tubemaster_value, equipment_shipping_value, equipment_weight,
+                       equipment_manufacturer)
 VALUES ('Test Equipment', 1, 'Blue', 'Warehouse', 'This is a test equipment', 1, 2000.0,
         2000.0, 75, 'Us'),
        ('BDD Rack', 1, 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us'),
-       ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us');
+       ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us'),
+       ('SO Set', 1, 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us');
        
 CREATE TABLE bdd_racks (
        PRIMARY KEY(bdd_rack_id),
        bdd_rack_id         INT          NOT NULL
-       		           REFERENCES equipment (equipment_id)
-			   ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+                           REFERENCES equipment (equipment_id)
+                           ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
        bdd_tube_rack_size  VARCHAR(20)  NOT NULL
 );
 
@@ -84,10 +86,10 @@ VALUES (2, 'AAA');
 CREATE TABLE ttd_racks (
        PRIMARY KEY(ttd_rack_id),
               ttd_rack_id         INT          NOT NULL
-	                          REFERENCES equipment (equipment_id)
-		                  ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
-	      ttd_tube_rack_size  VARCHAR(20)  NOT NULL
-									   );
+                                  REFERENCES equipment (equipment_id)
+                                  ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+              ttd_tube_rack_size  VARCHAR(20)  NOT NULL
+                                                                           );
 
 CREATE RULE ttd_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in euipment table
     ON DELETE TO ttd_racks
@@ -97,3 +99,30 @@ CREATE RULE ttd_rack_id_restrict AS -- If a subset record is deleted, do not all
 
 INSERT INTO ttd_racks
 VALUES (3, 'B');
+
+CREATE TABLE so_sets (
+       PRIMARY KEY(so_set_id),
+       so_set_id           INT           NOT NULL
+		           REFERENCES equipment (equipment_id)
+			   ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+       so_case_number      INT           NOT NULL
+                           CONSTRAINT negative_case_number -- Case number cannot be negative
+			   CHECK(so_case_number >= 0),
+       so_size             NUMERIC(4, 3) NOT NULL
+			   CONSTRAINT negative_size -- Size cannot be negative
+			   CHECK(so_size >= 0),
+       so_set_label        VARCHAR(10)  NOT NULL,
+       so_number_in_set    INT NOT NULL
+                           CONSTRAINT negative_quantity -- Number in a set cannot be negative
+			   CHECK(so_number_in_set >= 0),
+       so_notes            VARCHAR(200) DEFAULT NULL
+);
+
+CREATE RULE so_set_id_restrict AS -- If a subset record is deleted, do not allow if still in eu\ipment table
+    ON DELETE TO so_sets
+ WHERE (so_set_id IN (SELECT equipment_id
+                          FROM equipment))
+    DO INSTEAD NOTHING;
+
+INSERT INTO so_sets
+VALUES (4, 1, 0.040, 'AA', 12);
