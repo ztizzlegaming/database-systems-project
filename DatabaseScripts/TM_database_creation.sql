@@ -4,12 +4,13 @@
 */
 CREATE EXTENSION pgcrypto;
 
-DROP TABLE bdd_racks;
-DROP TABLE ttd_racks;
-DROP TABLE so_sets;
-DROP TABLE pss;
-DROP TABLE cal_racks;
-DROP TABLE equipment;
+DROP TABLE IF EXISTS bdd_racks;
+DROP TABLE IF EXISTS ttd_racks;
+DROP TABLE IF EXISTS so_sets;
+DROP TABLE IF EXISTS pss;
+DROP TABLE IF EXISTS cal_racks;
+DROP TABLE IF EXISTS cal_or_sets;
+DROP TABLE IF EXISTS equipment;
 
 DROP TABLE IF EXISTS TMpersonnels CASCADE;
 DROP TABLE IF EXISTS Projects CASCADE; 
@@ -77,8 +78,8 @@ VALUES ('Test Equipment', 1, 'Blue', 'Warehouse', 'This is a test equipment', 1,
        ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us'),
        ('SO Set', 1, 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us'),
        ('PS', 1, 'Red', 'Saudi', 'This is a PS', 1, 211.54, 185.97, 15, 'Us'),
-       ('Cal Rack', 1, 'Green', 'Indiana', 'This is a Cal Rack', 0, 234.65, 167.98, 77, 'Us');
-
+       ('Cal Rack', 1, 'Green', 'Indiana', 'This is a Cal Rack', 0, 234.65, 167.98, 77, 'Us'),
+       ('Cal Or Set', 1, 'Green', 'Indiana', 'This is a Cal Or Set', 1, 229.65, 167.67, 23, 'Us');
 /*Create subset table for BDD Racks*/
 CREATE TABLE bdd_racks (
        PRIMARY KEY(bdd_rack_id),
@@ -200,6 +201,34 @@ CREATE RULE cal_rack_id_restrict AS -- If a subset record is deleted, do not all
 INSERT INTO cal_racks
 VALUES (6, 'CC');
 
+
+/*Creates subset table for Cal Or Sets*/
+CREATE TABLE cal_or_sets (
+       PRIMARY KEY(cal_or_set_id),
+       cal_or_set_id                INT           NOT NULL
+	                            REFERENCES equipment (equipment_id)
+	                            ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+       cal_or_size                  NUMERIC(4, 3) NOT NULL
+			            CONSTRAINT negative_size -- Size cannot be negative
+			            CHECK(cal_or_size >= 0),
+																							                 cal_or_set_label             VARCHAR(10)   NOT NULL,
+																								         cal_or_total_number_of_or    INT           NOT NULL
+				    CONSTRAINT negative_quantity -- Number in a set cannot be negative
+				    CHECK(cal_or_total_number_of_or >= 0)
+);
+
+
+/*Creates rule restricting deletion from the Cal Or Sets table*/
+CREATE RULE cal_or_set_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
+    ON DELETE TO cal_or_sets
+ WHERE (cal_or_set_id IN (SELECT equipment_id
+                            FROM equipment))
+    DO INSTEAD NOTHING;
+
+
+/*Inserts sample data from equipment into cal_or_sets*/
+INSERT INTO cal_or_sets
+VALUES (6, 0.040, 'BA', 14);
 
 
 
