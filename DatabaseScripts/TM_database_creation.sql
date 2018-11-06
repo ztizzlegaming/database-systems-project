@@ -6,6 +6,7 @@ DROP TABLE bdd_racks;
 DROP TABLE ttd_racks;
 DROP TABLE so_sets;
 DROP TABLE pss;
+DROP TABLE cal_racks;
 DROP TABLE equipment;
 
 /*Creates table Equipment, holding onto info of all of TMs inventory*/
@@ -68,7 +69,8 @@ VALUES ('Test Equipment', 1, 'Blue', 'Warehouse', 'This is a test equipment', 1,
        ('BDD Rack', 1, 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us'),
        ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us'),
        ('SO Set', 1, 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us'),
-       ('PS', 1, 'Red', 'Saudi', 'This is a PS', 1, 211.54, 185.97, 15, 'Us');
+       ('PS', 1, 'Red', 'Saudi', 'This is a PS', 1, 211.54, 185.97, 15, 'Us'),
+       ('Cal Rack', 1, 'Green', 'Indiana', 'This is a Cal Rack', 0, 234.65, 167.98, 77, 'Us');
 
 /*Create subset table for BDD Racks*/
 CREATE TABLE bdd_racks (
@@ -168,3 +170,25 @@ CREATE RULE ps_id_restrict AS -- If a subset record is deleted, do not allow if 
 /*Inserts sample data from equipment into pss*/
 INSERT INTO pss
 VALUES (5,'25-75');
+
+
+/*Create subset table for Cal Racks*/
+CREATE TABLE cal_racks (
+       PRIMARY KEY(cal_rack_id),
+       cal_rack_id         INT          NOT NULL
+	                   REFERENCES equipment (equipment_id)
+		           ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+       cal_rack_size       VARCHAR(20)  NOT NULL
+);									   );
+
+/*Create rule restricting deletion from the Cal Racks table*/
+CREATE RULE cal_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
+    ON DELETE TO cal_racks
+ WHERE (cal_rack_id IN (SELECT equipment_id
+                          FROM equipment))
+    DO INSTEAD NOTHING;
+
+
+/*Insert sample data from equipment into cal_racks*/
+INSERT INTO cal_racks
+VALUES (6, 'CC');
