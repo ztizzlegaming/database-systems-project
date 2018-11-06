@@ -179,7 +179,7 @@ CREATE TABLE cal_racks (
 	                   REFERENCES equipment (equipment_id)
 		           ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
        cal_rack_size       VARCHAR(20)  NOT NULL
-);									   );
+);
 
 /*Create rule restricting deletion from the Cal Racks table*/
 CREATE RULE cal_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
