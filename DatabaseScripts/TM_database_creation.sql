@@ -111,7 +111,7 @@ CREATE TABLE ttd_racks (
                                                                            );
 
 /*Creates rule restricting deletion from the TTD Racks table*/
-CREATE RULE ttd_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in euipment table
+CREATE RULE ttd_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
     ON DELETE TO ttd_racks
  WHERE (ttd_rack_id IN (SELECT equipment_id
                           FROM equipment))
@@ -135,16 +135,16 @@ CREATE TABLE so_sets (
        so_size             NUMERIC(4, 3) NOT NULL
 			   CONSTRAINT negative_size -- Size cannot be negative
 			   CHECK(so_size >= 0),
-       so_set_label        VARCHAR(10)  NOT NULL,
+       so_set_label        VARCHAR(10)   NOT NULL,
        so_number_in_set    INT NOT NULL
                            CONSTRAINT negative_quantity -- Number in a set cannot be negative
 			   CHECK(so_number_in_set >= 0),
-       so_notes            VARCHAR(200) DEFAULT NULL
+       so_notes            VARCHAR(200)  DEFAULT NULL
 );
 
 
 /*Creates rule restricting deletion from the SO Sets table*/
-CREATE RULE so_set_id_restrict AS -- If a subset record is deleted, do not allow if still in eu\ipment table
+CREATE RULE so_set_id_restrict AS -- If a subset record is deleted, do not allow if still in equipment table
     ON DELETE TO so_sets
  WHERE (so_set_id IN (SELECT equipment_id
                           FROM equipment))
