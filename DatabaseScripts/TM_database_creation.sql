@@ -2,8 +2,8 @@
   Team JayZ
   11/5/2018
 */
-
 DROP TABLE bdd_racks;
+DROP TABLE ttd_racks;
 DROP TABLE equipment;
 
 /*Creates table Equipment, holding onto info of all of TMs inventory*/
@@ -20,7 +20,7 @@ CREATE TABLE equipment (
        					 CONSTRAINT valid_tag -- Keep tag values in valid range (see equipment_tag spec)
 					 CHECK (equipment_tag IN
 					       ('blue','Blue','red','Red',
-					        'green','GREEN', 'N/A')),
+					        'green','Green', 'N/A')),
        equipment_location                VARCHAR(100)    NOT NULL,
        equipment_shelf_location          VARCHAR(100)    DEFAULT NULL,
        equipment_updates                 VARCHAR(256)    DEFAULT NULL,
@@ -61,8 +61,9 @@ INSERT INTO equipment (equipment_name, equipment_quantity, equipment_tag, equipm
 		       equipment_manufacturer)
 VALUES ('Test Equipment', 1, 'Blue', 'Warehouse', 'This is a test equipment', 1, 2000.0,
         2000.0, 75, 'Us'),
-       ('BDD Rack', 1, 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us');
-
+       ('BDD Rack', 1, 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us'),
+       ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us');
+       
 CREATE TABLE bdd_racks (
        PRIMARY KEY(bdd_rack_id),
        bdd_rack_id         INT          NOT NULL
@@ -79,3 +80,20 @@ CREATE RULE bdd_rack_id_restrict AS -- If a subset record is deleted, do not all
 
 INSERT INTO bdd_racks
 VALUES (2, 'AAA');
+
+CREATE TABLE ttd_racks (
+       PRIMARY KEY(ttd_rack_id),
+              ttd_rack_id         INT          NOT NULL
+	                          REFERENCES equipment (equipment_id)
+		                  ON DELETE CASCADE, -- If equipment is deleted, delete subset as well
+	      ttd_tube_rack_size  VARCHAR(20)  NOT NULL
+									   );
+
+CREATE RULE ttd_rack_id_restrict AS -- If a subset record is deleted, do not allow if still in euipment table
+    ON DELETE TO ttd_racks
+ WHERE (ttd_rack_id IN (SELECT equipment_id
+                          FROM equipment))
+    DO INSTEAD NOTHING;
+
+INSERT INTO ttd_racks
+VALUES (3, 'B');
