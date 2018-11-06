@@ -6,11 +6,11 @@ Plants
 Units
 Reactors
 Projects
-Cal Or Info
-SO Info
-PS Info
-TTD Rack Info
-BDD Rack Info
+Cal Or Sets
+SO Sets
+PS s
+TTD Racks
+BDD Racks
 Repairs
 TubeMaster Personnel
 Blowdown Specifications

@@ -8,8 +8,8 @@ Specification Type:
   Unique:  _
   Generic: _ 
   Replica: _ X
-Parent Table:         _BDDRacks
-Label:                _BDDRackID
+Parent Table:         _ BDDRacks
+Label:                _ BDDRackID
 Source Specification: _ EquipmentID in Equipment
 Shared By:            _ 
 Aliases:              _ 
