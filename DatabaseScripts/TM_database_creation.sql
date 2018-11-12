@@ -12,6 +12,8 @@ DROP TABLE IF EXISTS cal_racks;
 DROP TABLE IF EXISTS cal_or_sets;
 DROP TABLE IF EXISTS equipment;
 
+DROP TABLE IF EXISTS units;
+DROP TABLE IF EXISTS plants;
 DROP TABLE IF EXISTS clients;
 
 DROP TABLE IF EXISTS TMpersonnels CASCADE;
@@ -315,16 +317,56 @@ SELECT CONCAT(Personnel_first_name,' ', Personnel_last_name) AS personnel_name,
        project_id, project_start_date 
     FROM projects_personnels NATURAL JOIN projects NATURAL JOIN TMpersonnels;
 
+-- Create table to hold clients
 CREATE TABLE clients (
     PRIMARY KEY (client_id),
-    client_id SERIAL,
+    client_id                    SERIAL,
     client_city                  VARCHAR(100) NOT NULL,
     client_company_name          VARCHAR(100) NOT NULL,
     client_contact_email         VARCHAR(100) NOT NULL,
     client_contact_first_name    VARCHAR(100) NOT NULL,
     client_contact_last_name     VARCHAR(100) NOT NULL,
     client_contact_phone_number  VARCHAR(20)  NOT NULL,
-    client_country               VARCHAR(100) NOT NULL,
+    client_country               VARCHAR(2)   NOT NULL, -- country code
     client_street_address        VARCHAR(50)  NOT NULL,
-    client_zip_code              VARCHAR(10)  NOT NULL
+    client_zip_code              VARCHAR(14)  NOT NULL
 );
+
+-- Insert an example fake client
+INSERT INTO clients (
+  client_city,
+  client_company_name,
+  client_contact_email,
+  client_contact_first_name,
+  client_contact_last_name,
+  client_contact_phone_number,
+  client_country,
+  client_street_address,
+  client_zip_code
+)
+VALUES
+('Danville', 'Shell', 'abc@example.com', 'Tom', 'Allen', '859-555-1234', 'US',
+ '600 West Walnut', '40422');
+SELECT * FROM clients; -- Select the data back out to make sure insert worked
+
+-- Create table to hold plants that links to clients
+CREATE TABLE plants (
+    PRIMARY KEY (plant_id),
+    FOREIGN KEY (client_id)
+                REFERENCES clients (client_id)
+                ON DELETE RESTRICT,
+    plant_id              SERIAL,
+    client_id             INT NOT NULL,
+    plant_street_address  VARCHAR(100),
+    plant_city            VARCHAR(100),
+    plant_zip_code        VARCHAR(14),
+    plant_country         CHAR(2),
+    plant_name            VARCHAR(255)
+);
+
+-- Insert a fake plant
+INSERT INTO plants (client_id, plant_street_address, plant_city,
+  plant_zip_code, plant_country, plant_name)
+VALUES
+(1, '100 Main Street', 'Danville', '40422', 'US', 'Shell Plant');
+SELECT * FROM plants; -- Select the data back out
