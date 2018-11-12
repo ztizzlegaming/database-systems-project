@@ -370,3 +370,20 @@ INSERT INTO plants (client_id, plant_street_address, plant_city,
 VALUES
 (1, '100 Main Street', 'Danville', '40422', 'US', 'Shell Plant');
 SELECT * FROM plants; -- Select the data back out
+
+-- Create table to hold units that links to plants
+CREATE TABLE units (
+    PRIMARY KEY (unit_id),
+    FOREIGN KEY (plant_id)
+                REFERENCES plants (plant_id)
+                ON DELETE RESTRICT,
+    unit_id    SERIAL,
+    plant_id   INT NOT NULL,
+    unit_name  VARCHAR(255)
+);
+
+INSERT INTO units
+(plant_id, unit_name)
+VALUES
+(1, 'Shell Unit');
+SELECT * FROM units;
