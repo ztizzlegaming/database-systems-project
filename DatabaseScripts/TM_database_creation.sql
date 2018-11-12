@@ -12,6 +12,8 @@ DROP TABLE IF EXISTS cal_racks;
 DROP TABLE IF EXISTS cal_or_sets;
 DROP TABLE IF EXISTS equipment;
 
+DROP TABLE IF EXISTS clients;
+
 DROP TABLE IF EXISTS TMpersonnels CASCADE;
 DROP TABLE IF EXISTS Projects CASCADE; 
 DROP TABLE IF EXISTS projects_personnels CASCADE; 
@@ -313,3 +315,16 @@ SELECT CONCAT(Personnel_first_name,' ', Personnel_last_name) AS personnel_name,
        project_id, project_start_date 
     FROM projects_personnels NATURAL JOIN projects NATURAL JOIN TMpersonnels;
 
+CREATE TABLE clients (
+    PRIMARY KEY (client_id),
+    client_id SERIAL,
+    client_city                  VARCHAR(100) NOT NULL,
+    client_company_name          VARCHAR(100) NOT NULL,
+    client_contact_email         VARCHAR(100) NOT NULL,
+    client_contact_first_name    VARCHAR(100) NOT NULL,
+    client_contact_last_name     VARCHAR(100) NOT NULL,
+    client_contact_phone_number  VARCHAR(20)  NOT NULL,
+    client_country               VARCHAR(100) NOT NULL,
+    client_street_address        VARCHAR(50)  NOT NULL,
+    client_zip_code              VARCHAR(10)  NOT NULL
+);
