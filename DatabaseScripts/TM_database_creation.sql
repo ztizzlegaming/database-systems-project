@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS reactors;
 DROP TABLE IF EXISTS units;
 DROP TABLE IF EXISTS plants;
 DROP TABLE IF EXISTS clients;
+DROP TABLE IF EXISTS PDSpecs;
 
 DROP TABLE IF EXISTS TMpersonnels CASCADE;
 DROP TABLE IF EXISTS Projects CASCADE; 
@@ -264,12 +265,12 @@ UPDATE TMpersonnels SET Personnel_password = crypt('newpassword',gen_salt('bf'))
     WHERE Personnel_username = 'ABC123' AND
           Personnel_password = crypt('asdqwe', Personnel_password);
           
-SELECT * FROM TMpersonnels;
+-- SELECT * FROM TMpersonnels;
 
 
 
 /* Creates table Projects */
--- TODO: add the foreign key reactor_id from reactors table
+-- TODO: add the foreign key reactor_id from reactors table -> added later
 CREATE TABLE projects (
     PRIMARY KEY (project_id),
     project_id                  SERIAL, 
@@ -283,20 +284,12 @@ CREATE TABLE projects (
     CHECK (project_expected_end_date >= project_start_date AND project_expected_end_date >= project_equipment_ship_date)
 );
 
-INSERT INTO projects (project_start_date, project_expected_end_date, project_equipment_ship_date, project_type, project_testing_type, project_is_active)
-VALUES ('09/06/2017',  NULL,           '09/10/2017',  'A',    'TESTA',   't'),
-       ('09/16/2017',  '09/19/2017',   '09/10/2017',  'A123', 'TEST123', 't'),
-       ('02/21/2017',  '02/27/2018',   '09/10/2017',  'B',    'TESTA123','t');
-
 /* implement deletion rule -DENY- for the Projects table */
 CREATE RULE projects_deny_deletionrule AS 
     ON DELETE TO projects DO INSTEAD
     UPDATE projects
     SET project_is_active = FALSE
     WHERE project_id = OLD.project_id;
-
-DELETE FROM projects WHERE project_id = 3; -- test projects_deny_deletionrule constraint
-SELECT * FROM projects;
 
 
 
@@ -546,3 +539,49 @@ INSERT INTO repairs (equipment_id, personnel_id, incident_occured, repair_date,
 VALUES
 (1, 1, 'This piece broke', '11-12-2018', 'The equipment was repaired');
 SELECT * FROM repairs;
+
+
+-- update constraint on projects table: add reactor_id as foreign key 
+ALTER TABLE projects ADD COLUMN reactor_id INT NOT NULL;
+ALTER TABLE projects
+    ADD CONSTRAINT reactor_id_fkey FOREIGN KEY (reactor_id) 
+    REFERENCES reactors (reactor_id)
+    ON DELETE RESTRICT;
+
+-- populate sample data...    
+INSERT INTO projects (reactor_id, project_start_date, project_expected_end_date, project_equipment_ship_date, project_type, project_testing_type, project_is_active)
+VALUES (1, '09/06/2017',  NULL,           '09/10/2017',  'A',    'TESTA',   't'),
+       (1, '09/16/2017',  '09/19/2017',   '09/10/2017',  'A123', 'TEST123', 't'),
+       (1, '02/21/2017',  '02/27/2018',   '09/10/2017',  'B',    'TESTA123','t');
+
+DELETE FROM projects WHERE project_id = 3; -- test projects_deny_deletionrule constraint
+SELECT * FROM projects;
+
+
+/* create table Pressure_drop_specs*/
+CREATE TABLE PDSpecs (
+    PRIMARY KEY (PDSpec_id),
+    FOREIGN KEY (project_id)
+                REFERENCES projects (project_id)
+                ON DELETE RESTRICT,
+    PDSpec_id                    SERIAL,
+    project_id                   INT        NOT NULL,
+    -- TODO: create CONSTRAINT: TTD_number no higher than total quantity of TTD in TubeTestDevices table
+    TTD_number                   INT,
+    TTD_flowrate                 NUMERIC(10, 3)
+                                          CONSTRAINT positive_PDSpecs_TTD_flowrate
+                                          CHECK(TTD_flowrate >= 0),
+    TTD_sealpressure             NUMERIC(10, 3)
+                                          CONSTRAINT positive_PDSpecs_TTD_sealpressure
+                                          CHECK(TTD_sealpressure >= 0),
+    TTD_sealsize                 VARCHAR(255), 
+    TTD_testgas                  VARCHAR(255)
+);
+
+-- populate sample data...    
+INSERT INTO PDSpecs (project_id, TTD_number, TTD_flowrate, TTD_sealpressure, TTD_sealsize, TTD_testgas)
+VALUES (1, 1,     3.141,  NULL,     '12',         'TESTGAS'),
+       (2, 1,     0.159,  156.26,   'A123',       'TESTGAS'),
+       (1, NULL,  0.92,   156.265,  'SEALSIZE12', 'TESTGAS');
+
+SELECT * FROM PDSpecs;
