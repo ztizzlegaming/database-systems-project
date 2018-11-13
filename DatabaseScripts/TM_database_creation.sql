@@ -522,6 +522,8 @@ VALUES
 
 SELECT * FROM reactor_zones;
 
+-- Create table to hold records of repairs on equipment
+-- References equipment and TMpersonells tables
 CREATE TABLE repairs (
     PRIMARY KEY (repair_id),
     FOREIGN KEY (equipment_id)
@@ -538,6 +540,7 @@ CREATE TABLE repairs (
     repair_notes      VARCHAR(1000)
 );
 
+-- Insert a temporary example repair record to make sure it worked
 INSERT INTO repairs (equipment_id, personnel_id, incident_occured, repair_date,
   repair_notes)
 VALUES
