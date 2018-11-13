@@ -150,7 +150,38 @@ Dependencies: home.php, since the list of personnel should be accessible from th
 Projected Date Finished: 11/26/18
 
 ---------------------------------------------------------------------------------------
+Name: projects.php
+Description: This page displays all of the projects in the database, ordered
+             alphabetically by project name. 
+POST/GET Variables: None
+Primary Member: Zeyang Huang
+Testing Member: James Easton
+Dependencies: home.php, since the list of projects should be accessible from the
+              home page.
+Projected Date Finished: 11/20/18
 
+---------------------------------------------------------------------------------------
+Name: project_proposal.php
+Description: This page displays the interface for users to input to start a new project proposal.
+POST/GET Variables: None
+Primary Member: Zeyang Huang
+Testing Member: James Easton
+Dependencies: projects.php, since there will be a create new project proposal button in the projects page.
+Projected Date Finished: 11/22/18
 
+---------------------------------------------------------------------------------------
+Name: project_info.php
+Description: This page displays the specific information of a project in the database.
+POST/GET Variables: Look for POST variable called 'projectID', allowing for querying
+					of project information
+Primary Member: Zeyang Huang
+Testing Member: James Easton
+Dependencies: project.php, since after clicking on a specific project, it will leads to this page.
+project_proposal.php, since after clicking the submit button of a new project proposal, it will go to this page as a summary of what the user just inputed.
+equipment_info.php, since the equipment info associate with a specific project info.
+invoice.php, since the invoice info associate with a specific project info.
+Projected Date Finished: 11/26/18
+
+---------------------------------------------------------------------------------------
 
 
