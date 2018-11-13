@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS so_sets;
 DROP TABLE IF EXISTS pss;
 DROP TABLE IF EXISTS cal_racks;
 DROP TABLE IF EXISTS cal_or_sets;
+DROP TABLE IF EXISTS repairs;
 DROP TABLE IF EXISTS equipment;
 
 DROP TABLE IF EXISTS reactor_zones;
@@ -520,3 +521,25 @@ VALUES
 (1, 1.23, 4.56, -7.89); -- Try a negative, this should break
 
 SELECT * FROM reactor_zones;
+
+CREATE TABLE repairs (
+    PRIMARY KEY (repair_id),
+    FOREIGN KEY (equipment_id)
+                REFERENCES equipment (equipment_id)
+                ON DELETE RESTRICT,
+    FOREIGN KEY (personnel_id)
+                REFERENCES TMpersonnels (personnel_id)
+                ON DELETE RESTRICT,
+    repair_id         SERIAL,
+    equipment_id      INT NOT NULL,
+    personnel_id      INT NOT NULL,
+    incident_occured  VARCHAR(1000),
+    repair_date       DATE NOT NULL,
+    repair_notes      VARCHAR(1000)
+);
+
+INSERT INTO repairs (equipment_id, personnel_id, incident_occured, repair_date,
+  repair_notes)
+VALUES
+(1, 1, 'This piece broke', '11-12-2018', 'The equipment was repaired');
+SELECT * FROM repairs;
