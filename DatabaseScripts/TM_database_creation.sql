@@ -12,6 +12,8 @@ DROP TABLE IF EXISTS cal_racks;
 DROP TABLE IF EXISTS cal_or_sets;
 DROP TABLE IF EXISTS equipment;
 
+DROP TABLE IF EXISTS reactor_zones;
+DROP TABLE IF EXISTS reactors;
 DROP TABLE IF EXISTS units;
 DROP TABLE IF EXISTS plants;
 DROP TABLE IF EXISTS clients;
@@ -387,3 +389,134 @@ INSERT INTO units
 VALUES
 (1, 'Shell Unit');
 SELECT * FROM units;
+
+-- Create table to hold reactors that link to units
+CREATE TABLE reactors (
+    PRIMARY KEY (reactor_id),
+    FOREIGN KEY (unit_id)
+                REFERENCES units (unit_id)
+                ON DELETE RESTRICT,
+    reactor_id                   SERIAL,
+    unit_id                      INT NOT NULL,
+    calibrate_ttd_to             NUMERIC(10, 3)
+                                   CONSTRAINT positive_calibrate_ttd_to
+                                   CHECK(calibrate_ttd_to > 0),
+    calibration_orfice_size      NUMERIC(10, 3) NOT NULL
+                                   CONSTRAINT positive_calibration_orfice_size
+                                   CHECK(calibration_orfice_size >= 0),
+    catalyst_brand               VARCHAR(255),
+    catalyst_change_coordinator  VARCHAR(255),
+    catalyst_size                VARCHAR(255),
+    chemical                     CHAR(2),
+    comments                     VARCHAR(1000),
+    compressor_pressure          NUMERIC(10, 3)
+                                   CONSTRAINT positive_compressor_pressure
+                                   CHECK(compressor_pressure >= 0),
+    expected_pressure_drop       INT NOT NULL
+                                   CONSTRAINT positive_expected_pressure_drop
+                                   CHECK(expected_pressure_drop >= 0),
+    flow_rate                    NUMERIC(10, 3)
+                                   CONSTRAINT positive_flow_rate
+                                   CHECK(flow_rate > 0),
+    loaded_tube_length           INT
+                                   CONSTRAINT positive_loaded_tube_length
+                                   CHECK(loaded_tube_length > 0),
+    manifold_pressure            INT
+                                   CONSTRAINT positive_manifold_pressure
+                                   CHECK(manifold_pressure >= 0),
+    number_of_plugs              INT
+                                   CONSTRAINT positive_number_of_plugs
+                                   CHECK(number_of_plugs >= 1),
+    number_of_rows               INT
+                                   CONSTRAINT positive_number_of_rows
+                                   CHECK(number_of_rows >= 1),
+    number_of_supports           INT
+                                   CONSTRAINT positive_number_of_supports
+                                   CHECK(number_of_supports >= 1),
+    number_of_thermocouples      INT
+                                   CONSTRAINT positive_number_of_thermocouples
+                                   CHECK(number_of_thermocouples >= 1),
+    number_of_tubes              INT
+                                   CONSTRAINT positive_number_of_tubes
+                                   CHECK(number_of_tubes >= 1),
+    number_of_coolant_tubes      INT NOT NULL
+                                   CONSTRAINT positive_number_of_coolant_tubes
+                                   CHECK(number_of_coolant_tubes >= 1),
+    outage                       NUMERIC(10, 3) NOT NULL
+                                   CONSTRAINT positive_outage
+                                   CHECK(outage >= 0),
+    reactor_head                 BOOLEAN,
+    reactor_loading_method       VARCHAR(255),
+    reactor_manway_size          NUMERIC(10, 3)
+                                   CONSTRAINT positive_reactor_manway_size
+                                   CHECK(reactor_manway_size > 0),
+    reactor_name                 VARCHAR(255),
+    reactor_pitch                NUMERIC(10, 3)
+                                   CONSTRAINT positive_reactor_pitch
+                                   CHECK(reactor_pitch >= 0),
+    seal_air_pressure            INT
+                                   CONSTRAINT positive_seal_air_pressure
+                                   CHECK(seal_air_pressure >= 0),
+    sonic_up_to                  INT
+                                   CONSTRAINT positive_sonic_up_to
+                                   CHECK(sonic_up_to > 0),
+    supply_orifice_size          NUMERIC(10, 3) NOT NULL
+                                   CONSTRAINT positive_supply_orifice_size
+                                   CHECK(supply_orifice_size >= 0),
+    supply_pressure              INT
+                                   CONSTRAINT positive_supply_pressure
+                                   CHECK(supply_pressure >= 0),
+    testing_type                 CHAR(2),
+    thermocouple_inner_diameter  INT
+                                   CONSTRAINT positive_thermocouple_inner_diameter
+                                   CHECK(thermocouple_inner_diameter > 0),
+    tube_inner_diameter          NUMERIC(10, 3)
+                                   CONSTRAINT positive_tube_inner_diameter
+                                   CHECK(tube_inner_diameter > 0),
+    tube_seal_size               NUMERIC(10, 3)
+                                   CONSTRAINT positive_tube_seal_size
+                                   CHECK(tube_seal_size > 0),
+    tube_spacing                 NUMERIC(10, 3) NOT NULL
+                                   CONSTRAINT positive_tube_spacing
+                                   CHECK(tube_spacing >= 0)
+);
+
+INSERT INTO reactors (unit_id, calibration_orfice_size, expected_pressure_drop,
+  number_of_coolant_tubes, outage, supply_orifice_size, tube_spacing)
+VALUES (1, 1.24, 5, 10, 5.3, 4.2, 7.8); -- Test something negative
+
+INSERT INTO reactors (unit_id, calibration_orfice_size, expected_pressure_drop,
+  number_of_coolant_tubes, outage, supply_orifice_size, tube_spacing)
+VALUES (1, -1.24, 5, 10, 5.3, 4.2, 7.8); -- Test something negative, this won't work
+
+SELECT * FROM reactors; -- This will only contain the first result
+
+CREATE TABLE reactor_zones (
+    PRIMARY KEY (reactor_zone_id),
+    FOREIGN KEY (reactor_id)
+                REFERENCES reactors (reactor_id)
+                ON DELETE RESTRICT,
+    reactor_zone_id SERIAL,
+    reactor_id INT NOT NULL,
+    reactor_zone_average_pressure_drop  NUMERIC(10, 3)
+                                          CONSTRAINT positive_reactor_zone_average_pressure_drop
+                                          CHECK(reactor_zone_average_pressure_drop >= 0),
+    reactor_zone_equiv_orifice          NUMERIC(10, 3)
+                                          CONSTRAINT positive_reactor_zone_equiv_orifice
+                                          CHECK(reactor_zone_equiv_orifice >= 0),
+    reactor_zone_outage                 NUMERIC(10, 3) NOT NULL
+                                          CONSTRAINT positive_reactor_zone_outage
+                                          CHECK(reactor_zone_outage >= 0)
+);
+
+INSERT INTO reactor_zones (reactor_id, reactor_zone_average_pressure_drop,
+  reactor_zone_equiv_orifice, reactor_zone_outage)
+VALUES
+(1, 1.23, 4.56, 7.89);
+
+INSERT INTO reactor_zones (reactor_id, reactor_zone_average_pressure_drop,
+  reactor_zone_equiv_orifice, reactor_zone_outage)
+VALUES
+(1, 1.23, 4.56, -7.89); -- Try a negative, this should break
+
+SELECT * FROM reactor_zones;
