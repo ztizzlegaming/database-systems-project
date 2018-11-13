@@ -4,6 +4,14 @@
 */
 CREATE EXTENSION pgcrypto;
 
+DROP TABLE IF EXISTS problematic_ttds;
+DROP VIEW IF EXISTS all_ttds;
+DROP TABLE IF EXISTS assembly_parts;
+DROP TABLE IF EXISTS travelled_equipment;
+DROP TABLE IF EXISTS travel_history;
+DROP TABLE IF EXISTS bdspec_on_times;
+DROP TABLE IF EXISTS bdspecs;
+
 DROP TABLE IF EXISTS bdd_racks;
 DROP TABLE IF EXISTS ttd_racks;
 DROP TABLE IF EXISTS so_sets;
@@ -585,3 +593,124 @@ VALUES (1, 1,     3.141,  NULL,     '12',         'TESTGAS'),
        (1, NULL,  0.92,   156.265,  'SEALSIZE12', 'TESTGAS');
 
 SELECT * FROM PDSpecs;
+
+/* Create the table to hold the Blowdown Specfications */
+CREATE TABLE bdspecs (
+    PRIMARY KEY (blowdown_spec_id),
+    blowdown_spec_id                SERIAL,
+    blowdown_actual_blowdown_time   NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_actual_bd_time_value -- Cannot be negative
+                                    CHECK (blowdown_actual_blowdown_time >= 0),
+    blowdown_final_seal_delay       NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_final_seal_delay_value -- Cannot be negative
+                                    CHECK (blowdown_final_seal_delay >= 0),
+    blowdown_flow_rate              NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_flow_rate_value -- Cannot be negative
+                                    CHECK (blowdown_flow_rate >= 0),
+    blowdown_initial_seal_delay     NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_initial_seal_delay_value -- Cannot be negative
+                                    CHECK (blowdown_initial_seal_delay >= 0),
+    blowdown_off_time               NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_vd_off_time_value -- Cannot be negative
+                                    CHECK (blowdown_off_time >= 0),
+    blowdown_pressure               NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_bd_pressure_value -- Cannot be negative
+                                    CHECK (blowdown_pressure >= 0),
+    blowdown_regulator_pressure     NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_bd_regulator_pressure_value -- Cannot be negative
+                                    CHECK (blowdown_regulator_pressure >= 0),
+    blowdown_seal_pressure          NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_seal_pressure_value -- Cannot be negative
+                                    CHECK (blowdown_seal_pressure >= 0),
+    number_blowdown_rigs            INT DEFAULT NULL
+                                    CONSTRAINT negative_num_bd_rigs_value -- Cannot be negative
+                                    CHECK (number_blowdown_rigs >= 0),
+    total_blowdown_time             NUMERIC(10,3) DEFAULT NULL
+                                    CONSTRAINT negative_total_bd_time_value -- Cannot be negative
+                                    CHECK (blowdown_seal_pressure >= 0),
+    project_id                      INT NOT NULL
+                                    REFERENCES projects (project_id)
+    );
+
+/* Insert sample data into bdspecs */
+INSERT INTO bdspecs (blowdown_actual_blowdown_time, blowdown_final_seal_delay, blowdown_flow_rate, blowdown_initial_seal_delay, blowdown_off_time, blowdown_pressure, blowdown_regulator_pressure, blowdown_seal_pressure, number_blowdown_rigs, total_blowdown_time, project_id)
+VALUES (1.1, 0.5, 15.22, 0.01, 110.2, 1.0, 18.8, 2, 211.0, 123.567, 1),
+       (12.1, 10.5, 25.23, 1.21, 0.24, 2.2, 111.11, 1.201, 20, 23.0, 2);
+
+/* Create the bdspec_on_times table */
+CREATE TABLE bdspec_on_times (
+    PRIMARY KEY (blowdown_on_id),
+    blowdown_on_id              SERIAL,
+    blowdown_on_time            NUMERIC(10,3) DEFAULT NULL
+                                CONSTRAINT negative_bd_on_time_value -- Cannot be negative
+                                CHECK (blowdown_on_time >= 0),
+    blowdown_spec_id            INT NOT NULL
+                                REFERENCES bdspecs (blowdown_spec_id)
+    );
+
+/* Populate the bdspec_on_times table with sample data */
+INSERT INTO bdspec_on_times (blowdown_on_time, blowdown_spec_id)
+VALUES (11.222, 1),
+       (123.0,  2);
+
+/* Create the Travel History table */
+CREATE TABLE travel_history (
+    PRIMARY KEY (travel_history_id),
+    travel_history_id               SERIAL,
+    reactor_id                      INT NOT NULL
+                                    REFERENCES reactors (reactor_id),
+    shipping_date                   DATE NOT NULL
+    );
+
+/* Insert sample data into the Travel History Table */
+INSERT INTO travel_history (reactor_id, shipping_date)
+VALUES (1, '2/10/2010'),
+       (1, '1/1/2001');
+
+/* Create the Travelled Equipment Table */
+CREATE TABLE travelled_equipment(
+    PRIMARY KEY (equipment_id, travel_history_id),
+    equipment_id                    INT NOT NULL
+                                    REFERENCES equipment(equipment_id),
+    travel_history_id               INT NOT NULL
+                                    REFERENCES travel_history (travel_history_id)
+                                    ON DELETE CASCADE
+    );
+
+/* Create sample data for the Travelled Equipment Table */
+INSERT INTO travelled_equipment
+VALUES (1,1),
+       (2,2),
+       (1,2);
+
+/* Create the Assembly Parts Table */
+CREATE TABLE assembly_parts (
+    PRIMARY KEY (assembly_id, part_id),
+    assembly_id                     INT NOT NULL
+                                    REFERENCES equipment (equipment_id),
+    part_id                         INT NOT NULL
+                                    REFERENCES equipment (equipment_id)
+                                    
+    );
+
+
+/* Insert sample data into Assembly Parts */
+INSERT INTO assembly_parts
+VALUES (1,2);
+
+/* Create View of all TTDs in Equipment */
+CREATE VIEW all_ttds
+AS
+SELECT *
+  FROM equipment
+ WHERE equipment_name = 'TTD';
+
+/* Create problematic_ttds table */
+CREATE TABLE problematic_ttds (
+    PRIMARY KEY (problem_ttd_key),
+    problem_ttd_key                 SERIAL,
+    equipment_id                    INT NOT NULL
+                                    REFERENCES equipment (equipment_id),
+    reactor_id                      INT NOT NULL
+                                    REFERENCES reactors (reactor_id)
+    );

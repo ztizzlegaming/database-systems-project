@@ -1,4 +1,4 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
@@ -51,8 +51,8 @@ Null Support:  Nulls OK:   _ X
 Values Entered By: User:   _ X
                    System: _ 
 
-Required Value:    No:     _ 
-                   Yes:    _ X
+Required Value:    No:     _ X
+                   Yes:    _ 
 
 Default Value:     _ 
 

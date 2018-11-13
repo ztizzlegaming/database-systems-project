@@ -1,28 +1,28 @@
-FIELD SPECIFICATIONS
+﻿FIELD SPECIFICATIONS
 
 GENERAL ELEMENTS
 
-Field Name:           _ EquipmentID
+Field Name:           _ TravelHistoryID
 
 Specification Type:
   Unique:  _ 
   Generic: _ 
   Replica: _ X
-Parent Table:         _ TravelHistory
+Parent Table:         _ TravelledEquipment
 Label:                _ 
-Source Specification: _ EquipmentID in Equipment table
+Source Specification: _ 
 Shared By:            _ 
 Aliases:              _ 
-Description:          _ The id of equipment that is traveling to a client
+Description:          _ The unique identifier for an entry in the EquipmentTravelHistory.
 
 
 PHYSICAL ELEMENTS
 
 Data Type:            _ Numeric
-Length:               _ Any positive integer
-Decimal Places:       _ None
+Length:               _ 
+Decimal Places:       _ 
 Input Mask:           _ ###
-Display Format:       _ 000
+Display Format:       _ ###
 Character Support:
   Letters (A-Z):      _ 
   Numbers (0-9):      _ X
@@ -54,11 +54,11 @@ Required Value:    No:     _
 
 Default Value:     _ 
 
-Range of Values:   _ Any existing equipment id in the equipment table
+Range of Values:   _ Any integer greater than or equal to 1
 
 Edit Rule:
-  Enter now, edits allowed:       _ 
-  Enter now, edits not allowed:   _ X
+  Enter now, edits allowed:       _ X
+  Enter now, edits not allowed:   _ 
   Enter later, edits allowed:     _ 
   Enter later, edits not allowed: _ 
   Not determined at this time:    _ 
