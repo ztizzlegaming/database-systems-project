@@ -1,0 +1,45 @@
+Name: equipment.php
+Description: Displays a table of TM's equipment inventory information
+POST/GET Variables: Look for POST variables relating to fields associated with a piece
+                    of equipment. If coming from the equipment_info.php, the POST 
+					variable 'equipmentEdited' will be set.
+Primary Member: Jenna Graves
+Testing Member: Jordan Turley
+Dependencies: home.php, as this page is required to be directed to equipment.php
+Projected Date Finished: 11/15/18
+
+---------------------------------------------------------------------------------------
+
+Name: equipment_info.php
+Description: Displays information of a piece of equipment including subset table info
+             (if applicable), as well as allowing edits to information
+POST/GET Variables: Look for POST variable called 'equipmentID', allowing for querying
+					of equipment information
+Primary Member: Jenna Graves
+Testing Member: Jordan Turley
+Dependencies: equipment.php, as a record in the equipment table is used to access this page
+Projected Date Finished: 11/19/18
+
+---------------------------------------------------------------------------------------
+
+Name: repair_info.php
+Description: Displays all repair information associated with a piece of equipment, also
+			 allowing new logs to be added for the piece of equipment
+POST/GET Variables: Look for POST variable called 'equipmentID', allowing querying of repair
+					logs for a given piece of equipment.
+Primary Member: Jenna Graves
+Testing Member: Jordan Turley
+Dependencies: Either equipment_info.php or repairs.php, both can access
+Projected Date Finished: 11/22/18
+
+---------------------------------------------------------------------------------------
+
+Name: repairs.php
+Description: Displays all repair logs for every piece of equipment, ordered by recency
+POST/GET Variables: None, as of now
+Primary Member: Jenna Graves
+Testing Member: Jordan Turley
+Dependencies: Either repair_info.php or home.php, both can access
+Projected Date Finished: 11/25/18
+
+---------------------------------------------------------------------------------------
