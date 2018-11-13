@@ -91,3 +91,66 @@ Dependencies: This is the central landing page, so it has no dependencies
 Projected Date Finished: 11/19/18
 
 ---------------------------------------------------------------------------------------
+
+Name: packing_list_info.php
+Description: Look for POST variable called 'packingListID', allowing for
+             querying of the packing list information for the selected list.
+POST/GET Variables: None
+Primary Member: James Easton
+Testing Member: Jenna Graves
+Dependencies: packing_lists.php, since this displays the info for a packing list.
+              invoice.php, since a packing list should be accessible from its
+              respective invoice.
+              project_info.php, since a packing list should be accessible from it
+              respective project.
+Projected Date Finished: 11/19/18
+
+---------------------------------------------------------------------------------------
+
+Name: packing_lists.php
+Description: This page displays all packing lists that are in the database,
+             ordered by recency.
+POST/GET Variables: Look for POST variable called 'packingListID', allowing for
+                    querying of all packing lists and necessary information.
+Primary Member: James Easton
+Testing Member: Jenna Graves
+Dependencies: home.php, as the home page is required to navigate to the list of
+              packing lists.
+Projected Date Finished: 11/19/18
+
+---------------------------------------------------------------------------------------
+
+Name: invoice.php
+Description: This page shows the monetary requirements for any specific packing
+             list. It will give a full detailed report, similar to the ones 
+             used by the client.
+POST/GET Variables: Look for POST variable called 'packingListID', allowing for
+                    querying of packing list information, as well as their
+                    associated costs.
+Primary Member: James Easton
+Testing Member: Jenna Graves
+Dependencies: packing_list_info.php, since an invoice should be accessible by its
+              respective packing list.
+              project_info.php, since an invoice should be accessible by its
+              respective project.
+Projected Date Finished: 11/26/18
+
+---------------------------------------------------------------------------------------
+
+Name: personnel.php
+Description: This page displays all of the personnel in the database, ordered
+             alphabetically by last and then first name. 
+POST/GET Variables: None
+Primary Member: James Easton
+Testing Member: Jenna Graves
+Dependencies: home.php, since the list of personnel should be accessible from the
+              home page.
+              project.php, since personnel associated with a project should be
+              accessible from that project.
+Projected Date Finished: 11/26/18
+
+---------------------------------------------------------------------------------------
+
+
+
+
