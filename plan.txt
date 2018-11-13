@@ -43,3 +43,51 @@ Dependencies: Either repair_info.php or home.php, both can access
 Projected Date Finished: 11/25/18
 
 ---------------------------------------------------------------------------------------
+
+Name: clients.php
+Description: This page lists out all of the clients as well as some of the
+brief descriptors of the client, like the location and the company name. Each client
+links to the client_info.php page view more information or edity information about
+the client.
+POST/GET Variables: None
+Primary Member: Jordan Turley
+Testing Member: Zeyang Huang
+Dependencies: This page is linked from index.php
+Projected Date Finished: 11/19/18
+
+---------------------------------------------------------------------------------------
+
+Name: client_info.php
+Description: This page shows all of the info for a specific client and allows
+the user to edit and save this information. This page also lists all of the
+reactors this client has and links to the reactors' page.
+POST/GET Variables: clientID GET variable (integer)
+Primary Member: Jordan Turley
+Testing Member: Zeyang Huang
+Dependencies: This page is linked from clients.php, reactor_info.php, and project_info.php
+Projected Date Finished: 11/26/18
+
+---------------------------------------------------------------------------------------
+
+Name: reactor_info.php
+Description: This page shows all of the information for a specific reactor and
+allows the user to edit and save this information.
+POST/GET Variables: reactorID GET variable (integer)
+Primary Member: Jordan Turley
+Testing Member: Zeyang Huang
+Dependencies: This page is linked from client_info.php and project_info.php
+Projected Date Finished: 11/26/18
+
+---------------------------------------------------------------------------------------
+
+Name: index.php
+Description: This is the landing page that links out to all other important
+pages. This page functions as a home page and central menu to make it easy to
+get to other pages. All other pages link back to this page.
+POST/GET Variables: None
+Primary Member: Jordan Turley
+Testing Member: Zeyang Huang
+Dependencies: This is the central landing page, so it has no dependencies
+Projected Date Finished: 11/19/18
+
+---------------------------------------------------------------------------------------
