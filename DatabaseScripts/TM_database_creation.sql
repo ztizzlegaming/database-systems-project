@@ -68,14 +68,14 @@ CREATE TABLE equipment (
        equipment_client_value            NUMERIC(10, 2)  DEFAULT NULL
                                          CONSTRAINT negative_client_value -- Value cannot be less than 0
                                          CHECK(equipment_client_value >= 0 OR
-                                               equipment_client_value = NULL),
+                                               equipment_client_value IS NULL),
        equipment_weight                  INT             NOT NULL
                                          CONSTRAINT negative_weight
                                          CHECK(equipment_weight >= 0),
        equipment_cost                    NUMERIC(10, 2)  DEFAULT NULL
                                          CONSTRAINT negative_cost -- Cost cannot be less than 0
                                          CHECK(equipment_cost >= 0 OR
-                                               equipment_cost = NULL),
+                                               equipment_cost IS NULL),
        equipment_vendor                  VARCHAR(100)    DEFAULT NULL,
        equipment_manufacturer            VARCHAR(100)    NOT NULL,
        equipment_date_of_return          DATE            DEFAULT NULL,
