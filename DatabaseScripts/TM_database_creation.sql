@@ -227,8 +227,8 @@ CREATE TABLE cal_or_sets (
        cal_or_size                  NUMERIC(4, 3) NOT NULL
 			            CONSTRAINT negative_size -- Size cannot be negative
 			            CHECK(cal_or_size >= 0),
-																							                 cal_or_set_label             VARCHAR(10)   NOT NULL,
-																								         cal_or_total_number_of_or    INT           NOT NULL
+																	   cal_or_set_label             VARCHAR(10)   NOT NULL,
+																	   cal_or_total_number_of_or    INT           NOT NULL
 				    CONSTRAINT negative_quantity -- Number in a set cannot be negative
 				    CHECK(cal_or_total_number_of_or >= 0)
 );
