@@ -737,7 +737,24 @@ VALUES (1, 1, DEFAULT),
 /* Create the Packing Lst View */
 CREATE VIEW packing_lists
 AS
-SELECT revision_number, client_company_name, reactor_name, project_start_date, number_of_rows, number_of_tubes, tube_seal_size, tube_inner_diameter, reactor_pitch, expected_pressure_drop, number_of_thermocouples, supply_orifice_size, calibration_orifice_size, calibrate_ttd_to, supply_pressure
+SELECT client_id,
+       project_id, 
+       reactor_id, 
+       MAX(revision_number) AS revision,
+       client_company_name, 
+       reactor_name,
+       project_start_date, 
+       number_of_rows,
+       number_of_tubes, 
+       tube_seal_size, 
+       tube_inner_diameter, 
+       reactor_pitch, 
+       expected_pressure_drop, 
+       number_of_thermocouples, 
+       supply_orifice_size, 
+       calibration_orifice_size,
+       calibrate_ttd_to, 
+       supply_pressure
   FROM reactors
        NATURAL JOIN projects
        NATURAL JOIN project_equipment
@@ -745,7 +762,24 @@ SELECT revision_number, client_company_name, reactor_name, project_start_date, n
        NATURAL JOIN units
        NATURAL JOIN plants
        NATURAL JOIN clients
-ORDER BY equipment_id;
+GROUP BY client_id,
+         project_id, 
+         reactor_id, 
+         client_company_name, 
+         reactor_name,
+         project_start_date, 
+         number_of_rows,
+         number_of_tubes, 
+         tube_seal_size, 
+         tube_inner_diameter, 
+         reactor_pitch, 
+         expected_pressure_drop, 
+         number_of_thermocouples, 
+         supply_orifice_size, 
+         calibration_orifice_size,
+         calibrate_ttd_to, 
+         supply_pressure
+ORDER BY project_id;
 
 
 
