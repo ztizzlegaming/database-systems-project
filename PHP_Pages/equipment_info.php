@@ -5,9 +5,500 @@
 	$pdo = connect_to_psql('tmdatabase');
 	echo "<form method='get' action='equipment.php'><button type='submit' name='back'>Go Back to Equipment</button></form>";
 
+	if(isset($_POST['save']))
+	{
+		$sql = "UPDATE equipment SET equipment_name = :name,".
+		       "equipment_sn = :sn,equipment_quantity = :quantity,".
+		       "equipment_notes = :notes,equipment_tag = :tag,".
+		       "equipment_location = :location,equipment_shelf_location = :shelf,".
+		       "equipment_updates = :updates,equipment_inventory_update_date".
+		       " = :updateDate,equipment_description = :description,".
+		       "equipment_modifications = :modifications,equipment_in_out_of_".
+		       "service = :inOut,equipment_potential_projects = :projects,".
+		       "equipment_tubemaster_value = :tm,equipment_shipping_value = ".
+		       ":shipping,equipment_client_value = :client,equipment_weight = ".
+		       ":weight,equipment_cost = :cost,equipment_vendor = :vendor,".
+		       "equipment_manufacturer = :manufacturer,equipment_date_of_return =".
+		       ":dateReturn,equipment_ideal_storage_location = :ideal WHERE ".
+		       "equipment_id = ".$_POST['save'].";";
+		$stmt = $pdo->prepare($sql);
+		if(!empty($_POST['equipment_name']))
+		{
+			$stmt->bindValue(":name",$_POST['equipment_name']);
+			if(!empty($_POST['equipment_sn']))
+			{
+				$stmt->bindValue(":sn",$_POST['equipment_sn']);
+			}
+			else
+			{
+				$stmt->bindValue(":sn",null);
+			}
+			if(!empty($_POST['equipment_quantity']))
+			{
+				$stmt->bindValue(":quantity",$_POST['equipment_quantity']);
+				if(!empty($_POST['equipment_notes']))
+				{
+					$stmt->bindValue(":notes",$_POST['equipment_notes']);
+				}
+				else
+				{
+					$stmt->bindValue(":notes",null);
+				}
+				$stmt->bindValue(":tag",$_POST['equipment_tag']);
+				if(!empty($_POST['equipment_location']))
+				{
+					$stmt->bindValue(":location",$_POST['equipment_location']);
+					if(!empty($_POST['equipment_shelf_location']))
+					{
+						$stmt->bindValue(":shelf",$_POST['equipment_shelf_location']);
+					}
+					else
+					{
+						$stmt->bindValue(":shelf",null);
+					}
+					if(!empty($_POST['equipment_updates']))
+					{
+						$stmt->bindValue(":updates",$_POST['equipment_updates']);
+					}
+					else
+					{
+						$stmt->bindValue(":updates",null);
+					}
+					if(!empty($_POST['equipment_inventory_update_date']))
+					{
+						$stmt->bindValue(":updateDate",$_POST['equipment_inventory_update_date']);
+					}
+					else
+					{
+						$stmt->bindValue(":updateDate",null);
+					}
+					if(!empty($_POST['equipment_description']))
+					{
+						$stmt->bindValue(":description",$_POST['equipment_description']);
+						if(!empty($_POST['equipment_modifications']))
+						{
+							$stmt->bindValue(":modifications",$_POST['equipment_modifications']);
+						}
+						else
+						{
+							$stmt->bindValue(":modifications",null);
+						}
+						if($_POST['equipment_in_out_service'] === 'In')
+						{
+							$stmt->bindValue(":inOut",1);
+						}
+						else
+						{
+							$stmt->bindValue(":inOut",0);
+						}
+						if(!empty($_POST['equipment_potential_projects']))
+						{
+							$stmt->bindValue(":projects",$_POST['equipment_potential_projects']);
+						}
+						else
+						{
+							$stmt->bindValue(":projects",null);
+						}
+						if(!empty($_POST['equipment_tm_value']))
+						{
+							$stmt->bindValue(":tm",$_POST['equipment_tm_value']);
+							if(!empty($_POST['equipment_shipping_value']))
+							{
+								$stmt->bindValue(":shipping",$_POST['equipment_shipping_value']);
+								if(!empty($_POST['equipment_client_value']))
+								{
+									$stmt->bindValue(":client",$_POST['equipment_client_value']);
+								}
+								else
+								{
+									$stmt->bindValue(":client",null);
+								}
+								if(!empty($_POST['equipment_weight']))
+								{
+									$stmt->bindValue(":weight",$_POST['equipment_weight']);
+									if(!empty($_POST['equipment_cost']))
+									{
+										$stmt->bindValue(":cost",$_POST['equipment_cost']);
+									}
+									else
+									{
+										$stmt->bindValue(":cost",null);
+									}
+									if(!empty($_POST['equipment_vendor']))
+									{
+										$stmt->bindValue(":vendor",$_POST['equipment_vendor']);
+									}
+									else
+									{
+										$stmt->bindValue(":vendor",null);
+									}
+									if(!empty($_POST['equipment_manufacturer']))
+									{
+										$stmt->bindValue(":manufacturer",$_POST['equipment_manufacturer']);
+										if(!empty($_POST['equipment_date_of_return']))
+										{
+											$stmt->bindValue(":dateReturn",$_POST['equipment_date_of_return']);
+										}
+										else
+										{
+											$stmt->bindValue(":dateReturn",null);
+										}
+										if(!empty($_POST['equipment_ideal_storage_location']))
+										{
+											$stmt->bindValue(":ideal",$_POST['equipment_ideal_storage_location']);
+										}
+										else
+										{
+											$stmt->bindValue(":ideal",$_POST['equipment_ideal_storage_location']);
+										}
+										$stmt->execute();
+										if(isset($_POST['subset']))
+										{
+											if($_POST['subset'] === 'cal_rack')
+											{
+												$sql = "UPDATE cal_racks SET cal_rack_size = :size WHERE ".
+												       "cal_rack_id = :id;";
+												$stmt = $pdo->prepare($sql);
+												if(!empty($_POST['cal_rack_size']))
+												{
+													$stmt->bindValue(":size",$_POST['cal_rack_size']);
+													$stmt->bindValue(":id",$_POST['save']);
+													$stmt->execute();
+												}
+												else
+												{
+													debug_message("Assembly/Subassembly info not edited, Cal Rack Size has no value");
+												}
+											}
+											elseif($_POST['subset'] === 'bdd')
+											{
+												$sql = "UPDATE bdd_racks SET bdd_tube_rack_size = :size WHERE ".
+												       "bdd_rack_id = :id;";
+												$stmt = $pdo->prepare($sql);
+												if(!empty($_POST['bdd_rack_size']))
+												{
+													$stmt->bindValue(":size",$_POST['bdd_rack_size']);
+													$stmt->bindValue(":id",$_POST['save']);
+													$stmt->execute();
+												}
+												else
+												{
+													debug_message("Assembly/Subassembly info not edited, BDD Tube Rack Size has no value");
+												}
+											}
+											elseif($_POST['subset'] === 'ttd')
+											{
+												$sql = "UPDATE ttd_racks SET ttd_tube_rack_size = :size WHERE ".
+												       "ttd_rack_id = :id;";
+												$stmt = $pdo->prepare($sql);
+												if(!empty($_POST['ttd_rack_size']))
+												{
+													$stmt->bindValue(":size",$_POST['ttd_rack_size']);
+													$stmt->bindValue(":id",$_POST['save']);
+													$stmt->execute();
+												}
+												else
+												{
+													debug_message("Assembly/Subassembly info not edited, TTD Tube Rack Size has no value");
+												}
+											}
+											elseif($_POST['subset'] === 'so_set')
+											{
+												$sql = "UPDATE so_sets SET so_case_number = :case,".
+												       "so_size = :size,so_set_label = :label,".
+												       "so_number_in_set = :number,so_notes = :notes ".
+												       "WHERE so_set_id = :id;";
+												$stmt = $pdo->prepare($sql);
+												if(!empty($_POST['so_case_number']))
+												{
+													$stmt->bindValue(":case",$_POST['so_case_number']);
+													if(!empty($_POST['so_size']))
+													{
+														$stmt->bindValue(":size",$_POST['so_size']);
+														if(!empty($_POST['so_set_label']))
+														{
+															$stmt->bindValue(":label",$_POST['so_set_label']);
+															if(!empty($_POST['so_number_in_set']))
+															{
+																$stmt->bindValue(":number",$_POST['so_number_in_set']);
+																if(!empty($_POST['so_notes']))
+																{
+																	$stmt->bindValue(":notes",$_POST['so_notes']);
+																}
+																else
+																{
+																	$stmt->bindValue(":notes",null);
+																}
+																$stmt->bindValue(":id",$_POST['save']);
+																$stmt->execute();
+															}
+															else
+															{
+																debug_message("Assembly/Subassembly info not edited, SO Number In Set has no value");
+															}
+														}
+														else
+														{
+															debug_message("Assembly/Subassembly info not edited, SO Set Label has no value");
+														}
+													}
+													else
+													{
+														debug_message("Assembly/Subassembly info not edited, SO Size has no value");
+													}
+												}
+												else
+												{
+													debug_message("Assembly/Subassembly info not edited, SO Case Number has no value");
+												}
+											}
+											elseif($_POST['subset'] === 'cal_or')
+											{
+												$sql = "UPDATE cal_or_sets SET cal_or_size = :size,cal_or_set_label = :label,".
+												       "cal_or_total_number_of_or = :total WHERE cal_or_set_id = :id;";
+												$stmt = $pdo->prepare($sql);
+												if(!empty($_POST['cal_or_size']))
+												{
+													$stmt->bindValue(":size",$_POST['cal_or_size']);
+													if(!empty($_POST['cal_or_set_label']))
+													{
+														$stmt->bindValue(":label",$_POST['cal_or_set_label']);
+														if(!empty($_POST['cal_or_total_number_of_or']))
+														{
+															$stmt->bindValue(":total",$_POST['cal_or_total_number_of_or']);
+															$stmt->bindValue(":id",$_POST['save']);
+															$stmt->execute();
+														}
+														else
+														{
+															debug_message("Assembly/Subassembly info not edited, Cal Or Total Number of Or has no value");
+														}
+													}
+													else
+													{
+														debug_message("Assembly/Subassembly info not edited, Cal Or Set Label has no value");
+													}
+												}
+												else
+												{
+													debug_message("Assembly/Subassembly info not edited, Cal Or Size has no value");
+												}
+											}
+											elseif($_POST['subset'] === 'ps')
+											{
+												$sql = "UPDATE pss SET ps_range = :range WHERE ps_id = :id;";
+												$stmt = $pdo->prepare($sql);
+												if(!empty($_POST['ps_range']))
+												{
+													$stmt->bindValue(":range",$_POST['ps_range']);
+													$stmt->bindValue(":id",$_POST['save']);
+													$stmt->execute();
+												}
+												else
+												{
+													debug_message("Assembly/Subassembly info not edited, PS Range has no value");
+												}
+											}
+										}
+										header("location: equipment.php");
+									}
+									else
+									{
+										debug_message("Equipment not edited, manufacturer has no value");
+									}
+								}
+								else
+								{
+									debug_message("Equipment not edited, weight has no value");
+								}
+							}
+							else
+							{
+								debug_message("Equipment not edited, shipping value has no value");
+							}
+						}
+						else
+						{
+							debug_message("Equipment not edited, Tubemaster value has no value");
+						}
+					}
+					else
+					{
+						debug_message("Equipment not edited, description has no value");
+					}
+				}
+				else
+				{
+					debug_message("Equipment not edited, location has no value");
+				}
+			}
+			else
+			{
+				debug_message("Equipment not edited, quantity has no value");
+			}
+		}
+		else
+		{
+			debug_message("Equipment not edited, name has no value");
+		}
+	}
+
+	function checkIfSubset()
+	{
+		$sql = "SELECT * FROM bdd_racks WHERE bdd_rack_id = :id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id", $_POST['edit']);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+		{
+			return array('bdd',$stmt);
+		}
+		
+		$sql = "SELECT * FROM ttd_racks WHERE ttd_rack_id = :id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id", $_POST['edit']);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+		{
+			return array('ttd',$stmt);
+		}
+
+		$sql = "SELECT * FROM cal_racks WHERE cal_rack_id =:id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id", $_POST['edit']);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+		{
+			return array('cal_rack',$stmt);
+		}
+
+		$sql = "SELECT * FROM so_sets WHERE so_set_id =:id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id", $_POST['edit']);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+		{
+			return array('so_set', $stmt);
+		}
+
+		$sql = "SELECT * FROM cal_or_sets WHERE cal_or_set_id =:id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id", $_POST['edit']);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+		{
+			return array('cal_or', $stmt);
+		}
+
+		$sql = "SELECT * FROM pss WHERE ps_id =:id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id", $_POST['edit']);
+		$stmt->execute();
+		if($stmt->rowCount() > 0)
+		{
+			return array('ps', $stmt);
+		}
+		return null;
+	}
+
+	function createSubsetInputs()
+	{
+		$array = checkIfSubset();
+		if($array !== null)
+		{
+			echo "<h3>Assembly/Subassembly Type</h3></br>";
+			$row = $array[1]->fetch();
+			echo "<input type='hidden' name='subset' value='".$array[0]."'>";
+			if ($array[0] === 'cal_rack')
+			{
+				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Rack</strong></br>".
+				 	   "<label>Cal Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
+					   "name='cal_rack_size' value='".$row['cal_rack_size']."' maxlength='20'>";
+			}
+			elseif($array[0] === 'bdd')
+			{
+				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Blowdown Rack (BDD Rack)</strong></br>".
+				 	   "<label>BDD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
+					   "name='bdd_rack_size' value='".$row['bdd_rack_size']."' maxlength='20'>";
+			}
+			elseif($array[0] === 'ttd')
+			{
+				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Tube Test Device Rack (TTD Rack)</strong></br>".
+				 	   "<label>TTD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
+					   "name='ttd_rack_size' value='".$row['ttd_rack_size']."'  maxlength='20'>";
+			}
+			elseif($array[0] === 'ps')
+			{
+				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Pressure Sensor (PS)</strong></br>".
+				 	   "<label>PS Range<span style='color:red'>*</span>:</label><input type='text' ".
+					   "name='ps_range' value='".$row['ps_range']."' maxlength='50'>";
+			}
+			elseif($array[0] === 'so_set')
+			{
+				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Supply Orifice Set (SO Set)</strong></br>".
+				 	   "<label>SO Case Number<span style='color:red'>*</span>:</label><input type='number' ".
+					   "name='so_case_number' min='0' value='".$row['so_case_number']."'></br>".
+
+					   "<label>SO Size<span style='color:red'>*</span>:</label><input type='number' ".
+					   "name='so_size' min='0.001' step='0.001' value='".$row['so_size']."'></br>".
+
+					   "<label>SO Set Label<span style='color:red'>*</span>:</label><input type='text' ".
+					   "name='so_set_label' value='".$row['so_set_label']."' maxlength='10'></br>".
+
+					   "label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' ".
+					   "name='so_number' min='0' value='".$row['so_number_in_set']."'></br>".
+
+					   "<label>SO Set Notes:<label><textarea name='so_notes' cols='50' ".
+					   "rows='4' maxlength='200'>".$row['so_notes']."</textarea>";
+			}
+			elseif($array[0] === 'cal_or')
+			{
+				$inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Orifice Set (Cal Or Set)</strong></br>".
+					  "<label>Cal Or Size<span style='color:red'>*</span>:</label><input type='number' ".
+					  "name='cal_or_size' min='0.001' step='0.001' value='".$row['cal_or_size']."'></br>".
+
+					  "<label>Cal Or Set Label<span style='color:red'>*</span>:</label><input type='text' ".
+					  "name='cal_or_set_label' value='".$row['cal_or_set_label']."' maxlength='10'></br>".
+
+					  "<label>Cal Or Total Number of Or<span style='color:red'>*</span>:</label><input type='number' ".
+					  "name='cal_or_total_number_of_or' min='0' value='".$row['cal_or_total_number_of_or']."'>";
+			}
+			else
+			{
+				$inputs = "";
+			}
+			return $inputs;
+		}
+	}
+
+
+
+			
+
 	function buildRepairTable()
 	{
-		return "I will build the equipment's repair logs here";
+		$sql = "SELECT repair_id, repair_date, incident_occured FROM repairs ".
+		       "WHERE equipment_id = :id;";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(":id",$_POST['edit']);
+		$stmt->execute();
+		$headers = "<div id='constrainer'><div class='hscrolltable'>".
+			   "<table class='header center'><thead>".
+			   "<th style='width:125px'>Repair Info</th><th>Repair Date</th>".
+			   "<th>Incident Occurred</th></thead></table>";
+		$data = "<div class='body'><table class='center'><tbody>";
+		while ($row = $stmt->fetch())
+		{
+			$data .= "<tr><td style='width:125px'>".
+			      	 "<button style='width:100%' type='submit' name='repair'".
+				 " value='".$row['repair_id']."' formaction='repair.php'>".
+				 "View/Edit</button></td>";
+
+			$data .= "<td>".$row['repair_date']."</td>";
+			$data .= "<td>".$row['incident_occured']."</td></tr>";
+		}
+		$data .= "</tbody></table></div></div></div>";
+		return $headers.$data;
 	}
 
 	function queryEquipment()
@@ -37,7 +528,7 @@
 		$stmt = queryEquipment();
 		$row = $stmt->fetch();
 
-                $inputHTML = "<fieldset></br><form  method='post' action='equipment.php'>".
+                $inputHTML = "<fieldset></br>".
 		"<label>Equipment ID:</label>#<strong>".$row['equipment_id']."</strong></br><label>Equipment Name<span style='color:red'>*</span>:</label><input type='text' name=".
                 "'equipment_name' value='".$row['equipment_name']."' maxlength='256'>".
 
@@ -118,8 +609,8 @@
 		"<input type='text' name='equipment_ideal_storage_location' value='".
 		$row['equipment_ideal_storage_location']."' maxlength='100'></br></br>".
 
-                "<button style='margin-left:120px' type='submit' name='edit_equipment' value='".$row['equipment_id']."'>Save Equipment Info</button>".
-		"</br></br></fieldset></form>";
+                "<button style='margin-left:120px' type='submit' name='save' value='".$row['equipment_id']."'>Save Equipment Info</button>".
+		"</br></br></fieldset>";
 		return $inputHTML;
 	}
 							 
@@ -133,12 +624,12 @@
 		border-collapse: collapse;
 		text-align: left;
 		table-layout: fixed;
-		width: 100%;
+		width: 99%;
 	}
 	th, td
 	{
 		border:1px solid black;
-		width: 200px;
+		width: 150px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -151,7 +642,7 @@
 	}
 	.hscrolltable
 	{
-		overflow-x: scroll;
+		overflow-x:auto;
 		height: 100%;
 	}
 
@@ -192,12 +683,19 @@
 
 
 <h1>Equipment Info</h1>
-<div class="container" style="width: 100%;">
-<div class="table" style="width:45%;float:right">
+<div class="container" style="width: 100%; min-width:1300px">
+<div class="table" style="width:47%;float:right">
+<form method='post' action='equipment_info.php'>
+<?php echo createSubsetInputs() ?>
+</br>
+</br>
+<hr>
+</br>
 <?php echo buildRepairTable()?>
 </div>
 <div class="content">
 <?php echo createInputs();?>
+</form>
 </div>
 </div>
 <?php tail(); ?>
