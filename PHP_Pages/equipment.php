@@ -125,6 +125,150 @@
 				return $inputHTML;
 	}
 
+	 function unsetPOSTValues($safeName)
+	 {
+                 if(isset($_POST['cal_rack_size']) && 'cal_rack_size' !== $safeName)
+	         {
+                         unset($_POST['cal_rack_size']);
+                 }
+		 if(isset($_POST['bdd_rack_size']) && 'bdd_rack_size' !== $safeName)
+                 {
+                         unset($_POST['bdd_rack_size']);
+                 }
+                 if(isset($_POST['ttd_rack_size']) && 'ttd_rack_size' !== $safeName)
+                 {
+                         unset($_POST['ttd_rack_size']);
+                 }
+                 if(isset($_POST['so_case_number']) && 'so_case_number' !== $safeName)
+                 {
+                         unset($_POST['so_case_number']);
+                         unset($_POST['so_size']);
+                         unset($_POST['so_set_label']);
+                         unset($_POST['so_number']);
+                         unset($_POST['so_notes']);
+                 }
+                 if(isset($_POST['cal_or_size']) && 'cal_or_size' !== $safeName)
+                 {
+                         unset($_POST['cal_or_size']);
+                         unset($_POST['cal_or_set_label']);
+                         unset($_POST['cal_or_total_number_of_or']);
+                 }
+                 if(isset($_POST['ps_range']) && 'ps_range' !== $safeName)
+                 {
+                         unset($_POST['ps_range']);
+                 }																						     }
+																																																																										 
+
+	function createSubsetInputs()
+	{
+		if(isset($_POST['cal_rack_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'cal_rack'))
+		{
+			unsetPOSTValues('cal_rack_size');
+			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Rack</strong></br>".
+			 	  "<label>Cal Rack Size<span style='color:red'>*</span>:</label><input type='text' name='cal_rack_size' value='".getInputValue('cal_rack_size')."' maxlength='20'>";
+		}
+		elseif(isset($_POST['bdd_rack_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'bdd_rack'))
+		{
+			unsetPOSTValues('bdd_rack_size');
+			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Blowdown Rack (BDD Rack)</strong></br>".
+			  	  "<label>BDD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' name='bdd_rack_size' value='".getInputValue('bdd_rack_size')."' maxlength='20'>";
+		}
+		elseif(isset($_POST['ttd_rack_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'ttd_rack'))
+		{
+			unsetPOSTValues('ttd_rack_size');
+			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Tube Test Device Rack (TTD Rack)</strong></br>".
+			  	  "<label>TTD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' name='ttd_rack_size' value='".getInputValue('ttd_rack_size')."'  maxlength='20'>";
+		}
+		elseif(isset($_POST['so_case_number']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'so_set'))
+		{
+			unsetPOSTValues('so_case_number');
+			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Supply Orifice Set (SO Set)</strong></br>".
+			  	  "<label>SO Case Number<span style='color:red'>*</span>:</label><input type='number' name='so_case_number' min='0' value='".getInputValue('so_case_number')."'></br>".
+			 	  "<label>SO Size<span style='color:red'>*</span>:</label><input type='number' name='so_size' min='0.001' step='0.001' value='".getInputValue('so_size')."'></br>".
+			  	  "<label>SO Set Label<span style='color:red'>*</span>:</label><input type='text' name='so_set_label' value='".getInputValue('so_set_label')."' maxlength='10'></br>".
+				  "label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' name='so_number' min='0' value='".getInputValue('so_number')."'></br>".
+			  	  "<label>SO Set Notes:<label><textarea name='so_notes' cols='50' rows='4' maxlength='200'>".getInputValue('so_notes')."</textarea>";
+		}
+		elseif(isset($_POST['ps_range']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'ps'))
+		{
+			unsetPOSTValues('ps_range');
+			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Pressure Sensor (PS)</strong></br>".
+			 	  "<label>PS Range<span style='color:red'>*</span>:</label><input type='text' name='ps_range' value='".getInputValue('ps_range')."' maxlength='50'>";
+		}
+		elseif(isset($_POST['cal_or_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'cal_or_set'))
+		{
+			unsetPOSTValues('cal_or_size');
+			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Orifice Set (Cal Or Set)</strong></br>".
+			  	  "<label>Cal Or Size<span style='color:red'>*</span>:</label><input type='number' name='cal_or_size' min='0.001' step='0.001' value='".getInputValue('cal_or_size')."'></br>".
+			  	  "<label>Cal Or Set Label<span style='color:red'>*</span>:</label><input type='text' name='cal_or_set_label' value='".getInputValue('cal_or_set_label')."' maxlength='10'></br>".
+			  	  "<label>Cal Or Total Number of Or<span style='color:red'>*</span>:</label><input type='number' name='cal_or_total_number_of_or' min='0' value='".getInputValue('cal_or_total_number_of_or')."'>";
+		}
+		else
+		{
+			$inputs = "";
+		}
+		return $inputs;
+	}
+	function createSubsetButtons()
+	{
+		$calRack = "<button name='subset_type' style='margin-left:10px;margin-right:10px;width:100px' value='cal_rack'>Cal Rack</button>";
+		$bddRack = "<button name='subset_type' style='margin-left:10px;margin-right:10px;width:100px' value='bdd_rack'>BDD Rack</button>";
+		$tddRack = "<button name='subset_type' style='margin-left:10px;margin-right:10px;margin-bottom:10px;width:100px' value='ttd_rack'>TTD Rack</button></br>";
+		$soSet = "<button name='subset_type' style='margin-left:10px;margin-right:10px;width:100px' value='so_set'>SO Set</button>";
+		$calOrSet = "<button name='subset_type' style='margin-left:10px;margin-right:10px;width:100px' value='cal_or_set'>Cal Or Set</button>";
+		$ps = "<button name='subset_type' style='margin-left:10px;margin-right:10px;margin-bottom:30px;width:100px' value='ps'>PS</button></br>";
+		return $calRack.$bddRack.$tddRack.$soSet.$calOrSet.$ps;
+	}
+	function getSubsetValues()
+	{
+		if(isset($_POST['cal_rack_size']))
+		{
+			$array = ["cal_rack_size"=>$_POST['cal_rack_size']];
+		}
+		elseif(isset($_POST['bdd_rack_size']))
+		{
+			$array = [
+			       "bdd_rack_size" => $_POST['bdd_rack_size']
+			];
+		}
+		elseif(isset($_POST['ttd_rack_size']))
+		{
+			$array = [
+			       "ttd_rack_size" => $_POST['ttd_rack_size']
+			];
+		}
+		elseif(isset($_POST['so_case_number']))
+		{
+			$array = [
+			       "so_case_number" => $_POST['so_case_number'],
+			       "so_size" => $_POST['so_size'],
+			       "so_set_label" => $_POST['so_set_label'],
+			       "so_number" => $_POST['so_number'],
+			       "so_notes" => $_POST['so_notes']
+			];
+		}
+		elseif(isset($_POST['cal_or_size']))
+		{
+			$array = [
+			       "cal_or_size" => $_POST['cal_or_size'],
+			       "cal_or_set_label" => $_POST['cal_or_set_label'],
+			       "cal_or_total_number_of_or" => $_POST['cal_or_total_number_of_or']
+			];
+		}
+		elseif(isset($_POST['ps_range']))
+		{
+			$array = [
+			       "ps_range" => $_POST['ps_range']
+			];
+		}
+		else
+		{
+			$array = null;
+		}
+		return $array;
+	}
+		
+
 ?>
 
 
@@ -186,7 +330,7 @@
 	fieldset
 	{
 		border:none;
-		width:100%;
+		width:70%;
 		margin:0px;
 	}
 </style>
@@ -210,6 +354,7 @@
 		$vendor = null;
 		$returnDate = null;
 		$ideal = null;
+		$subsetDict = null;
 		if(!empty($_POST['equipment_name']))
 		{
 			$name = $_POST['equipment_name'];
@@ -234,99 +379,180 @@
 									if(!empty($_POST['equipment_manufacturer']))
 									{
 										$manufacturer = $_POST['equipment_manufacturer'];
-										if(!empty($_POST['equipment_sn']))
+										$continue = true;
+										
+										$subsetDict = getSubsetValues();
+										if($subsetDict !== null)
 										{
-											$sn = $_POST['equipment_sn'];
+											foreach($subsetDict as $key=>$value)
+											{
+												if(empty($value) && $key !== 'so_notes')
+												{
+													$continue = false;
+													debug_message("Equipment not added, assembly/subassembly field ".$key." was not given a value");
+												}
+											}
 										}
-										if(!empty($_POST['equipment_notes']))
+										if($continue)
 										{
-											$notes = $_POST['equipment_notes'];
-										}
-										if(!empty($_POST['equipment_shelf_location']))
-										{
-											$shelfLocation = $_POST['equipment_shelf_location'];
-										}
-										if(!empty($_POST['equipment_updates']))
-										{
-											$updates = $_POST['equipment_updates'];
-										}
-										if(!empty($_POST['equipment_inventory_update_date']))
-										{
-											$update_date = $_POST['equipment_inventory_update_date'];
-										}
-										if(!empty($_POST['equipment_modifications']))
-										{
-											$modification = $_POST['equipment_modifications'];
-										}
-										if(!empty($_POST['equipment_potential_projects']))
-										{
-											$projects = $_POST['equipment_potential_projects'];
-										}
-										if(!empty($_POST['equipment_client_value']))
-										{
-											$clientValue = $_POST['equipment_client_value'];
-										}
-										if(!empty($_POST['equipment_cost']))
-										{
-											$cost = $_POST['equipment_cost'];
-										}
-										if(!empty($_POST['equipment_vendor']))
-										{
-											$vendor = $_POST['equipment_vendor'];
-										}
-										if(!empty($_POST['equipment_date_of_return']))
-										{
-											$returnDate = $_POST['equipment_date_of_return'];
-										}
-										if(!empty($_POST['equipment_ideal_storage_location']))
-										{
-											$ideal = $_POST['equipment_ideal_storage_location'];
-										}
-										$sql = "INSERT INTO equipment (equipment_name,equipment_sn,".
-										"equipment_quantity,equipment_notes,equipment_tag,equipment_location,".
-										"equipment_shelf_location,equipment_updates,equipment_inventory_update_date,".
-										"equipment_description,equipment_modifications,equipment_in_out_of_service,".
-										"equipment_potential_projects,equipment_tubemaster_value,equipment_shipping_value,".
-										"equipment_client_value,equipment_weight,equipment_cost,equipment_vendor,".
-										"equipment_manufacturer,equipment_date_of_return,equipment_ideal_storage_location)VALUES".
-										"(:name,:sn,:quantity,:notes,:tag,:location,:shelf,:updates,".
-										":updateDate,:description,:modifications,:inOut,:projects,".
-										":TMValue,:shipping,:client,:weight,:cost,:vendor,".
-										":manufacturer,:returnDate,:ideal);";
+											if(!empty($_POST['equipment_sn']))
+											{
+												$sn = $_POST['equipment_sn'];
+											}
+											if(!empty($_POST['equipment_notes']))
+											{
+												$notes = $_POST['equipment_notes'];
+											}
+											if(!empty($_POST['equipment_shelf_location']))
+											{
+												$shelfLocation = $_POST['equipment_shelf_location'];
+											}
+											if(!empty($_POST['equipment_updates']))
+											{
+												$updates = $_POST['equipment_updates'];
+											}
+											if(!empty($_POST['equipment_inventory_update_date']))
+											{
+												$update_date = $_POST['equipment_inventory_update_date'];
+											}
+											if(!empty($_POST['equipment_modifications']))
+											{
+												$modification = $_POST['equipment_modifications'];
+											}
+											if(!empty($_POST['equipment_potential_projects']))
+											{
+												$projects = $_POST['equipment_potential_projects'];
+											}
+											if(!empty($_POST['equipment_client_value']))
+											{
+												$clientValue = $_POST['equipment_client_value'];
+											}
+											if(!empty($_POST['equipment_cost']))
+											{
+												$cost = $_POST['equipment_cost'];
+											}
+											if(!empty($_POST['equipment_vendor']))
+											{	
+												$vendor = $_POST['equipment_vendor'];
+											}
+											if(!empty($_POST['equipment_date_of_return']))
+											{
+												$returnDate = $_POST['equipment_date_of_return'];
+											}
+											if(!empty($_POST['equipment_ideal_storage_location']))
+											{
+												$ideal = $_POST['equipment_ideal_storage_location'];
+											}
+											$sql = "INSERT INTO equipment (equipment_name,equipment_sn,".
+											"equipment_quantity,equipment_notes,equipment_tag,equipment_location,".
+											"equipment_shelf_location,equipment_updates,equipment_inventory_update_date,".
+											"equipment_description,equipment_modifications,equipment_in_out_of_service,".
+											"equipment_potential_projects,equipment_tubemaster_value,equipment_shipping_value,".
+											"equipment_client_value,equipment_weight,equipment_cost,equipment_vendor,".
+											"equipment_manufacturer,equipment_date_of_return,equipment_ideal_storage_location)VALUES".
+											"(:name,:sn,:quantity,:notes,:tag,:location,:shelf,:updates,".
+											":updateDate,:description,:modifications,:inOut,:projects,".
+											":TMValue,:shipping,:client,:weight,:cost,:vendor,".
+											":manufacturer,:returnDate,:ideal);";
 
-										$stmt = $pdo->prepare($sql);
-										$stmt->bindValue(":name",$name);
-										$stmt->bindValue(":sn",$sn);
-										$stmt->bindValue(":quantity",$quantity);
-										$stmt->bindValue(":notes",$notes);
-										$stmt->bindValue(":tag",$_POST['equipment_tag']);
-										$stmt->bindValue(":location",$location);
-										$stmt->bindValue(":shelf",$shelfLocation);
-										$stmt->bindValue(":updates",$updates);
-										$stmt->bindValue(":updateDate",$update_date);
-										$stmt->bindValue(":description",$description);
-										$stmt->bindValue(":modifications",$modification);
-										if($_POST['equipment_in_out_service'] === 'In')
-										{
-											$stmt->bindValue(":inOut",1);
+											$stmt = $pdo->prepare($sql);
+											$stmt->bindValue(":name",$name);
+											$stmt->bindValue(":sn",$sn);
+											$stmt->bindValue(":quantity",$quantity);
+											$stmt->bindValue(":notes",$notes);
+											$stmt->bindValue(":tag",$_POST['equipment_tag']);
+											$stmt->bindValue(":location",$location);
+											$stmt->bindValue(":shelf",$shelfLocation);
+											$stmt->bindValue(":updates",$updates);
+											$stmt->bindValue(":updateDate",$update_date);
+											$stmt->bindValue(":description",$description);
+											$stmt->bindValue(":modifications",$modification);
+											if($_POST['equipment_in_out_service'] === 'In')
+											{
+												$stmt->bindValue(":inOut",1);
+											}
+											else
+											{
+												$stmt->bindValue(":inOut",0);
+											}
+											$stmt->bindValue(":projects",$projects);
+											$stmt->bindValue(":TMValue",$tmValue);
+											$stmt->bindValue(":shipping",$shippingValue);
+											$stmt->bindValue(":client",$clientValue);
+											$stmt->bindValue(":weight",$weight);
+											$stmt->bindValue(":cost",$cost);
+											$stmt->bindValue(":vendor",$vendor);
+											$stmt->bindValue(":manufacturer",$manufacturer);
+											$stmt->bindValue(":returnDate",$returnDate);
+											$stmt->bindValue(":ideal",$ideal);
+											$stmt->execute();
+
+											
+											if(isset($_POST['cal_rack_size']))
+											{
+												$sql = "INSERT INTO cal_racks VALUES (:id, :size);";
+												$stmt = $pdo->prepare($sql);
+												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":size", $_POST['cal_rack_size']);
+												$stmt->execute();
+											}
+											elseif(isset($_POST['bdd_rack_size']))
+											{
+												$sql = "INSERT INTO bdd_racks VALUES (:id, :size);";
+												$stmt = $pdo->prepare($sql);
+												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":size", $_POST['bdd_rack_size']);
+												$stmt->execute();
+											}
+											elseif(isset($_POST['ttd_rack_size']))
+											{
+												$sql = "INSERT INTO ttd_racks VALUES (:id, :size);";
+												$stmt = $pdo->prepare($sql);
+												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":size", $_POST['ttd_rack_size']);
+												$stmt->execute();
+											}
+											elseif(isset($_POST['so_case_number']))
+											{
+												$sql = "INSERT INTO so_sets VALUES (:id,:case,:size,:label,:number,:notes);";
+												$stmt = $pdo->prepare($sql);
+												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":case", $_POST['so_case_number']);
+												$stmt->bindValue(":size", $_POST['so_size']);
+												$stmt->bindValue(":label", $_POST['so_set_label']);
+												$stmt->bindValue(":number", $_POST['so_number']);
+												if(empty($_POST['so_notes']))
+												{
+													$stmt->bindValue(":notes", null);
+												}
+												else
+												{
+													$stmt->bindValue(":notes", $_POST['so_notes']);
+												}
+												$stmt->execute();
+											}
+											elseif(isset($_POST['cal_or_size']))
+											{
+												$sql = "INSERT INTO cal_or_sets VALUES (:id,:size,:label,:total);";
+												$stmt = $pdo->prepare($sql);
+												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":size", $_POST['cal_or_size']);
+												$stmt->bindValue(":label",$_POST['cal_or_set_label']);
+												$stmt->bindValue(":total",$_POST['cal_or_total_numbe_of_or']);
+												$stmt->execute();
+											}
+											elseif(isset($_POST['ps_range']))
+											{
+												$sql = "INSERT INTO pss VALUES (:id, :range);";
+												$stmt = $pdo->prepare($sql);
+												$stmt->bindValue(":id",$_POST['equipment_id']);
+												$stmt->bindValue(":range",$_POST['ps_range']);
+												$stmt->execute();
+											}
+							
+											setSuccess(true);
+											header('location: equipment.php');
 										}
-										else
-										{
-											$stmt->bindValue(":inOut",0);
-										}
-										$stmt->bindValue(":projects",$projects);
-										$stmt->bindValue(":TMValue",$tmValue);
-										$stmt->bindValue(":shipping",$shippingValue);
-										$stmt->bindValue(":client",$clientValue);
-										$stmt->bindValue(":weight",$weight);
-										$stmt->bindValue(":cost",$cost);
-										$stmt->bindValue(":vendor",$vendor);
-										$stmt->bindValue(":manufacturer",$manufacturer);
-										$stmt->bindValue(":returnDate",$returnDate);
-										$stmt->bindValue(":ideal",$ideal);
-										$stmt->execute();
-										setSuccess(true);
-										header('location: equipment.php');
 									}
 									else
 									{
@@ -489,9 +715,16 @@
 </form>
 <hr>
 <h2 style='font: 20px'>Add New Equipment</h2>
+<div style="display: inline-block;width:50%;white-space:nowrap">
 <form method='post' action='equipment.php'>
 <?php echo createAddInputs();?>
+</div>
+<div style="display: inline-block;float:right;width:50%;white-space:nowrap">
+<h3>Assembly/Subassembly Type</h3>
+<?php echo createSubsetButtons() ?>
+<?php echo createSubsetInputs() ?>
 </form>
+</div>
 <?php
 	tail();
 ?>
