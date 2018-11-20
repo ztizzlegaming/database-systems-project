@@ -729,6 +729,12 @@ CREATE TABLE project_equipment (
                                    DEFAULT 1
     );
 
+/* Populate the project_equipment table */
+INSERT INTO project_equipment
+VALUES (1, 1, DEFAULT),
+       (1, 2, DEFAULT);
+
+/* Create the Packing Lst View */
 CREATE VIEW packing_lists
 AS
 SELECT revision_number, client_company_name, reactor_name, project_start_date, number_of_rows, number_of_tubes, tube_seal_size, tube_inner_diameter, reactor_pitch, expected_pressure_drop, number_of_thermocouples, supply_orifice_size, calibration_orifice_size, calibrate_ttd_to, supply_pressure
