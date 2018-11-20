@@ -4,6 +4,8 @@
 */
 CREATE EXTENSION pgcrypto;
 
+DROP VIEW IF EXISTS packing_lists;
+DROP TABLE IF EXISTS project_equipment;
 DROP TABLE IF EXISTS problematic_ttds;
 DROP VIEW IF EXISTS all_ttds;
 DROP TABLE IF EXISTS assembly_parts;
@@ -21,16 +23,17 @@ DROP TABLE IF EXISTS cal_or_sets;
 DROP TABLE IF EXISTS repairs;
 DROP TABLE IF EXISTS equipment;
 
+DROP TABLE IF EXISTS PDSpecs;
+DROP TABLE IF EXISTS projects_personnels;
+DROP TABLE IF EXISTS projects; 
+DROP TABLE IF EXISTS TMpersonnels;
+
 DROP TABLE IF EXISTS reactor_zones;
-DROP TABLE IF EXISTS reactors;
+DROP TABLE IF EXISTS reactors; 
 DROP TABLE IF EXISTS units;
 DROP TABLE IF EXISTS plants;
 DROP TABLE IF EXISTS clients;
-DROP TABLE IF EXISTS PDSpecs;
 
-DROP TABLE IF EXISTS TMpersonnels CASCADE;
-DROP TABLE IF EXISTS Projects CASCADE; 
-DROP TABLE IF EXISTS projects_personnels CASCADE; 
 
 
 /*Creates table Equipment, holding onto info of all of TMs inventory*/
@@ -403,9 +406,9 @@ CREATE TABLE reactors (
     calibrate_ttd_to             NUMERIC(10, 3)
                                    CONSTRAINT positive_calibrate_ttd_to
                                    CHECK(calibrate_ttd_to > 0),
-    calibration_orfice_size      NUMERIC(10, 3) NOT NULL
-                                   CONSTRAINT positive_calibration_orfice_size
-                                   CHECK(calibration_orfice_size >= 0),
+    calibration_orifice_size      NUMERIC(10, 3) NOT NULL
+                                   CONSTRAINT positive_calibration_orifice_size
+                                   CHECK(calibration_orifice_size >= 0),
     catalyst_brand               VARCHAR(255),
     catalyst_change_coordinator  VARCHAR(255),
     catalyst_size                VARCHAR(255),
@@ -483,11 +486,11 @@ CREATE TABLE reactors (
                                    CHECK(tube_spacing >= 0)
 );
 
-INSERT INTO reactors (unit_id, calibration_orfice_size, expected_pressure_drop,
+INSERT INTO reactors (unit_id, calibration_orifice_size, expected_pressure_drop,
   number_of_coolant_tubes, outage, supply_orifice_size, tube_spacing)
 VALUES (1, 1.24, 5, 10, 5.3, 4.2, 7.8); -- Test something negative
 
-INSERT INTO reactors (unit_id, calibration_orfice_size, expected_pressure_drop,
+INSERT INTO reactors (unit_id, calibration_orifice_size, expected_pressure_drop,
   number_of_coolant_tubes, outage, supply_orifice_size, tube_spacing)
 VALUES (1, -1.24, 5, 10, 5.3, 4.2, 7.8); -- Test something negative, this won't work
 
@@ -714,3 +717,29 @@ CREATE TABLE problematic_ttds (
     reactor_id                      INT NOT NULL
                                     REFERENCES reactors (reactor_id)
     );
+
+/* Create the linking table between project and equipment */
+CREATE TABLE project_equipment (
+    PRIMARY KEY (project_id, equipment_id, revision_number),
+    project_id                     INT NOT NULL
+                                   REFERENCES projects (project_id),
+    equipment_id                   INT NOT NULL
+                                   REFERENCES equipment (equipment_id),
+    revision_number                INT NOT NULL
+                                   DEFAULT 1
+    );
+
+CREATE VIEW packing_lists
+AS
+SELECT revision_number, client_company_name, reactor_name, project_start_date, number_of_rows, number_of_tubes, tube_seal_size, tube_inner_diameter, reactor_pitch, expected_pressure_drop, number_of_thermocouples, supply_orifice_size, calibration_orifice_size, calibrate_ttd_to, supply_pressure
+  FROM reactors
+       NATURAL JOIN projects
+       NATURAL JOIN project_equipment
+       NATURAL JOIN equipment
+       NATURAL JOIN units
+       NATURAL JOIN plants
+       NATURAL JOIN clients
+ORDER BY equipment_id;
+
+
+
