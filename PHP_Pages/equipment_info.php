@@ -164,6 +164,7 @@
 													$stmt->bindValue(":size",$_POST['cal_rack_size']);
 													$stmt->bindValue(":id",$_POST['save']);
 													$stmt->execute();
+													header("location: equipment.php");
 												}
 												else
 												{
@@ -180,6 +181,7 @@
 													$stmt->bindValue(":size",$_POST['bdd_rack_size']);
 													$stmt->bindValue(":id",$_POST['save']);
 													$stmt->execute();
+													header("location: equipment.php");
 												}
 												else
 												{
@@ -196,10 +198,11 @@
 													$stmt->bindValue(":size",$_POST['ttd_rack_size']);
 													$stmt->bindValue(":id",$_POST['save']);
 													$stmt->execute();
+													header("location: equipment.php");
 												}
 												else
 												{
-													debug_message("Assembly/Subassembly info not edited, TTD Tube Rack Size has no value");
+													debug_message("Assembly/Subassembly info not edited, TTD Tube Rack Size had no value");
 												}
 											}
 											elseif($_POST['subset'] === 'so_set')
@@ -231,25 +234,26 @@
 																}
 																$stmt->bindValue(":id",$_POST['save']);
 																$stmt->execute();
+																header("location: equipment.php");
 															}
 															else
 															{
-																debug_message("Assembly/Subassembly info not edited, SO Number In Set has no value");
+																debug_message("Assembly/Subassembly info not edited, SO Number In Set had no value");
 															}
 														}
 														else
 														{
-															debug_message("Assembly/Subassembly info not edited, SO Set Label has no value");
+															debug_message("Assembly/Subassembly info not edited, SO Set Label had no value");
 														}
 													}
 													else
 													{
-														debug_message("Assembly/Subassembly info not edited, SO Size has no value");
+														debug_message("Assembly/Subassembly info not edited, SO Size had no value");
 													}
 												}
 												else
 												{
-													debug_message("Assembly/Subassembly info not edited, SO Case Number has no value");
+													debug_message("Assembly/Subassembly info not edited, SO Case Number had no value");
 												}
 											}
 											elseif($_POST['subset'] === 'cal_or')
@@ -268,20 +272,21 @@
 															$stmt->bindValue(":total",$_POST['cal_or_total_number_of_or']);
 															$stmt->bindValue(":id",$_POST['save']);
 															$stmt->execute();
+															header("location: equipment.php");
 														}
 														else
 														{
-															debug_message("Assembly/Subassembly info not edited, Cal Or Total Number of Or has no value");
+															debug_message("Assembly/Subassembly info not edited, Cal Or Total Number of Or had no value");
 														}
 													}
 													else
 													{
-														debug_message("Assembly/Subassembly info not edited, Cal Or Set Label has no value");
+														debug_message("Assembly/Subassembly info not edited, Cal Or Set Label had no value");
 													}
 												}
 												else
 												{
-													debug_message("Assembly/Subassembly info not edited, Cal Or Size has no value");
+													debug_message("Assembly/Subassembly info not edited, Cal Or Size had no value");
 												}
 											}
 											elseif($_POST['subset'] === 'ps')
@@ -293,53 +298,57 @@
 													$stmt->bindValue(":range",$_POST['ps_range']);
 													$stmt->bindValue(":id",$_POST['save']);
 													$stmt->execute();
+													header("location: equipment.php");
 												}
 												else
 												{
-													debug_message("Assembly/Subassembly info not edited, PS Range has no value");
+													debug_message("Assembly/Subassembly info not edited, PS Range had no value");
 												}
 											}
 										}
-										header("location: equipment.php");
+										else
+										{
+											header("location: equipment.php");
+										}
 									}
 									else
 									{
-										debug_message("Equipment not edited, manufacturer has no value");
+										debug_message("Equipment not edited, manufacturer had no value");
 									}
 								}
 								else
 								{
-									debug_message("Equipment not edited, weight has no value");
+									debug_message("Equipment not edited, weight had no value");
 								}
 							}
 							else
 							{
-								debug_message("Equipment not edited, shipping value has no value");
+								debug_message("Equipment not edited, shipping value had no value");
 							}
 						}
 						else
 						{
-							debug_message("Equipment not edited, Tubemaster value has no value");
+							debug_message("Equipment not edited, Tubemaster value had no value");
 						}
 					}
 					else
 					{
-						debug_message("Equipment not edited, description has no value");
+						debug_message("Equipment not edited, description had no value");
 					}
 				}
 				else
 				{
-					debug_message("Equipment not edited, location has no value");
+					debug_message("Equipment not edited, location had no value");
 				}
 			}
 			else
 			{
-				debug_message("Equipment not edited, quantity has no value");
+				debug_message("Equipment not edited, quantity had no value");
 			}
 		}
 		else
 		{
-			debug_message("Equipment not edited, name has no value");
+			debug_message("Equipment not edited, name had no value");
 		}
 	}
 
@@ -409,6 +418,7 @@
 			echo "<h3>Assembly/Subassembly Type</h3></br>";
 			$row = $array[1]->fetch();
 			echo "<input type='hidden' name='subset' value='".$array[0]."'>";
+			echo "<input type='hidden' name='edit' value='".$_POST['edit']."'>";
 			if ($array[0] === 'cal_rack')
 			{
 				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Rack</strong></br>".
@@ -684,8 +694,8 @@
 
 <h1>Equipment Info</h1>
 <div class="container" style="width: 100%; min-width:1300px">
-<div class="table" style="width:47%;float:right">
 <form method='post' action='equipment_info.php'>
+<div class="table" style="width:47%;float:right">
 <?php echo createSubsetInputs() ?>
 </br>
 </br>
@@ -695,7 +705,7 @@
 </div>
 <div class="content">
 <?php echo createInputs();?>
-</form>
 </div>
+</form>
 </div>
 <?php tail(); ?>
