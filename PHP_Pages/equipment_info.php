@@ -429,13 +429,13 @@
 			{
 				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Blowdown Rack (BDD Rack)</strong></br>".
 				 	   "<label>BDD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
-					   "name='bdd_rack_size' value='".$row['bdd_rack_size']."' maxlength='20'>";
+					   "name='bdd_rack_size' value='".$row['bdd_tube_rack_size']."' maxlength='20'>";
 			}
 			elseif($array[0] === 'ttd')
 			{
 				 $inputs = "<label>Assembly/Subassembly Type:</label><strong>Tube Test Device Rack (TTD Rack)</strong></br>".
 				 	   "<label>TTD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
-					   "name='ttd_rack_size' value='".$row['ttd_rack_size']."'  maxlength='20'>";
+					   "name='ttd_rack_size' value='".$row['ttd_tube_rack_size']."'  maxlength='20'>";
 			}
 			elseif($array[0] === 'ps')
 			{
@@ -501,7 +501,7 @@
 		{
 			$data .= "<tr><td style='width:125px'>".
 			      	 "<button style='width:100%' type='submit' name='repair'".
-				 " value='".$row['repair_id']."' formaction='repair.php'>".
+				 " value='".$row['repair_id']."' formaction='repair_info.php'>".
 				 "View/Edit</button></td>";
 
 			$data .= "<td>".$row['repair_date']."</td>";
