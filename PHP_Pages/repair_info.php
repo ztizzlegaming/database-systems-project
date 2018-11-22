@@ -118,7 +118,7 @@
 </br>
 <label>Equipment Serial Number:</label><span><?php echo $GLOBALS['equipment']['equipment_sn']; ?></span>
 </br>
-<label>TM Personnel Overseeing Repair<span style='color:red'>*</span>:</label><select name='personnel_name'>
+<label>TM Personnel Overseeing Repair<span style='color:red'>*</span>:</label><select name='personnel_id'>
 <?php
 	$sql = "SELECT personnel_id, personnel_first_name, personnel_last_name FROM TMpersonnels ORDER BY personnel_last_name, personnel_first_name;";
 	$stmt = $GLOBALS['pdo']->query($sql);
@@ -144,6 +144,7 @@
 <div style='text-align:center;width:87%'>
 <button type='submit' name='save' value='save'>Save Repair Info</button>
 </div>
+</fieldset>
 </form>
 
 <?php tail(); ?>
