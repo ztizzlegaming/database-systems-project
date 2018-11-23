@@ -102,9 +102,14 @@
 <button type='submit'>Go to Repairs</button>
 </form>
 </div>
-<div style='min-width:100px;width:40%'>
+<div style='float:left'>
 <form method='post' action='equipment_info.php'>
 <button type='submit' name='edit' value='<?php echo $GLOBALS['repair']['equipment_id']; ?>'>Go to Equipment Info</button>
+</form>
+</div>
+<div style='text-align:center'>
+<form method='get' action='home.php'>
+<button style='width:125px' type='submit' name='home'>Home</button>
 </form>
 </div>
 </div>

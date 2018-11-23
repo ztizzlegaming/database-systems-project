@@ -222,6 +222,11 @@
 		-webkit-flex: 1;
 	}
 </style>
+<div style='text-align:center'>
+<form method='get' action='home.php'>
+<button style='width:125px' type='submit' name='home'>Home</button>
+</form>
+</div>
 
 <h1>Repair Logs</h1>
 

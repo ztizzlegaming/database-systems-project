@@ -165,43 +165,61 @@
 		{
 			unsetPOSTValues('cal_rack_size');
 			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Rack</strong></br>".
-			 	  "<label>Cal Rack Size<span style='color:red'>*</span>:</label><input type='text' name='cal_rack_size' value='".getInputValue('cal_rack_size')."' maxlength='20'>";
+			 	  "<label>Cal Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
+				  "name='cal_rack_size' value='".getInputValue('cal_rack_size')."' maxlength='20'>";
 		}
 		elseif(isset($_POST['bdd_rack_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'bdd_rack'))
 		{
 			unsetPOSTValues('bdd_rack_size');
 			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Blowdown Rack (BDD Rack)</strong></br>".
-			  	  "<label>BDD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' name='bdd_rack_size' value='".getInputValue('bdd_rack_size')."' maxlength='20'>";
+			  	  "<label>BDD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
+				  "name='bdd_rack_size' value='".getInputValue('bdd_rack_size')."' maxlength='20'>";
 		}
 		elseif(isset($_POST['ttd_rack_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'ttd_rack'))
 		{
 			unsetPOSTValues('ttd_rack_size');
 			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Tube Test Device Rack (TTD Rack)</strong></br>".
-			  	  "<label>TTD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' name='ttd_rack_size' value='".getInputValue('ttd_rack_size')."'  maxlength='20'>";
+			  	  "<label>TTD Tube Rack Size<span style='color:red'>*</span>:</label><input type='text' ".
+				  "name='ttd_rack_size' value='".getInputValue('ttd_rack_size')."'  maxlength='20'>";
 		}
 		elseif(isset($_POST['so_case_number']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'so_set'))
 		{
 			unsetPOSTValues('so_case_number');
 			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Supply Orifice Set (SO Set)</strong></br>".
-			  	  "<label>SO Case Number<span style='color:red'>*</span>:</label><input type='number' name='so_case_number' min='0' value='".getInputValue('so_case_number')."'></br>".
-			 	  "<label>SO Size<span style='color:red'>*</span>:</label><input type='number' name='so_size' min='0.001' step='0.001' value='".getInputValue('so_size')."'></br>".
-			  	  "<label>SO Set Label<span style='color:red'>*</span>:</label><input type='text' name='so_set_label' value='".getInputValue('so_set_label')."' maxlength='10'></br>".
-				  "label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' name='so_number' min='0' value='".getInputValue('so_number')."'></br>".
-			  	  "<label>SO Set Notes:<label><textarea name='so_notes' cols='50' rows='4' maxlength='200'>".getInputValue('so_notes')."</textarea>";
+			  	  "<label>SO Case Number<span style='color:red'>*</span>:</label><input type='number' ".
+				  "name='so_case_number' min='0' value='".getInputValue('so_case_number')."'></br>".
+
+				  "<label>SO Size<span style='color:red'>*</span>:</label><input type='number' ".
+				  "name='so_size' min='0.001' step='0.001' value='".getInputValue('so_size')."'></br>".
+
+				  "<label>SO Set Label<span style='color:red'>*</span>:</label><input type='text' ".
+				  "name='so_set_label' value='".getInputValue('so_set_label')."' maxlength='10'></br>".
+
+				  "label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' ".
+				  "name='so_number' min='0' value='".getInputValue('so_number')."'></br>".
+
+				  "<label>SO Set Notes:<label><textarea name='so_notes' cols='50' ".
+				  "rows='4' maxlength='200'>".getInputValue('so_notes')."</textarea>";
 		}
 		elseif(isset($_POST['ps_range']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'ps'))
 		{
 			unsetPOSTValues('ps_range');
 			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Pressure Sensor (PS)</strong></br>".
-			 	  "<label>PS Range<span style='color:red'>*</span>:</label><input type='text' name='ps_range' value='".getInputValue('ps_range')."' maxlength='50'>";
+			 	  "<label>PS Range<span style='color:red'>*</span>:</label><input type='text' ".
+				  "name='ps_range' value='".getInputValue('ps_range')."' maxlength='50'>";
 		}
 		elseif(isset($_POST['cal_or_size']) || (isset($_POST['subset_type']) && $_POST['subset_type'] === 'cal_or_set'))
 		{
 			unsetPOSTValues('cal_or_size');
 			$inputs = "<label>Assembly/Subassembly Type:</label><strong>Cal Orifice Set (Cal Or Set)</strong></br>".
-			  	  "<label>Cal Or Size<span style='color:red'>*</span>:</label><input type='number' name='cal_or_size' min='0.001' step='0.001' value='".getInputValue('cal_or_size')."'></br>".
-			  	  "<label>Cal Or Set Label<span style='color:red'>*</span>:</label><input type='text' name='cal_or_set_label' value='".getInputValue('cal_or_set_label')."' maxlength='10'></br>".
-			  	  "<label>Cal Or Total Number of Or<span style='color:red'>*</span>:</label><input type='number' name='cal_or_total_number_of_or' min='0' value='".getInputValue('cal_or_total_number_of_or')."'>";
+			  	  "<label>Cal Or Size<span style='color:red'>*</span>:</label><input type='number' ".
+				  "name='cal_or_size' min='0.001' step='0.001' value='".getInputValue('cal_or_size')."'></br>".
+
+				  "<label>Cal Or Set Label<span style='color:red'>*</span>:</label><input type='text' ".
+				  "name='cal_or_set_label' value='".getInputValue('cal_or_set_label')."' maxlength='10'></br>".
+
+				  "<label>Cal Or Total Number of Or<span style='color:red'>*</span>:</label><input type='number' ".
+				  "name='cal_or_total_number_of_or' min='0' value='".getInputValue('cal_or_total_number_of_or')."'>";
 		}
 		else
 		{
@@ -330,11 +348,16 @@
 	fieldset
 	{
 		border:none;
-		width:70%;
+		width:50%;
 		margin:0px;
 	}
 </style>
-				
+
+<div style='text-align:center'>
+<form method='get' action='home.php'>
+<button style='width:125px' type='submit' name='home'>Home</button>
+</form>
+</div>
 <h1 style='font: 20px'>Equipment</h1>
 <?php
 	$pdo = connect_to_psql('tmdatabase');
@@ -487,12 +510,12 @@
 											$stmt->bindValue(":ideal",$ideal);
 											$stmt->execute();
 
-											
+											$id = $pdo->lastInsertId();
 											if(isset($_POST['cal_rack_size']))
 											{
 												$sql = "INSERT INTO cal_racks VALUES (:id, :size);";
 												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":id", $id);
 												$stmt->bindValue(":size", $_POST['cal_rack_size']);
 												$stmt->execute();
 											}
@@ -500,7 +523,7 @@
 											{
 												$sql = "INSERT INTO bdd_racks VALUES (:id, :size);";
 												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":id", $id);
 												$stmt->bindValue(":size", $_POST['bdd_rack_size']);
 												$stmt->execute();
 											}
@@ -508,7 +531,7 @@
 											{
 												$sql = "INSERT INTO ttd_racks VALUES (:id, :size);";
 												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":id", $id);
 												$stmt->bindValue(":size", $_POST['ttd_rack_size']);
 												$stmt->execute();
 											}
@@ -516,7 +539,7 @@
 											{
 												$sql = "INSERT INTO so_sets VALUES (:id,:case,:size,:label,:number,:notes);";
 												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":id", $id);
 												$stmt->bindValue(":case", $_POST['so_case_number']);
 												$stmt->bindValue(":size", $_POST['so_size']);
 												$stmt->bindValue(":label", $_POST['so_set_label']);
@@ -535,7 +558,7 @@
 											{
 												$sql = "INSERT INTO cal_or_sets VALUES (:id,:size,:label,:total);";
 												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $_POST['equipment_id']);
+												$stmt->bindValue(":id", $id);
 												$stmt->bindValue(":size", $_POST['cal_or_size']);
 												$stmt->bindValue(":label",$_POST['cal_or_set_label']);
 												$stmt->bindValue(":total",$_POST['cal_or_total_numbe_of_or']);
@@ -545,7 +568,7 @@
 											{
 												$sql = "INSERT INTO pss VALUES (:id, :range);";
 												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id",$_POST['equipment_id']);
+												$stmt->bindValue(":id",$id);
 												$stmt->bindValue(":range",$_POST['ps_range']);
 												$stmt->execute();
 											}
@@ -714,15 +737,17 @@
 <button name='delete' value='delete'>Delete Equipment</button>
 </form>
 <hr>
+<div class="container" style="width:1300px">
 <h2 style='font: 20px'>Add New Equipment</h2>
-<div style="display: inline-block;width:50%;white-space:nowrap">
 <form method='post' action='equipment.php'>
-<?php echo createAddInputs();?>
-</div>
-<div style="display: inline-block;float:right;width:50%;white-space:nowrap">
+<div class="side" style="float:right;width:40%">
 <h3>Assembly/Subassembly Type</h3>
 <?php echo createSubsetButtons() ?>
 <?php echo createSubsetInputs() ?>
+</div>
+<div class="content">
+<?php echo createAddInputs();?>
+</div>
 </form>
 </div>
 <?php
