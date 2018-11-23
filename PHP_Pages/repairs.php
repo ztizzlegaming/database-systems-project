@@ -4,6 +4,61 @@
    	head("Repairs");
    	$pdo = connect_to_psql('tmdatabase');
 
+	if(isset($_POST['add']))
+	{
+		$sql = "INSERT INTO repairs(equipment_id,personnel_id,repair_date,".
+		       "incident_occured,repair_notes) VALUES(:eid,:pid,:date,:incident,".
+		       ":notes);";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$id = "SELECT * FROM equipment WHERE equipment_id = :id;";
+		if(!empty($_POST['equipment_id']))
+		{
+			$id_stmt = $GLOBALS['pdo']->prepare($id);
+			$id_stmt->bindValue(":id",$_POST['equipment_id']);
+			$id_stmt->execute();
+			if($id_stmt->rowCount() > 0)
+			{
+				$stmt->bindValue(":eid",$_POST['equipment_id']);
+				$stmt->bindValue(":pid",$_POST['personnel_id']);
+				if(!empty($_POST['repair_date']))
+				{
+					$stmt->bindValue(":date",$_POST['repair_date']);
+					if(!empty($_POST['incident_occured']))
+					{
+						$stmt->bindValue(":incident",$_POST['incident_occured']);
+					}
+					else
+					{
+						$stmt->bindValue(":incident",null);
+					}
+					if(!empty($_POST['repair_notes']))
+					{
+						$stmt->bindValue(":notes",$_POST['repair_notes']);
+					}
+					else
+					{
+						$stmt->bindValue(":notes",null);
+					}
+					$stmt->execute();
+					header("location: repairs.php");
+				}
+				else
+				{
+					debug_message("Repair log not added, repair date had no value");
+				}
+			}
+			else
+			{
+				debug_message("Repair log not added, Equipment ID not an".
+				" existing ID in inventory");
+			}
+		}
+		else
+		{
+			debug_message("Repair log not added, Equipment ID had no value");
+		}
+	}			
+
 	function queryRepairs()
 	{
 		$sql = "SELECT equipment_id, repair_id, repair_date, incident_occured".
@@ -75,9 +130,33 @@
 	}
 	function createTable()
 	{
-		$sql = "SELECT ";
+		$sql = "SELECT repair_id, repair_date, equipment_id, incident_occured FROM".
+		       " repairs;";
 		$table = "<div id='constrainer'><div class='hscrolltable'><table ".
-		       	 "class='header center'>";
+		       	 "class='header center'><thead><th style='width:125px'>".
+			 "Repair Info</th><th>Equipment ID</th><th>Equipment Name</th>".
+			 "<th>Repair Date</th><th>Incident Occurred</th></thead>".
+			 "</table>";
+		$data = "<div class='body'><table class='center'><tbody>";
+		$stmt = $GLOBALS['pdo']->query($sql);
+		while($row = $stmt->fetch())
+		{
+			$data .= "<tr><td style='width:125px'><button style='width:100%'".
+			      	 " type='submit' name='repair' value='".$row['repair_id'].
+				 "' formaction='repair_info.php'>View/Edit</button></td>";
+			$data .= "<td>".$row['equipment_id']."</td>";
+			$sql = "SELECT equipment_name FROM equipment WHERE equipment_id ".
+			       "= :id;";
+			$name_stmt = $GLOBALS['pdo']->prepare($sql);
+			$name_stmt->bindValue(":id",$row['equipment_id']);
+			$name_stmt->execute();
+			$name = $name_stmt->fetch();
+			$data .= "<td>".$name['equipment_name']."</td>";
+			$data .= "<td>".$row['repair_date']."</td>";
+			$data .= "<td>".$row['incident_occured']."</td></tr>";
+		}
+		$data .= "</tbody></table></div></div></div>";
+		return $table.$data;
 	}
 	$stmt = queryRepairs();
 ?>
@@ -117,6 +196,7 @@
 	{
 		height: 65%;
 		width: 99%;
+		min-width:700px;
 	}
 	.hscrolltable
 	{
@@ -146,15 +226,17 @@
 <h1>Repair Logs</h1>
 
 <div class="container" style="min-width:1000px">
-<div class="inputs" style="min-width:700px;width:60%;float:right">
-<form method="post" action="repair.php">
+<div class="inputs" style="width:55%;float:right">
+<form method="post" action="repairs.php">
 <h3 style="text-align:center">Add Repair Log</h3>
 <?php echo createInputs(); ?>
 </form>
 </div>
-<div class="table" style="min-width:500px;width:50%">
+<form method="post" action="repair_info/php">
+<div class="table" style="min-width:1000px;width:50%">
 <?php echo createTable(); ?>
 </div>
+</form>
 </div>
 
 <?php tail(); ?>

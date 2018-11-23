@@ -109,7 +109,7 @@
 </div>
 </div>
 <h1>Repair Info</h1>
-<form method='post' action='repairs.php'>
+<form method='post' action='repair_info.php'>
 <input type='hidden' name='repair' value='<?php echo $_POST['repair']; ?>'>
 <fieldset>
 <label>Equipment ID<span style='color:red'>*</span>:</label><input type='number' name='equipment_id' value='<?php echo $GLOBALS['repair']['equipment_id']; ?>'>
