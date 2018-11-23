@@ -4,7 +4,28 @@
    	head("Repairs");
    	$pdo = connect_to_psql('tmdatabase');
 
-	if(isset($_POST['add']))
+	if(isset($_POST['delete']))
+	{
+		if(isset($_POST['DELETE_LOGS']))
+		{
+			$id_array = $_POST['DELETE_LOGS'];
+			$curr_id = 0;
+			$sql = "DELETE FROM repairs WHERE repair_id = :id;";
+			foreach($id_array as $key => $id)
+			{
+				$curr_id = $id;
+				$stmt = $GLOBALS['pdo']->prepare($sql);
+				$stmt->bindValue(":id", $id);
+				$stmt->execute();
+			}
+			header("location: repairs.php");
+		}
+		else
+		{
+			debug_message("No repair logs were selected for deletion");
+		}
+	}
+	elseif(isset($_POST['add']))
 	{
 		$sql = "INSERT INTO repairs(equipment_id,personnel_id,repair_date,".
 		       "incident_occured,repair_notes) VALUES(:eid,:pid,:date,:incident,".
@@ -134,7 +155,8 @@
 		       " repairs;";
 		$table = "<div id='constrainer'><div class='hscrolltable'><table ".
 		       	 "class='header center'><thead><th style='width:125px'>".
-			 "Repair Info</th><th>Equipment ID</th><th>Equipment Name</th>".
+			 "Repair Info</th><th style='width:75px'>Delete?</th><th>".
+			 "Equipment ID</th><th>Equipment Name</th>".
 			 "<th>Repair Date</th><th>Incident Occurred</th></thead>".
 			 "</table>";
 		$data = "<div class='body'><table class='center'><tbody>";
@@ -144,6 +166,9 @@
 			$data .= "<tr><td style='width:125px'><button style='width:100%'".
 			      	 " type='submit' name='repair' value='".$row['repair_id'].
 				 "' formaction='repair_info.php'>View/Edit</button></td>";
+			$data .= "<td style='width:75px;text-align:center'><input type='".
+			      	 "checkbox' name='DELETE_LOGS[]' value='".
+				 $row['repair_id']."'>"; 
 			$data .= "<td>".$row['equipment_id']."</td>";
 			$sql = "SELECT equipment_name FROM equipment WHERE equipment_id ".
 			       "= :id;";
@@ -237,9 +262,15 @@
 <?php echo createInputs(); ?>
 </form>
 </div>
-<form method="post" action="repair_info/php">
+<form method="post" action="repair_info.php">
 <div class="table" style="min-width:1000px;width:50%">
 <?php echo createTable(); ?>
+</br>
+<div style='text-align:center'>
+<button type='submit' name='delete' value='delete' formaction='repairs.php'>
+Delete Repair Logs
+</button>
+</div>
 </div>
 </form>
 </div>

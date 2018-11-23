@@ -532,7 +532,7 @@ CREATE TABLE repairs (
     PRIMARY KEY (repair_id),
     FOREIGN KEY (equipment_id)
                 REFERENCES equipment (equipment_id)
-                ON DELETE RESTRICT,
+                ON DELETE CASCADE,
     FOREIGN KEY (personnel_id)
                 REFERENCES TMpersonnels (personnel_id)
                 ON DELETE RESTRICT,
