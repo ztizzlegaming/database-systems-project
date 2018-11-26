@@ -42,9 +42,6 @@ CREATE TABLE equipment (
        equipment_id                      SERIAL,
        equipment_name                    VARCHAR(256)    NOT NULL,
        equipment_sn                      INT             DEFAULT NULL,
-       equipment_quantity                INT             NOT NULL
-                                         CONSTRAINT negative_quantity -- Quantity cannot be less than 0
-                                         CHECK (equipment_quantity >= 0),
        equipment_notes                   VARCHAR(200)    DEFAULT NULL,
        equipment_tag                     VARCHAR(5)      NOT NULL
                                          CONSTRAINT valid_tag -- Keep tag values in valid range (see equipment_tag spec)
@@ -87,18 +84,18 @@ CREATE TABLE equipment (
 
 
 /*Insert sample data into equipment*/
-INSERT INTO equipment (equipment_name, equipment_quantity, equipment_tag, equipment_location,
+INSERT INTO equipment (equipment_name, equipment_tag, equipment_location,
                        equipment_description, equipment_in_out_of_service,
                        equipment_tubemaster_value, equipment_shipping_value, equipment_weight,
                        equipment_manufacturer)
-VALUES ('Test Equipment', 1, 'Blue', 'Warehouse', 'This is a test equipment', 1, 2000.0,
+VALUES ('Test Equipment', 'Blue', 'Warehouse', 'This is a test equipment', 1, 2000.0,
         2000.0, 75, 'Us'),
-       ('BDD Rack', 1, 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us'),
-       ('TTD Rack', 1, 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us'),
-       ('SO Set', 1, 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us'),
-       ('PS', 1, 'Red', 'Saudi', 'This is a PS', 1, 211.54, 185.97, 15, 'Us'),
-       ('Cal Rack', 1, 'Green', 'Indiana', 'This is a Cal Rack', 0, 234.65, 167.98, 77, 'Us'),
-       ('Cal Or Set', 1, 'Green', 'Indiana', 'This is a Cal Or Set', 1, 229.65, 167.67, 23, 'Us');
+       ('BDD Rack', 'Red', 'Saudi', 'This is a BDD rack', 0, 1500.00, 2500.00, 20, 'Us'),
+       ('TTD Rack', 'Green', 'Illinois', 'This is a TTD Rack', 1, 1526.65, 2890.89, 22, 'Us'),
+       ('SO Set', 'Red', 'Saudi', 'This is an SO set', 1, 200.00, 100.00, 10, 'Us'),
+       ('PS', 'Red', 'Saudi', 'This is a PS', 1, 211.54, 185.97, 15, 'Us'),
+       ('Cal Rack', 'Green', 'Indiana', 'This is a Cal Rack', 0, 234.65, 167.98, 77, 'Us'),
+       ('Cal Or Set', 'Green', 'Indiana', 'This is a Cal Or Set', 1, 229.65, 167.67, 23, 'Us');
 /*Create subset table for BDD Racks*/
 CREATE TABLE bdd_racks (
        PRIMARY KEY(bdd_rack_id),
