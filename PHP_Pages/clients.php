@@ -68,6 +68,8 @@ if (isset($_POST['submit'])) {
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
+				<a href="/">Home</a>
+				<br>
 				<h1>Clients</h1>
 				<table border="1" width="100%">
 					<tr>
@@ -84,7 +86,7 @@ if (isset($_POST['submit'])) {
 					</tr>
 
 					<?php
-					$stmt = $db->query('SELECT * FROM clients');
+					$stmt = $db->query('SELECT * FROM clients ORDER BY client_id');
 					$clients = $stmt->fetchAll();
 					foreach ($clients as $client) {
 						$id = $client['client_id'];
