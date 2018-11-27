@@ -5,50 +5,10 @@ error_reporting(E_ALL);
 
 require_once 'functions.php';
 $db = connect_to_psql('tmdatabase');
-
-if (isset($_POST['submit'])) {
-	# Get all post variables and insert into clients
-	$companyName = $_POST['company_name'];
-	$contactFirstName = $_POST['contact_first_name'];
-	$contactLastName = $_POST['contact_last_name'];
-	$contactPhoneNumber = $_POST['contact_phone'];
-	$contactEmail = $_POST['contact_email'];
-	$streetAddress = $_POST['street_address'];
-	$city = $_POST['city'];
-	$country = $_POST['country'];
-	$zip = $_POST['zip'];
-
-	$sql = '
-		INSERT INTO clients
-		(client_company_name,
-		 client_contact_first_name,
-		 client_contact_last_name,
-		 client_contact_phone_number,
-		 client_contact_email,
-		 client_street_address,
-		 client_city,
-		 client_country,
-		 client_zip_code)
-		VALUES
-		(?, ?, ?, ?, ?, ?, ?, ?, ?)
-	';
-	$stmt = $db->prepare($sql);
-	$data = [
-		$companyName,
-		$contactFirstName,
-		$contactLastName,
-		$contactPhoneNumber,
-		$contactEmail,
-		$streetAddress,
-		$city,
-		$country,
-		$zip
-	];
-	$stmt->execute($data);
-}
 ?>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 	<title>Packing Lists | TubeMaster</title>
@@ -65,6 +25,13 @@ if (isset($_POST['submit'])) {
 	</style>
 </head>
 <body>
+<div>
+<div style='text-align:center'>
+<form method='get' action='home.php'>
+<button style='width:125px' type='submit' name='home'>Home</button>
+</form>
+</div>
+</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -88,20 +55,22 @@ if (isset($_POST['submit'])) {
 						$client_name = $list['client_company_name'];
                         $reactor_name = $list['reactor_name'];
                         $start_date = $list['project_start_date'];
-    
+    			echo '<form method="post" action="packing_list_info.php">';
                         echo '<tr>';
 						echo '<td>' . $project_id . '</td>';
 						echo '<td>' . $revision_num . '</td>';
 						echo '<td>' . $client_name . '</td>';
                         echo '<td>' . $reactor_name . '</td>';
                         echo '<td>' . $start_date . '</td>';
-						echo '<td><a href="packing_list_info.php?projectID=' . $project_id . '">View/Edit</a></td>';
-						echo '</tr>';
+			echo '<td><input type="submit" value="View/Edit" name="submit"></td>';
+			echo '<input type="hidden" name="project_id" value="'.$project_id.'">';
+			echo '</tr>';
+			echo '</form>';
 					}
 					?>
 				</table>
 				<hr>
-				<form method="POST">
+				<form method="POST" action="packing_list_info.php">
 					<h2>Add New Packing List</h2>
 					<div class="form-group">
                         <label for="project">Project</label>

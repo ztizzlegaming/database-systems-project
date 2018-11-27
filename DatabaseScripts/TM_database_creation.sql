@@ -4,6 +4,7 @@
 */
 CREATE EXTENSION pgcrypto;
 
+DROP VIEW IF EXISTS available_equipment;
 DROP VIEW IF EXISTS packing_lists;
 DROP TABLE IF EXISTS project_equipment;
 DROP TABLE IF EXISTS problematic_ttds;
@@ -731,7 +732,7 @@ INSERT INTO project_equipment
 VALUES (1, 1, DEFAULT),
        (1, 2, DEFAULT);
 
-/* Create the Packing Lst View */
+/* Create the Packing List View */
 CREATE VIEW packing_lists
 AS
 SELECT client_id,
@@ -778,5 +779,14 @@ GROUP BY client_id,
          supply_pressure
 ORDER BY project_id;
 
-
+CREATE VIEW available_equipment
+AS
+SELECT *
+  FROM equipment
+ WHERE equipment_tag = 'Green' AND
+       equipment_in_out_of_service = 1 AND
+       equipment_id NOT IN (SELECT equipment_id
+                              FROM project_equipment
+                                   NATURAL JOIN projects
+                             WHERE FALSE);
 

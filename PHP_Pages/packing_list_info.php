@@ -1,128 +1,207 @@
 <?php
 	ini_set("display_errors", 1);
 	require("functions.php");
-	head("Equipment Info");
+	head("Packing List Info");
 	$pdo = connect_to_psql('tmdatabase');
-	echo "<form method='get' action='equipment.php'><button type='submit' name='back'>Go Back to Equipment</button></form>";
 
-	function buildRepairTable()
+	if(isset($_POST['add']))
 	{
-		return "I will build the equipment's repair logs here";
+		$project_id = $_POST['project_id'];
+		$sql = 'INSERT INTO project_equipment (project_id, equipment_id) VALUES';
+		foreach($_POST['equipment_id'] as $equipment_id)
+		{
+			if($_POST[''.$equipment_id] == 'on')
+			{
+				$sql .= ' ('.$project_id.','.$equipment_id.')';
+			}
+		}
+		$query = $GLOBALS['pdo']->prepare($sql);
+		$query->execute();
+
 	}
 
-	function queryEquipment()
+	function queryPackingLists()
 	{
-		$sql = "SELECT * FROM equipment WHERE equipment_id = :id;";
+		if(isset($_POST['project_id']))
+		{
+			$sql = "SELECT * FROM packing_lists WHERE project_id = :project_id";
+			$query = $GLOBALS['pdo']->prepare($sql);
+			$query->bindValue(":project_id", $_POST['project_id']);
+			$query->execute();
+			return $query;
+		}
+		else
+		{
+			return array("project_id" => null);
+		}
+	}
+
+	function queryAvailableEquipment()
+	{
+		$sql = "SELECT * FROM available_equipment";
 		$query = $GLOBALS['pdo']->prepare($sql);
-		$query->bindValue(":id", $_POST['edit']);
 		$query->execute();
 		return $query;
 	}
 
-	function getSelectedValue($value, $choice)
+	function queryProjectEquipment()
 	{
-		if($value === $choice)
+		if(isset($_POST['project_id']))
 		{
-			return "selected";
+			$sql = "SELECT * FROM equipment NATURAL JOIN project_equipment NATURAL JOIN projects WHERE project_id = :project_id";
+			$query = $GLOBALS['pdo']->prepare($sql);
+			$query->bindValue(":project_id", $_POST['project_id']);
+			$query->execute();
+			return $query;
 		}
 		else
 		{
-			return "";
+			return array("project_id" => null);
 		}
 	}
 	
-	##Creates text inputs and labels for adding a piece of equipment
-	function createInputs()
+	##Displays the information regarding the reactor for the packing list
+	function displayReactorInfo()
 	{
-		$stmt = queryEquipment();
-		$row = $stmt->fetch();
+		$lists = queryPackingLists();
+		$project_id = -1;
+		$revisionNum = 1;
+		$reactorName = "";
+		$plantName = "";
+		$clientName = "";
+		$startDate = "";
+		$shipDate = "";
+		$rows = 0;
+		$numOfTubes = 0;
+		$tubeSealType = "";
+		$tubeID = 0.0;
+		$pitch = 0.0;
+		$expectedPressureDrop = 0;
+		$numOfThermocouples = 0;
+		$supplyOrificeSize = 0.0;
+		$calOrificeSize = 0.0;
+		$calibrateTo = 0;
+		$supplyPressure = 0;
+		$pressureSensor = "";
 
-                $inputHTML = "<fieldset></br><form  method='post' action='equipment.php'>".
-		"<label>Equipment ID:</label>#<strong>".$row['equipment_id']."</strong></br><label>Equipment Name<span style='color:red'>*</span>:</label><input type='text' name=".
-                "'equipment_name' value='".$row['equipment_name']."' maxlength='256'>".
-
-                "</br><label>Equipment Serial Number:</label><input type='number' name='equipment_sn' min='0'".
-                "value='".$row['equipment_sn']."'>".
-
-                "</br><label>Equipment Quantity<span style='color:red'>*</span>:</label><input type='number' min='0' name='equipment_quantity' ".
-                "value='".$row['equipment_quantity']."'>".
-
-                "</br><label>Equipment Notes:</label><textarea style='vertical-align:top;margin-bottom:10px' name='equipment_notes' ".
-                "cols='50' rows='10' maxlength='200'>".$row['equipment_notes']."</textarea>".
-
-		"</br><label>Equipment Tag<span style='color:red'>*</span>:</label><select name='equipment_tag'><option value='Red' ".
-                getSelectedValue($row['equipment_tag'], 'Red').">Red</option><option value='Blue'".getSelectedValue($row['equipment_tag'], 'Blue').
-                ">Blue</option><option value='Green' ".getSelectedValue($row['equipment_tag'], 'Green').">Green</option><option value='N/A' ".
-		getSelectedValue($row['equipment_tag'], 'N/A').">N/A</option></select></br>".
-
-                "<label>Equipment Location<span style='color:red'>*</span>:</label><input type='text' name='equipment_location' value='".
-                $row['equipment_location']."' maxlength='100'>".
-
-                "</br><label>Equipment Shelf Location:</label><input type='text'".
-		"name='equipment_shelf_location' value='".$row['equipment_shelf_location']."' maxlength='100'>".
-
-                "</br><label>Equipment Updates:</label><textarea style='vertical-align:top;margin-bottom:10px' name='equipment_updates' cols='50' rows='10' maxlength='256'>".
-                $row['equipment_updates']."</textarea></br>".
-
-                "<label>Equipment Inventory Update Date:</label><input type='date' name='equipment_inventory_update_date' value='".
-                $row['equipment_inventory_update_date']."'>".
-
-                "</br><label>Equipment Description<span style='color:red'>*</span>:".
-		"</label><textarea style='vertical-align:top;margin-bottom:10px' name='equipment_description'".
-		" cols='50' rows='10' maxlength='500'>".$row['equipment_description']."</textarea>".
-
-                "</br><label>Equipment Modifications:</label>".
-		"<textarea style='vertical-align:top;margin-bottom:10px' name='equipment_modifications' cols='50' rows='10' maxlength='256'>".
-                $row['equipment_modifications']."</textarea>".
-
-                "</br><label>Equipment In/Out Of Service".
-		"<span style='color:red'>*</span>:</label><select name='equipment_in_out_service'><option value='In' ".
-                getSelectedValue($row['equipment_in_out_of_service'], 'In').">In</option><option value='Out' ".
-                getSelectedValue($row['equipment_in_out_of_service'], 'Out').">Out</option></select></br>".
-
-                "<label>Equipment Potential Projects:</label><textarea style='vertical-align:top;margin-bottom:10px'".
-		" name='equipment_potential_projects' cols='50' rows='10' maxlength='1000'>".
-                $row['equipment_potential_projects']."</textarea></br>".
-
-                "<label>Equipment TM $ Value<span style='color:red'>*</span>:</label>".
-		"<input type='number' name='equipment_tm_value' value='".$row['equipment_tubemaster_value'].
-		"'min='0.01' step='0.01'></br>".
-
-                "<label>Equipment Shipping $ Value<span style='color:red'>*</span>:</label>".
-		"<input type='number' name='equipment_shipping_value' value='".$row['equipment_shipping_value'].
-		"' min='0.01' step='0.01'></br>".
-
-                "<label>Equipment Client $ Value:</label>".
-		"<input type='number' name='equipment_client_value' value='".$row['equipment_client_value'].
-		"' min='0.01' step='0.01'></br>".
-
-                "<label>Equipment Weight(lbs)<span style='color:red'>*</span>:</label>".
-		"<input type='number' name='equipment_weight' value='".$row['equipment_weight'].
-		"'></br>".
-
-                "<label>Equipment Cost:</label>".
-		"<input type='number' name='equipment_cost' value='".$row['equipment_cost'].
-		"' min='0.01' step='0.01'></br>".
-
-                "<label>Equipment Vendor:</label><input type='text' name='equipment_vendor' value='".
-                $row['equipment_vendor']."' maxlength='100'></br>".
-
-                "<label>Equipment Manufacturer<span style='color:red'>*</span>:</label>".
-		"<input type='text' name='equipment_manufacturer' value='".$row['equipment_manufacturer'].
-		"' maxlength='100'></br>".
-
-                "<label>Equipment Date Of Return:</label><input type='date' name='equipment_date_of_return' value='".
-                $row['equipment_date_of_return']."'></br>".
-
-                "<label>Equipment Ideal Storage Location:</label>".
-		"<input type='text' name='equipment_ideal_storage_location' value='".
-		$row['equipment_ideal_storage_location']."' maxlength='100'></br></br>".
-
-                "<button style='margin-left:120px' type='submit' name='edit_equipment' value='".$row['equipment_id']."'>Save Equipment Info</button>".
-		"</br></br></fieldset></form>";
-		return $inputHTML;
+		foreach($lists as $list)
+		{
+			if(isset($list['project_id']))
+			{
+				$revisionNum = $list['revision'];
+				$reactorName = $list['reactor_name'];
+				$plantName = $list['plant_name'];
+				$clientName = $list['client_company_name'];
+				$startDate = $list['project_start_date'];
+				$shipDate = "";
+				$rows = $list['number_of_rows'];
+				$numOfTubes = $list['number_of_tubes'];
+				$tubeSealType = $list['tube_seal_size'];
+				$tubeID = $list['tube_inner_diameter'];
+				$pitch = $list['reactor_pitch'] ;
+				$expectedPressureDrop = $list['expected_pressure_drop'];
+				$numOfThermocouples = $list['number_of_thermocouples'];
+				$supplyOrificeSize = $list['supply_orifice_size'];
+				$calOrificeSize = $list['calibration_orifice_size'];
+				$calibrateTo = $list['calibrate_ttd_to'];
+				$supplyPressure = $list['supply_pressure'];
+				}
+		}
+		echo '<h1>Equipment Packing List</h1>';
+		echo '<h2>Revision ' . $revisionNum . '</h2>';
+		echo '<h3>' . $clientName . '</h3>';
+		echo '<h3>' . $plantName . '</h3>';
+		echo '<form type="post">';
+		echo '<input type="hidden" name="project_id" value="' . $project_id . '">';
+		echo '<table>';
+		echo '<tr>';
+		echo '<td>Reactor: ' . $reactorName .'</td>';
+		echo '<td>Tube Seal Type: ' . $tubeSealType . '</td>';
+		echo '<td>Supply Orifice Size (in): ' . $supplyOrificeSize . '</td>';
+		echo '</tr> <tr>';
+		echo '<td>Project Start Date: ' . $startDate . '</td>';
+		echo '<td>Tube ID: ' . $tubeID . '</td>';
+		echo '<td>Cal Orifice Size (in): ' . $calOrificeSize . '</td>';
+		echo '</tr> <tr>';
+		echo '<td>Ship Date: ' . $shipDate . '</td>';
+		echo '<td>Pitch (in): ' . $pitch . '</td>';
+		echo '<td>Pressure Sensor: ' . $pressureSensor . '</td>';
+		echo '</tr> <tr>';
+		echo '<td>Rows: ' . $rows . '</td>';
+		echo '<td>Expected Pressure Drop: ' . $expectedPressureDrop . '</td>';
+		echo '<td>Calibrate To:' . $calibrateTo . '</td>';
+		echo '</tr> <tr>';
+		echo '<td># of Tubes: ' . $numOfTubes . '</td>';
+		echo '<td># of ThermoCouples: ' . $numOfThermocouples . '</td>';
+		echo '<td>Supply Pressure:' . $supplyPressure . '</td>';
+		echo '</tr> </table> </form>';
 	}
-							 
+
+	function displayAvailableEquipment()
+	{
+		echo '<h3>Available Equipment</h3>';
+		echo '<form method="post">';
+		echo '<table>';
+		echo '<tr>';
+		echo '<th>ID</th>';
+		echo '<th>Name</th>';
+		echo '<th>Location</th>';
+		echo '<th>Add to List</th>';
+		echo '</tr>';
+
+		$availableEquipment = queryAvailableEquipment();
+		foreach($availableEquipment as $equipment)
+		{
+			echo '<tr>';
+			echo '<td>' . $equipment['equipment_id'] . '</td>';
+			echo '<td>' . $equipment['equipment_name'] . '</td>';
+			echo '<td>' . $equipment['equipment_location'] . '</td>';
+			echo '<input type="hidden" name="equipment_id[]" value="'.$equipment['equipment_id'].'">';
+			echo '<td><input type="checkbox" name="' . $equipment['equipment_id'] .'"/></td>';
+			echo '</tr>';
+		}
+		echo '</table>';
+		echo '<br />';
+		echo '<input type="hidden" name="project_id" value="'.$_POST['project_id'].'">';
+		echo '<input type="submit" name="add" value="Add">';
+		echo '</form>';
+	}
+
+	function displayProjectEquipment()
+	{
+		echo '<h3>Project Equipment</h3>';
+		echo '<form method="post">';
+		echo '<table>';
+		echo '<tr>';
+		echo '<th>ID</th>';
+		echo '<th>Name</th>';
+		echo '<th>Location</th>';
+		echo '<th>Remove from List</th>';
+		echo '</tr>';
+
+		$availableEquipment = queryProjectEquipment();
+		foreach($availableEquipment as $equipment)
+		{
+			echo '<tr>';
+			echo '<td>' . $equipment['equipment_id'] . '</td>';
+			echo '<td>' . $equipment['equipment_name'] . '</td>';
+			echo '<td>' . $equipment['equipment_location'] . '</td>';
+			echo '<input type="hidden" name="equipment_id[]" value="'.$equipment['equipment_id'].'">';
+			echo '<td><input type="checkbox" name="' . $equipment['equipment_id'] .'"/></td>';
+			echo '</tr>';
+		}
+		echo '</table>';
+		echo '<br />';
+		echo '<input type="hidden" name="project_id" value="'.$_POST['project_id'].'">';
+		echo '<input type="submit" name="remove" value="Remove">';
+		echo '</form>';
+	}
+
+	function displayEquipmentInfo()
+	{
+		displayProjectEquipment();
+		displayAvailableEquipment();	
+	}	
 
 ?>
 
@@ -188,16 +267,26 @@
 		margin:0px;
 	}					
 </style>
-																																   
-
-
-<h1>Equipment Info</h1>
-<div class="container" style="width: 100%;">
-<div class="table" style="width:45%;float:right">
-<?php echo buildRepairTable()?>
+									   
+<div>
+<div style='float:left'>
+<form method='get' action='packing_lists.php'>
+<button  type='submit' name='home'>Go to Packing Lists</button>
+</form>
 </div>
+
+<div style='text-align:center'>
+<form method='get' action='home.php'>
+<button style='width:125px' type='submit' name='home'>Home</button>
+</form>
+</div>
+</div>
+
+<div class="container" style="width: 100%;">
 <div class="content">
-<?php echo createInputs();?>
+<?php echo displayReactorInfo();
+      displayEquipmentInfo();
+?>
 </div>
 </div>
 <?php tail(); ?>
