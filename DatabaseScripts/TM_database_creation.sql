@@ -741,6 +741,7 @@ SELECT client_id,
        MAX(revision_number) AS revision,
        client_company_name, 
        reactor_name,
+       plant_name,
        project_start_date, 
        number_of_rows,
        number_of_tubes, 
@@ -765,6 +766,7 @@ GROUP BY client_id,
          reactor_id, 
          client_company_name, 
          reactor_name,
+         plant_name,
          project_start_date, 
          number_of_rows,
          number_of_tubes, 
@@ -788,5 +790,5 @@ SELECT *
        equipment_id NOT IN (SELECT equipment_id
                               FROM project_equipment
                                    NATURAL JOIN projects
-                             WHERE FALSE);
+                             WHERE project_is_active = TRUE);
 
