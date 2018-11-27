@@ -47,9 +47,6 @@
 		"</br><label>Equipment Serial Number:</label><input type='number' name='equipment_sn' min='0'".
 		"value='".getInputValue('equipment_sn')."'>".
 
-		"</br><label>Equipment Quantity<span style='color:red'>*</span>:</label><input type='number' min='0' name='equipment_quantity' ".
-		"value='".getInputValue('equipment_quantity')."'>".
-
 		"</br><label>Equipment Notes:</label><textarea style='vertical-align:top;margin-bottom:10px' name='equipment_notes' ".
 		"cols='50' rows='10' maxlength='200'>".getInputValue('equipment_notes')."</textarea>".
 
@@ -381,241 +378,231 @@
 		if(!empty($_POST['equipment_name']))
 		{
 			$name = $_POST['equipment_name'];
-			if(!empty($_POST['equipment_quantity']))
+			if(!empty($_POST['equipment_location']))
 			{
-				$quantity = $_POST['equipment_quantity'];
-				if(!empty($_POST['equipment_location']))
+				$location = $_POST['equipment_location'];
+				if(!empty($_POST['equipment_description']))
 				{
-					$location = $_POST['equipment_location'];
-					if(!empty($_POST['equipment_description']))
+					$description = $_POST['equipment_description'];
+					if(!empty($_POST['equipment_tm_value']))
 					{
-						$description = $_POST['equipment_description'];
-						if(!empty($_POST['equipment_tm_value']))
+						$tmValue = $_POST['equipment_tm_value'];
+						if(!empty($_POST['equipment_shipping_value']))
 						{
-							$tmValue = $_POST['equipment_tm_value'];
-							if(!empty($_POST['equipment_shipping_value']))
+							$shippingValue = $_POST['equipment_shipping_value'];
+							if(!empty($_POST['equipment_weight']))
 							{
-								$shippingValue = $_POST['equipment_shipping_value'];
-								if(!empty($_POST['equipment_weight']))
+								$weight = $_POST['equipment_weight'];
+								if(!empty($_POST['equipment_manufacturer']))
 								{
-									$weight = $_POST['equipment_weight'];
-									if(!empty($_POST['equipment_manufacturer']))
+									$manufacturer = $_POST['equipment_manufacturer'];
+									$continue = true;
+									
+									$subsetDict = getSubsetValues();
+									if($subsetDict !== null)
 									{
-										$manufacturer = $_POST['equipment_manufacturer'];
-										$continue = true;
-										
-										$subsetDict = getSubsetValues();
-										if($subsetDict !== null)
+										foreach($subsetDict as $key=>$value)
 										{
-											foreach($subsetDict as $key=>$value)
+											if(empty($value) && $key !== 'so_notes')
 											{
-												if(empty($value) && $key !== 'so_notes')
-												{
-													$continue = false;
-													debug_message("Equipment not added, assembly/subassembly field ".$key." was not given a value");
-												}
+												$continue = false;
+												debug_message("Equipment not added, assembly/subassembly field ".$key." was not given a value");
 											}
 										}
-										if($continue)
+									}
+									if($continue)
+									{
+										if(!empty($_POST['equipment_sn']))
 										{
-											if(!empty($_POST['equipment_sn']))
-											{
-												$sn = $_POST['equipment_sn'];
-											}
-											if(!empty($_POST['equipment_notes']))
-											{
-												$notes = $_POST['equipment_notes'];
-											}
-											if(!empty($_POST['equipment_shelf_location']))
-											{
-												$shelfLocation = $_POST['equipment_shelf_location'];
-											}
-											if(!empty($_POST['equipment_updates']))
-											{
-												$updates = $_POST['equipment_updates'];
-											}
-											if(!empty($_POST['equipment_inventory_update_date']))
-											{
-												$update_date = $_POST['equipment_inventory_update_date'];
-											}
-											if(!empty($_POST['equipment_modifications']))
-											{
-												$modification = $_POST['equipment_modifications'];
-											}
-											if(!empty($_POST['equipment_potential_projects']))
-											{
-												$projects = $_POST['equipment_potential_projects'];
-											}
-											if(!empty($_POST['equipment_client_value']))
-											{
-												$clientValue = $_POST['equipment_client_value'];
-											}
-											if(!empty($_POST['equipment_cost']))
-											{
-												$cost = $_POST['equipment_cost'];
-											}
-											if(!empty($_POST['equipment_vendor']))
-											{	
-												$vendor = $_POST['equipment_vendor'];
-											}
-											if(!empty($_POST['equipment_date_of_return']))
-											{
-												$returnDate = $_POST['equipment_date_of_return'];
-											}
-											if(!empty($_POST['equipment_ideal_storage_location']))
-											{
-												$ideal = $_POST['equipment_ideal_storage_location'];
-											}
-											$sql = "INSERT INTO equipment (equipment_name,equipment_sn,".
-											"equipment_quantity,equipment_notes,equipment_tag,equipment_location,".
-											"equipment_shelf_location,equipment_updates,equipment_inventory_update_date,".
-											"equipment_description,equipment_modifications,equipment_in_out_of_service,".
-											"equipment_potential_projects,equipment_tubemaster_value,equipment_shipping_value,".
-											"equipment_client_value,equipment_weight,equipment_cost,equipment_vendor,".
-											"equipment_manufacturer,equipment_date_of_return,equipment_ideal_storage_location)VALUES".
-											"(:name,:sn,:quantity,:notes,:tag,:location,:shelf,:updates,".
-											":updateDate,:description,:modifications,:inOut,:projects,".
-											":TMValue,:shipping,:client,:weight,:cost,:vendor,".
-											":manufacturer,:returnDate,:ideal);";
+											$sn = $_POST['equipment_sn'];
+										}
+										if(!empty($_POST['equipment_notes']))
+										{
+											$notes = $_POST['equipment_notes'];
+										}
+										if(!empty($_POST['equipment_shelf_location']))
+										{
+											$shelfLocation = $_POST['equipment_shelf_location'];
+										}
+										if(!empty($_POST['equipment_updates']))
+										{
+											$updates = $_POST['equipment_updates'];
+										}
+										if(!empty($_POST['equipment_inventory_update_date']))
+										{
+											$update_date = $_POST['equipment_inventory_update_date'];
+										}
+										if(!empty($_POST['equipment_modifications']))
+										{
+											$modification = $_POST['equipment_modifications'];
+										}
+										if(!empty($_POST['equipment_potential_projects']))
+										{
+											$projects = $_POST['equipment_potential_projects'];
+										}
+										if(!empty($_POST['equipment_client_value']))
+										{
+											$clientValue = $_POST['equipment_client_value'];
+										}
+										if(!empty($_POST['equipment_cost']))
+										{
+											$cost = $_POST['equipment_cost'];
+										}
+										if(!empty($_POST['equipment_vendor']))
+										{	
+											$vendor = $_POST['equipment_vendor'];
+										}
+										if(!empty($_POST['equipment_date_of_return']))
+										{
+											$returnDate = $_POST['equipment_date_of_return'];
+										}
+										if(!empty($_POST['equipment_ideal_storage_location']))
+										{
+											$ideal = $_POST['equipment_ideal_storage_location'];
+										}
+										$sql = "INSERT INTO equipment (equipment_name,equipment_sn,".
+										"equipment_notes,equipment_tag,equipment_location,".
+										"equipment_shelf_location,equipment_updates,equipment_inventory_update_date,".
+										"equipment_description,equipment_modifications,equipment_in_out_of_service,".
+										"equipment_potential_projects,equipment_tubemaster_value,equipment_shipping_value,".
+										"equipment_client_value,equipment_weight,equipment_cost,equipment_vendor,".
+										"equipment_manufacturer,equipment_date_of_return,equipment_ideal_storage_location)VALUES".
+										"(:name,:sn,:notes,:tag,:location,:shelf,:updates,".
+										":updateDate,:description,:modifications,:inOut,:projects,".
+										":TMValue,:shipping,:client,:weight,:cost,:vendor,".
+										":manufacturer,:returnDate,:ideal);";
 
+										$stmt = $pdo->prepare($sql);
+										$stmt->bindValue(":name",$name);
+										$stmt->bindValue(":sn",$sn);
+										$stmt->bindValue(":notes",$notes);
+										$stmt->bindValue(":tag",$_POST['equipment_tag']);
+										$stmt->bindValue(":location",$location);
+										$stmt->bindValue(":shelf",$shelfLocation);
+										$stmt->bindValue(":updates",$updates);
+										$stmt->bindValue(":updateDate",$update_date);
+										$stmt->bindValue(":description",$description);
+										$stmt->bindValue(":modifications",$modification);
+										if($_POST['equipment_in_out_service'] === 'In')
+										{
+											$stmt->bindValue(":inOut",1);
+										}
+										else
+										{
+											$stmt->bindValue(":inOut",0);
+										}
+										$stmt->bindValue(":projects",$projects);
+										$stmt->bindValue(":TMValue",$tmValue);
+										$stmt->bindValue(":shipping",$shippingValue);
+										$stmt->bindValue(":client",$clientValue);
+										$stmt->bindValue(":weight",$weight);
+										$stmt->bindValue(":cost",$cost);
+										$stmt->bindValue(":vendor",$vendor);
+										$stmt->bindValue(":manufacturer",$manufacturer);
+										$stmt->bindValue(":returnDate",$returnDate);
+										$stmt->bindValue(":ideal",$ideal);
+										$stmt->execute();
+
+										$id = $pdo->lastInsertId();
+										if(isset($_POST['cal_rack_size']))
+										{
+											$sql = "INSERT INTO cal_racks VALUES (:id, :size);";
 											$stmt = $pdo->prepare($sql);
-											$stmt->bindValue(":name",$name);
-											$stmt->bindValue(":sn",$sn);
-											$stmt->bindValue(":quantity",$quantity);
-											$stmt->bindValue(":notes",$notes);
-											$stmt->bindValue(":tag",$_POST['equipment_tag']);
-											$stmt->bindValue(":location",$location);
-											$stmt->bindValue(":shelf",$shelfLocation);
-											$stmt->bindValue(":updates",$updates);
-											$stmt->bindValue(":updateDate",$update_date);
-											$stmt->bindValue(":description",$description);
-											$stmt->bindValue(":modifications",$modification);
-											if($_POST['equipment_in_out_service'] === 'In')
+											$stmt->bindValue(":id", $id);
+											$stmt->bindValue(":size", $_POST['cal_rack_size']);
+											$stmt->execute();
+										}
+										elseif(isset($_POST['bdd_rack_size']))
+										{
+											$sql = "INSERT INTO bdd_racks VALUES (:id, :size);";
+											$stmt = $pdo->prepare($sql);
+											$stmt->bindValue(":id", $id);
+											$stmt->bindValue(":size", $_POST['bdd_rack_size']);
+											$stmt->execute();
+										}
+										elseif(isset($_POST['ttd_rack_size']))
+										{
+											$sql = "INSERT INTO ttd_racks VALUES (:id, :size);";
+											$stmt = $pdo->prepare($sql);
+											$stmt->bindValue(":id", $id);
+											$stmt->bindValue(":size", $_POST['ttd_rack_size']);
+											$stmt->execute();
+										}
+										elseif(isset($_POST['so_case_number']))
+										{
+											$sql = "INSERT INTO so_sets VALUES (:id,:case,:size,:label,:number,:notes);";
+											$stmt = $pdo->prepare($sql);
+											$stmt->bindValue(":id", $id);
+											$stmt->bindValue(":case", $_POST['so_case_number']);
+											$stmt->bindValue(":size", $_POST['so_size']);
+											$stmt->bindValue(":label", $_POST['so_set_label']);
+											$stmt->bindValue(":number", $_POST['so_number']);
+											if(empty($_POST['so_notes']))
 											{
-												$stmt->bindValue(":inOut",1);
+												$stmt->bindValue(":notes", null);
 											}
 											else
 											{
-												$stmt->bindValue(":inOut",0);
+												$stmt->bindValue(":notes", $_POST['so_notes']);
 											}
-											$stmt->bindValue(":projects",$projects);
-											$stmt->bindValue(":TMValue",$tmValue);
-											$stmt->bindValue(":shipping",$shippingValue);
-											$stmt->bindValue(":client",$clientValue);
-											$stmt->bindValue(":weight",$weight);
-											$stmt->bindValue(":cost",$cost);
-											$stmt->bindValue(":vendor",$vendor);
-											$stmt->bindValue(":manufacturer",$manufacturer);
-											$stmt->bindValue(":returnDate",$returnDate);
-											$stmt->bindValue(":ideal",$ideal);
 											$stmt->execute();
-
-											$id = $pdo->lastInsertId();
-											if(isset($_POST['cal_rack_size']))
-											{
-												$sql = "INSERT INTO cal_racks VALUES (:id, :size);";
-												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $id);
-												$stmt->bindValue(":size", $_POST['cal_rack_size']);
-												$stmt->execute();
-											}
-											elseif(isset($_POST['bdd_rack_size']))
-											{
-												$sql = "INSERT INTO bdd_racks VALUES (:id, :size);";
-												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $id);
-												$stmt->bindValue(":size", $_POST['bdd_rack_size']);
-												$stmt->execute();
-											}
-											elseif(isset($_POST['ttd_rack_size']))
-											{
-												$sql = "INSERT INTO ttd_racks VALUES (:id, :size);";
-												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $id);
-												$stmt->bindValue(":size", $_POST['ttd_rack_size']);
-												$stmt->execute();
-											}
-											elseif(isset($_POST['so_case_number']))
-											{
-												$sql = "INSERT INTO so_sets VALUES (:id,:case,:size,:label,:number,:notes);";
-												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $id);
-												$stmt->bindValue(":case", $_POST['so_case_number']);
-												$stmt->bindValue(":size", $_POST['so_size']);
-												$stmt->bindValue(":label", $_POST['so_set_label']);
-												$stmt->bindValue(":number", $_POST['so_number']);
-												if(empty($_POST['so_notes']))
-												{
-													$stmt->bindValue(":notes", null);
-												}
-												else
-												{
-													$stmt->bindValue(":notes", $_POST['so_notes']);
-												}
-												$stmt->execute();
-											}
-											elseif(isset($_POST['cal_or_size']))
-											{
-												$sql = "INSERT INTO cal_or_sets VALUES (:id,:size,:label,:total);";
-												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id", $id);
-												$stmt->bindValue(":size", $_POST['cal_or_size']);
-												$stmt->bindValue(":label",$_POST['cal_or_set_label']);
-												$stmt->bindValue(":total",$_POST['cal_or_total_numbe_of_or']);
-												$stmt->execute();
-											}
-											elseif(isset($_POST['ps_range']))
-											{
-												$sql = "INSERT INTO pss VALUES (:id, :range);";
-												$stmt = $pdo->prepare($sql);
-												$stmt->bindValue(":id",$id);
-												$stmt->bindValue(":range",$_POST['ps_range']);
-												$stmt->execute();
-											}
-							
-											setSuccess(true);
-											header('location: equipment.php');
 										}
-									}
-									else
-									{
-										debug_message("Equipment not added, no manufacturer given");
-										setSuccess(false);
+										elseif(isset($_POST['cal_or_size']))
+										{
+											$sql = "INSERT INTO cal_or_sets VALUES (:id,:size,:label,:total);";
+											$stmt = $pdo->prepare($sql);
+											$stmt->bindValue(":id", $id);
+											$stmt->bindValue(":size", $_POST['cal_or_size']);
+											$stmt->bindValue(":label",$_POST['cal_or_set_label']);
+											$stmt->bindValue(":total",$_POST['cal_or_total_numbe_of_or']);
+											$stmt->execute();
+										}
+										elseif(isset($_POST['ps_range']))
+										{
+											$sql = "INSERT INTO pss VALUES (:id, :range);";
+											$stmt = $pdo->prepare($sql);
+											$stmt->bindValue(":id",$id);
+											$stmt->bindValue(":range",$_POST['ps_range']);
+											$stmt->execute();
+										}
+							
+										setSuccess(true);
+										header('location: equipment.php');
 									}
 								}
 								else
 								{
-									debug_message("Equipment not added, no weight given");
+									debug_message("Equipment not added, no manufacturer given");
 									setSuccess(false);
 								}
 							}
 							else
 							{
-								debug_message("Equipment not added, no shipping value given");
+								debug_message("Equipment not added, no weight given");
 								setSuccess(false);
 							}
 						}
 						else
 						{
-							debug_message("Equipment not added, no TM value was given");
+							debug_message("Equipment not added, no shipping value given");
 							setSuccess(false);
 						}
 					}
 					else
 					{
-						debug_message("Equipment not added, no description was given");
+						debug_message("Equipment not added, no TM value was given");
 						setSuccess(false);
 					}
 				}
 				else
 				{
-					debug_message("Equipment not added, no location was given");
+					debug_message("Equipment not added, no description was given");
 					setSuccess(false);
 				}
 			}
 			else
 			{
-				debug_message("Equipment not added, no quantity was given");
+				debug_message("Equipment not added, no location was given");
 				setSuccess(false);
 			}
 		}
@@ -672,7 +659,7 @@
 	echo "<table class='header center'>";
 	echo "<thead>";
 	echo "<th style='width:125px'>Equipment Info</th><th style='width:75px'>Delete?</th><th>ID</th><th>Name</th><th>Serial Number</th>";
-	echo "<th>Quantity</th><th>Notes</th><th>Tag</th><th>Location</th>";
+	echo "<th>Notes</th><th>Tag</th><th>Location</th>";
 	echo "<th>Shelf Location</th><th>Updates</th>";
 	echo "<th>Inventory Update Date</th><th>Description</th>";
 	echo "<th>Modifications</th><th>In/Out Of Service</th>";
@@ -698,7 +685,6 @@
 		echo "<td>".$row['equipment_id']."</td>";
 		echo "<td>".$row['equipment_name']."</td>";
 		echo "<td>".$row['equipment_sn']."</td>";
-		echo "<td>".$row['equipment_quantity']."</td>";
 		echo "<td>".$row['equipment_notes']."</td>";
 		echo "<td>".$row['equipment_tag']."</td>";
 		echo "<td>".$row['equipment_location']."</td>";
