@@ -82,8 +82,8 @@ $db = connect_to_psql('tmdatabase');
                         <label for="project">Project</label>
                         <?php
                             echo '<br>';
-                            echo '<select>';
-                            $stmt = $db->query('SELECT project_id, client_company_name, reactor_name, project_start_date FROM projects NATURAL JOIN reactors NATURAL JOIN units NATURAL JOIN plants NATURAL JOIN clients');
+                            echo '<select name="project_id">';
+                            $stmt = $db->query('SELECT project_id, client_company_name, reactor_name, project_start_date FROM projects NATURAL JOIN reactors NATURAL JOIN units NATURAL JOIN plants NATURAL JOIN clients WHERE project_is_active = TRUE');
 					        $projects = $stmt->fetchAll();
                             foreach ($projects as $project) {
                                 echo '<option value="' . $project['project_id'] . '">' . $project['client_company_name'] . ' - ' . $project['reactor_name']  . ' - ' . $project['project_start_date'];
