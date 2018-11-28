@@ -458,7 +458,7 @@
 					   "<label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' ".
 					   "name='so_number' min='0' value='".$row['so_number_in_set']."'></br>".
 
-					   "<label>SO Set Notes:</label><textarea name='so_notes' cols='50' ".
+					   "<label>SO Set Notes:<label><textarea name='so_notes' cols='50' ".
 					   "rows='4' maxlength='200'>".$row['so_notes']."</textarea>";
 			}
 			elseif($array[0] === 'cal_or')
