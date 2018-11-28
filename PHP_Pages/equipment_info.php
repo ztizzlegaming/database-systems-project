@@ -455,7 +455,7 @@
 					   "<label>SO Set Label<span style='color:red'>*</span>:</label><input type='text' ".
 					   "name='so_set_label' value='".$row['so_set_label']."' maxlength='10'></br>".
 
-					   "label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' ".
+					   "<label>SO Number In Set<span style='color:red'>*</span>:</label><input type='number' ".
 					   "name='so_number' min='0' value='".$row['so_number_in_set']."'></br>".
 
 					   "<label>SO Set Notes:<label><textarea name='so_notes' cols='50' ".
