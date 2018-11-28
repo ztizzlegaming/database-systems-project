@@ -131,10 +131,10 @@
 	 function unsetPOSTValues($safeName)
 	 {
                  if(isset($_POST['cal_rack_size']) && 'cal_rack_size' !== $safeName)
-	         {
+	             {
                          unset($_POST['cal_rack_size']);
                  }
-		 if(isset($_POST['bdd_rack_size']) && 'bdd_rack_size' !== $safeName)
+		         if(isset($_POST['bdd_rack_size']) && 'bdd_rack_size' !== $safeName)
                  {
                          unset($_POST['bdd_rack_size']);
                  }
@@ -159,7 +159,8 @@
                  if(isset($_POST['ps_range']) && 'ps_range' !== $safeName)
                  {
                          unset($_POST['ps_range']);
-                 }																						     }
+                 }	
+    }
 																																																																										 
 
 	function createSubsetInputs()
