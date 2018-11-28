@@ -108,42 +108,40 @@
     TubeMaster database application
 
     Projects Page 
-    TODO: LINK TO the reactor page!!
+    TODO: LINK TO the reactor page!! and packing list page!!
+    // change the index.php to home.php
   */
   include "functions.php";
 
-  if (!isLoggedIn()) {
-    header('Location: /login.php');
-    return;
-  }
+  // if (!isLoggedIn()) {
+  //   header('Location: /login.php');
+  //   return;
+  // }
   
   head("Projects");
 ?>
 
 <!-- reference: https://www.w3schools.com/howto/howto_js_sidenav.asp -->
 <script>
-// javascript function to help unfold manu
-function openNav() {
-    document.getElementById("mySidenav").style.width = "160px";
-    document.getElementById("maincontent").style.paddingLeft = "170px";
-}
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("maincontent").style.paddingLeft = "20px";
-}
-function popupnewprojectwin(){
-  document.getElementById("maincontent").style.filter = "blur(2px)";
-  document.getElementById("addproject_maincontent").style.display = "inline-block";
-}
-function canclenewprojectwin(){
-  // confirm('do you want to go back? Your input will be unsaved Y/N');
-  document.getElementById("maincontent").style.filter = "blur(0)";
-  document.getElementById("addproject_maincontent").style.display = "none";
-}
-// var btn = document.getElementById('viewproject_btn');
-// btn.addEventListener('click', function() {
-//   document.location.href = '<?php echo $page; ?>';
-// });
+  // javascript function to help unfold manu
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "160px";
+      document.getElementById("maincontent").style.paddingLeft = "170px";
+  }
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("maincontent").style.paddingLeft = "20px";
+  }
+  function popupnewprojectwin(){
+    document.getElementById("maincontent").style.filter = "blur(2px)";
+    document.getElementById("addproject_maincontent").style.display = "inline-block";
+  }
+  function canclenewprojectwin(){
+    // confirm('do you want to go back? Your input will be unsaved Y/N');
+    document.getElementById("maincontent").style.filter = "blur(0)";
+    document.getElementById("addproject_maincontent").style.display = "none";
+  }
+
 </script>
 
 <div id="mySidenav" class="sidenav">
@@ -178,7 +176,10 @@ function canclenewprojectwin(){
         echo "  <td>" . $row['project_expected_end_date'] . "</td>\n";
         echo "  <td>" . $row['project_type'] . "</td>\n";
         echo "  <td>" . $row['project_testing_type'] . "</td>\n";
-        echo "  <td>" . $row['reactor_id'] . "</td>\n";
+        echo "  <td>" .'<a href="##" style="color:#2b6541; padding:0px; text-decoration: underline;">'. $row['reactor_id'] .'</a>' ."</td>\n"; 
+        //TODO : link to the reactor page! same as below
+        echo "  <td>" .'<a href="##"  style="color:#2b6541; padding:0px; font-size:15px; text-decoration: underline;" >'. "Packing List" .'</a>' ."</td>\n"; 
+        //TODO : link to the packinglist page! same as below
         echo "  <td>" . "active" . "</td>\n";
       }
       else{
@@ -197,13 +198,38 @@ function canclenewprojectwin(){
             echo "  <td>" . $row['project_expected_end_date'] . "</td>\n";
             echo "  <td>" . $row['project_type'] . "</td>\n";
             echo "  <td>" . $row['project_testing_type'] . "</td>\n";
-            echo "  <td>" . $row['reactor_id'] . "</td>\n"; //TODO : link to the reactor page!
+            // $reactorname = findreactorname($pdo, $row['reactor_id'] ); //dont have a reactor name yet
+            echo "  <td>" .'<a href="##" style="color:#2b6541; padding:0px; text-decoration: underline;" >'. $row['reactor_id'] .'</a>' ."</td>\n"; 
+            // link to the reactor page!
+            echo "  <td>" .'<a href="##"  style="color:#2b6541; padding:0px; font-size:15px; text-decoration: underline;" >'. "Packing List" .'</a>' ."</td>\n"; 
+            // link to packing list info page
             echo "  <td>" . "inactive" . "</td>\n";
           }
         }
       }
       echo '</tr>';      
     }
+  }
+
+  //has ERROR on selecting null since there is no reactor name in the db right now
+  //given a reactor id find the corresponding name
+  function findreactorname($pdo, $reactorid){
+    // alert($reactorid);
+    $sql = "SELECT reactor_name FROM reactors WHERE reactor_id = '$reactorid';";
+    try{
+      $result = $pdo->prepare($sql);
+      $row = $result->fetch(PDO::FETCH_NUM);
+      if(!empty($row)){
+        $reactorname = $row[0];
+        return $reactorname;
+      }
+      else{
+        return "";
+      }
+    } catch (\PDOException $e) {
+        echo $sql;
+        // throw new \PDOException($e->getMessage(), (int)$e->getCode());
+      }  
   }
 
   // take a list of id as input and change and mark the selected as inactive in database
@@ -247,7 +273,7 @@ function canclenewprojectwin(){
     $result = $pdo->query("SELECT reactor_id FROM reactors;");
     echo '<select name = "selection_reactorid">';
     foreach ($result as $row){
-      dm($row);
+      // dm($row);
       //select the match as default
       if( $row['reactor_id'] == $default){
         echo "<option selected value=\"" . $row['reactor_id'] . "\"> ". $row['reactor_id'] . "</option>";
@@ -283,7 +309,7 @@ function canclenewprojectwin(){
     $inputcolumn2 .= ") "; //correspond to (:reactor_id, :project_start_date)
 
     //get the current max project id + 1 to be the new project's id
-    //TODO: possible synchronization issue
+    //possible synchronization issue
     $result1 = $pdo->query("SELECT project_id FROM projects;");
     $maxid = 0;
     foreach ($result1 as $row1){
@@ -345,6 +371,7 @@ function canclenewprojectwin(){
         <th>Type</th>
         <th>Testing Type</th>
         <th>Reactor ID</th>
+        <th>PackingList</th>
         <th>Status</th> 
       </tr>
       <?php 
@@ -368,7 +395,7 @@ function canclenewprojectwin(){
 
       //add new project to the database
       if(isset($_POST['confirm_newproject'])){
-        //TODO: check constraint: if start date is earliest first!!
+        //check constraint: if start date is earliest first!!
         $starttime = strtotime($_POST['startdate']);
         $endtime1 = strtotime($_POST['enddate']);
         $endtime2 = strtotime($_POST['shipdate']);
@@ -376,7 +403,7 @@ function canclenewprojectwin(){
         if($_POST['enddate'] != ""){
           if($starttime - $endtime1 > 0 || $starttime - $endtime2 > 0){
             echo "!!please input again. The project's start time needs to be the earliest."; 
-            //TODO: somehow the alert not showing up - could it be checked at the input state?
+            //TODO: (same fcn in all_project page)somehow the alert not showing up - could it be checked at the input state?
             alert("please input again. The project's start time needs to be the earliest.");
           }
           else {$canquery= true;}
@@ -384,7 +411,7 @@ function canclenewprojectwin(){
         if($_POST['enddate'] == ""){
           if($starttime - $endtime2 > 0){
             echo "~please input again. The project's start time needs to be the earliest."; 
-            //TODO: somehow the alert not showing up - could it be checked at the input state?
+            //somehow the alert not showing up - could it be checked at the input state?
             alert("please input again. The project's start time needs to be the earliest.");
           }
           else {$canquery= true;}
