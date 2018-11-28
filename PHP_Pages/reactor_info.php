@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 		}
 		$sql = 'UPDATE reactors SET
 				calibrate_ttd_to = ?,
-				calibration_orfice_size = ?,
+				calibration_orifice_size = ?,
 				catalyst_brand = ?,
 				catalyst_change_coordinator = ?,
 				catalyst_size = ?,
@@ -206,7 +206,7 @@ $reactorZones = $stmt->fetchAll();
 					</div>
 					<div class="form-group">
 						<label for="calibration_orifice_size">Calibration Orifice Size (REQUIRED)</label>
-						<input type="number" step="any" name="calibration_orifice_size" class="form-control" id="calibration_orifice_size" value="<?php echo $reactor['calibration_orfice_size']; ?>" min="0">
+						<input type="number" step="any" name="calibration_orifice_size" class="form-control" id="calibration_orifice_size" value="<?php echo $reactor['calibration_orifice_size']; ?>" min="0">
 					</div>
 					<div class="form-group">
 						<label for="catalyst_brand">Catalyst Brand</label>
