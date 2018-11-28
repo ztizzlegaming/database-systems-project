@@ -114,7 +114,7 @@
 </form>
 </div>
 <div style='text-align:center'>
-<form method='get' action='home.php'>
+<form method='get' action='/'>
 <button style='width:125px' type='submit' name='home'>Home</button>
 </form>
 </div>
