@@ -250,6 +250,8 @@ VALUES (6, 0.040, 'BA', 14);
 
 
 /* Creates table TMpersonnels, holding info about personnels */
+-- Some changes made by Jordan for login and password authentication
+-- to be used with PHP's password_hash and password_verify functions
 CREATE TABLE TMpersonnels (
     PRIMARY KEY (personnel_id),
     personnel_id            SERIAL, 
@@ -263,9 +265,9 @@ CREATE TABLE TMpersonnels (
 /* populate TMpersonnels table with sample data */
 /* reference: https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html */
 INSERT INTO TMpersonnels (Personnel_first_name, Personnel_last_name, Personnel_username, Personnel_password, Personnel_is_admin)
-VALUES ('John',  'Doe',   'johnd123',  crypt('12345', gen_salt('bf')),    't'),
-       ('Alex',  'Beck',  'ABC123',    crypt('asdqwe', gen_salt('bf')),   't'),
-       ('Cindy', 'Smith', 'CDohnd123', crypt('password', gen_salt('bf')), 'f');
+VALUES ('John',  'Doe',   'johnd123',  '$2y$10$tXpPrJUhx2fo6VjUY4cpSOOF.A0j.chJTYQPl7p71ll9840KDopmq',    't'), -- Password = 12345, hashed with php password_hash
+       ('Alex',  'Beck',  'ABC123',    '$2y$10$hUAm1w8egDp7cv0/0x7ohuMzvlNGJ5TbgcwBTbqUY0YNALNqwRCkO',   't'), -- Password = asdqwe
+       ('Cindy', 'Smith', 'CDohnd123', '$2y$10$wjoGP18WciDc7Wljag9EWeBgjOsRpwFL0yOPlCIfOyIN4y/6ur3Fe', 'f'); -- Password = password
 
 SELECT * FROM TMpersonnels  -- test selecting user by matching username and password
     WHERE Personnel_username = 'ABC123' AND

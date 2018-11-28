@@ -1,10 +1,15 @@
 <?php
-# TODO fix reactor head
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once 'functions.php';
+
+if (!isLoggedIn()) {
+	header('Location: /login.php');
+	return;
+}
+
 $db = connect_to_psql('tmdatabase');
 
 if (!isset($_GET['reactorID'])) {
@@ -169,6 +174,12 @@ $reactorZones = $stmt->fetchAll();
 	<title>Reactor Info | TubeMaster</title>
 
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<style>
+		.error {
+			color: red;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">

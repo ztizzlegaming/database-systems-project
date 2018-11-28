@@ -6,6 +6,15 @@ Home Page - landing page to link to all other important pages
 Written by Jordan Turley
 -->
 
+<?php
+require_once 'functions.php';
+
+if (!isLoggedIn()) {
+	header('Location: /login.php');
+	return;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +45,7 @@ Written by Jordan Turley
 						<li><a href="repairs.php">Repairs</a></li>
 						<li><a href="packing_lists.php">Packing Lists</a></li>
 						<li><a href="personnel.php">Personnel</a></li>
+						<li><a href="logout.php">Logout</a></li>
 					</ul>
 				</div>
 			</div>

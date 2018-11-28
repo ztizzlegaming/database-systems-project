@@ -1,6 +1,12 @@
 <?php
 	ini_set("display_errors", 1);
 	require("functions.php");
+
+	if (!isLoggedIn()) {
+		header('Location: /login.php');
+		return;
+	}
+
 	head("Equipment Info");
 	$pdo = connect_to_psql('tmdatabase');
 	echo "<div style='float:left'><form method='get' action='equipment.php'><button type='submit' name='back'>Go Back to Equipment</button></form>";

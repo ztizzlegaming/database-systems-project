@@ -1,6 +1,12 @@
 <?php
 	ini_set('display_errors', 1);
 	require("functions.php");
+
+	if (!isLoggedIn()) {
+		header('Location: /login.php');
+		return;
+	}
+
 	head("Equipment Inventory");
 	$success = false;
 	

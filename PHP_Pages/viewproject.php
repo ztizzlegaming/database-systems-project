@@ -108,6 +108,12 @@
     add new Project Page 
   */
   include "functions.php";
+
+  if (!isLoggedIn()) {
+    header('Location: /login.php');
+    return;
+  }
+
   head("Add New Projects");
   
 ?>

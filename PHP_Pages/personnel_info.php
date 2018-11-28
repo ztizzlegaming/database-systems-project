@@ -4,6 +4,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once 'functions.php';
+
+if (!isLoggedIn()) {
+	header('Location: /login.php');
+	return;
+}
+
 $pdo = connect_to_psql('tmdatabase');
 
 if(isset($_POST['save']))

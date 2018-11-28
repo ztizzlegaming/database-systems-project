@@ -1,18 +1,27 @@
 <?php
 
 require_once 'functions.php';
+
+if (!isLoggedIn()) {
+	header('Location: /login.php');
+	return;
+}
+
 $pdo = connect_to_psql('tmdatabase');
 
 
 
 if(isset($_POST['newUser']))
 {
+	$password = $_POST['password'];
+	$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
 	$sql = "INSERT INTO tmpersonnels (personnel_first_name, personnel_last_name, personnel_username, personnel_password, personnel_is_admin) VALUES (:fName, :lName, :username, :pass, :admin)";
 	$query = $GLOBALS['pdo']->prepare($sql);
 	$query->bindValue(":fName", $_POST['firstName']);
 	$query->bindValue(":lName", $_POST['lastName']);
 	$query->bindValue(":username", $_POST['username']);
-	$query->bindValue(":pass", $_POST['password']);
+	$query->bindValue(":pass", $passwordHash);
 	
 	if(isset($_POST['isAdmin']) && $_POST['isAdmin'] == 'on')
 	{
