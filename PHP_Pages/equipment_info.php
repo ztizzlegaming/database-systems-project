@@ -10,7 +10,7 @@
 	head("Equipment Info");
 	$pdo = connect_to_psql('tmdatabase');
 	echo "<div style='float:left'><form method='get' action='equipment.php'><button type='submit' name='back'>Go Back to Equipment</button></form>";
-	echo "</div><div style='width:55%;text-align:left;float:right'><form method='get' action='home.php'><button style='width:125px' type='submit' name='home'>Home</button>".
+	echo "</div><div style='width:55%;text-align:left;float:right'><form method='get' action='/'><button style='width:125px' type='submit' name='home'>Home</button>".
 	     "</form></div></br>";
 
 	if(isset($_POST['save']))
